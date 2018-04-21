@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  sakura:
+    build: ./
+    ports:
+      - 5000:80
+    depends_on:
+      - mongodb
+  mongodb:
+    container_name: mongodb
+    image: mongo
