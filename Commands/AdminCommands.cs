@@ -179,7 +179,7 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                 if(admins.Where(admin => admin.User.Id == originUser.Id).Count() > 0) {
                     await client.SendTextMessageAsync(
                         message.Chat.Id,
-                        "OwO, ",
+                        "nuu >w< can't kick admin-sama!",
                         replyToMessageId:message.MessageId
                     );
                 } else if(originUser != null) {
