@@ -6,10 +6,12 @@ using Telegram.Bot.Types;
 
 using Sakura.Uwu.Services;
 
-namespace Sakura.Uwu.Controllers {
+namespace Sakura.Uwu.Controllers
+{
     // Request Controllers
     [Route("api/[controller]")]
-    public class UpdateController : Controller {
+    public class UpdateController : Controller
+    {
         private readonly IUpdateService _updateService;
 
         public UpdateController(IUpdateService updateService)
