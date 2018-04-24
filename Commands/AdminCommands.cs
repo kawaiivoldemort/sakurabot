@@ -40,14 +40,14 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
             if(contextMessage.From.IsBot) {
                 await client.SendTextMessageAsync(
                     message.Chat.Id,
-                    "WHY U HATE SENPAI!! 😠 WON'T WARN",
+                    "nuu >w< can't warn senpai!",
                     replyToMessageId: message.MessageId
                 );
 
             } else if(admins.Where(admin => admin.User.Id == contextMessage.From.Id).Count() > 0) {
                 await client.SendTextMessageAsync(
                     message.Chat.Id,
-                    "WON'T HURT SENPAI",
+                    "nuu >w< can't warn admin-sama!",
                     replyToMessageId: message.MessageId
                 );                
             } else {
@@ -74,11 +74,11 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                     var warnCount = results[0].WarnCount + 1;
                     var up = new BsonDocument("$set", new BsonDocument("WarnCount", warnCount));
                     warnsCollection.UpdateOne(filter, up);
-                    if(warnCount == 4) {
+                    if(warnCount == 3) {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
                             string.Format(
-                                "Max Warns!! Kicked\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>",
+                                "Warn limit reached! Kicked\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code> uwu",
                                 contextMessage.From.FirstName,
                                 contextMessage.From.LastName,
                                 contextMessage.From.Username,
@@ -92,7 +92,7 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
                             string.Format(
-                                "Warned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>\nWarn Count {4}",
+                                "Warned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>\nWarn Count {4}, watch out! >w<",
                                 contextMessage.From.FirstName,
                                 contextMessage.From.LastName,
                                 contextMessage.From.Username,
@@ -118,7 +118,7 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                 await client.SendTextMessageAsync(
                     message.Chat.Id,
                     string.Format(
-                        "Reset Warns for\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>",
+                        "Warns reset for\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code> :D",
                         contextMessage.From.FirstName,
                         contextMessage.From.LastName,
                         contextMessage.From.Username,
@@ -137,21 +137,21 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                 if(admins.Where(admin => admin.User.Id == originUser.Id).Count() > 0) {
                     await client.SendTextMessageAsync(
                         message.Chat.Id,
-                        "Naughty!! I WONT BAN SENPAI!! 😠",
+                        "nuu >w< can't ban admin-sama!",
                         replyToMessageId:message.MessageId
                     );
                 } else if(originUser != null) {
                     if(originUser.IsBot) {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
-                            "I'M NOT BANNING SENPAI! 😠",
+                            "I'm NOT banning senpai! >w<",
                             replyToMessageId: message.MessageId
                         );
                     } else {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
                             string.Format(
-                                "Banned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>",
+                                "Banned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>~ uwu",
                                 originUser.FirstName,
                                 originUser.LastName,
                                 originUser.Username,
@@ -179,21 +179,21 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                 if(admins.Where(admin => admin.User.Id == originUser.Id).Count() > 0) {
                     await client.SendTextMessageAsync(
                         message.Chat.Id,
-                        "Naughty!! I WONT KICK SENPAI!! 😠",
+                        "nuu >w< can't kick admin-sama!",
                         replyToMessageId:message.MessageId
                     );
                 } else if(originUser != null) {
                     if(originUser.IsBot) {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
-                            "I'M NOT KICKING SENPAI! 😠",
+                            "I'm NOT kicking senpai! >w<",
                             replyToMessageId: message.MessageId
                         );
                     } else {
                         await client.SendTextMessageAsync(
                             message.Chat.Id,
                             string.Format(
-                                "Kicked\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>, Cannot Rejoin for 1 minutes",
+                                "Kicked\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>, cannot rejoin for 1 minute xd",
                                 originUser.FirstName,
                                 originUser.LastName,
                                 originUser.Username,
@@ -220,7 +220,7 @@ namespace Sakura.Uwu.GroupManagement.CommandProcessing {
                 await client.SendTextMessageAsync(
                     message.Chat.Id,
                     string.Format(
-                        "Unbanned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code>",
+                        "Unbanned\n<b>{0} {1}</b>\n@{2}\n<code>{3}</code> :D",
                         originUser.FirstName,
                         originUser.LastName,
                         originUser.Username,
