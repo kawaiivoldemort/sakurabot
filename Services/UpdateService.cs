@@ -7,7 +7,7 @@ using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
 using Sakura.Uwu.Models;
-using Sakura.Uwu.GroupManagement.CommandProcessing;
+using Sakura.Uwu.GroupManagement;
 using static Sakura.Uwu.Common.Accessories;
 
 using MongoDB;
@@ -26,6 +26,7 @@ namespace Sakura.Uwu.Services {
         }
 
         public async Task UpdateAsync(Update update) {
+            Task commandTask = null;
             if(update.Type == UpdateType.Message && update.Message.Type == MessageType.Text) {
                 var message = update.Message;
                 if(
@@ -39,34 +40,18 @@ namespace Sakura.Uwu.Services {
                     if(chat.Type == ChatType.Group || chat.Type == ChatType.Supergroup) {
                         var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
                         if(admins.Where(admin => admin.User.Id == message.From.Id).Count() > 0) {
-                            switch(command) {
-                                case "/admins":
-                                    AdminCommands.ListAdmins(_botService.Client, message);
-                                    break;
-                                case "/warn":
-                                    AdminCommands.WarnUser(_botService.Client, message, _botService.Dbms);
-                                    break;
-                                case "/clearwarns":
-                                    AdminCommands.ClearWarnsUser(_botService.Client, message, _botService.Dbms);
-                                    break;
-                                case "/ban":
-                                    AdminCommands.BanUser(_botService.Client, message);
-                                    break;
-                                case "/kick":
-                                    AdminCommands.KickUser(_botService.Client, message);
-                                    break;
-                                case "/unban":
-                                    AdminCommands.UnbanUser(_botService.Client, message);
-                                    break;
-                                default:
-                                    break;
+                            if(Commands.Admin.ContainsKey(command)) {
+                                commandTask = Commands.Admin[command](_botService, message);
                             }                      
                         } else {
-                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId:message.MessageId);                            
+                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId: message.MessageId);                            
                         }
                     }
                 }
             }
+            if(commandTask != null) {
+                commandTask.Wait();
+            } 
         }
     }
 }
