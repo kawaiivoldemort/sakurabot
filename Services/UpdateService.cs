@@ -39,7 +39,7 @@ namespace Sakura.Uwu.Services {
                     var chat = await _botService.Client.GetChatAsync(message.Chat.Id);
                     if(chat.Type == ChatType.Group || chat.Type == ChatType.Supergroup) {
                         var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
-                        if(admins.Where(admin => admin.User.Id == message.From.Id).Count() > 0) {
+                        if(admins.Any(admin => admin.User.Id == message.From.Id)) {
                             if(Commands.Admin.ContainsKey(command)) {
                                 commandTask = Commands.Admin[command](_botService, message);
                             }                      
