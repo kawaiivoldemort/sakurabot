@@ -12,11 +12,10 @@ namespace Sakura.Uwu.Services {
         public BotService(IOptions<BotSettings> botSettings) {
             this.botSettings = botSettings.Value;
             this.Client = new TelegramBotClient(this.botSettings.BotToken);
-            var databaseClient = new MongoClient(this.botSettings.DatabaseConnectionString);
-            this.Database = databaseClient.GetDatabase(this.botSettings.DatabaseName);
+            this.Dbms = new MongoClient(this.botSettings.DatabaseConnectionString);
         }
 
         public TelegramBotClient Client { get; }
-        public IMongoDatabase Database { get; }
+        public MongoClient Dbms { get; }
     }
 }

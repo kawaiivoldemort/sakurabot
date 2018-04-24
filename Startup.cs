@@ -22,14 +22,12 @@ namespace Sakura.Uwu {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddMvc();
-            Console.WriteLine("MOO");
             services.AddScoped<IUpdateService, UpdateService>();
             services.AddSingleton<IBotService, BotService>();
             
             services.Configure<BotSettings>(
                 options => {
                     options.DatabaseConnectionString = Configuration.GetSection("Database:ConnectionString").Value;
-                    options.DatabaseName = Configuration.GetSection("Database:Name").Value;
                     options.BotToken = Configuration.GetSection("Bot:Token").Value;
                 }
             );
