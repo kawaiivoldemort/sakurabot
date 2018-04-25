@@ -49,6 +49,7 @@ $@"You are
 <b>{message.From.FirstName} {message.From.LastName}{(message.From.IsBot ? "🤖" : "")}</b>
 @{message.From.Username}
 <code>{message.From.Id}</code>",
+                    replyToMessageId: message.MessageId,
                     parseMode: ParseMode.Html
                 );
             }
@@ -61,6 +62,7 @@ $@"You are
 <b>{message.From.FirstName} {message.From.LastName}{(message.From.IsBot ? "🤖" : "")}</b>
 @{message.From.Username}
 <code>{message.From.Id}</code>",
+                    replyToMessageId: message.MessageId,
                     parseMode: ParseMode.Html
                 );
                 
