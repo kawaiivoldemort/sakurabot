@@ -18,6 +18,7 @@ namespace Sakura.Uwu.GroupManagement
         {
             { "/start", StartCommand },
             { "/whoami", WhoAmICommand },
+            { "/whoisthis", WhoIsThisCommand },
             { "/admins", ListAdminsCommand }
         };
         private static async Task StartCommand(IBotService botService, Message message, BotDbContext dbContext)
@@ -66,6 +67,51 @@ $@"You are
                     parseMode: ParseMode.Html
                 );
                 
+            }
+        }
+        private static async Task WhoIsThisCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "pweese repwy to that users message fiwst >w<!",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            else
+            {
+                var profilePhotos = await client.GetUserProfilePhotosAsync(originMessage.From.Id, 0, 1);
+                if (profilePhotos.TotalCount != 0)
+                {
+                    await client.SendPhotoAsync
+                    (
+                        message.Chat.Id,
+                        profilePhotos.Photos[0][0].FileId,
+$@"This is
+<b>{originMessage.From.FirstName} {originMessage.From.LastName}{(originMessage.From.IsBot ? "🤖" : "")}</b>
+@{originMessage.From.Username}
+<code>{originMessage.From.Id}</code>",
+                        replyToMessageId: message.MessageId,
+                        parseMode: ParseMode.Html
+                    );
+                }
+                else
+                {
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+    $@"You are
+    <b>{originMessage.From.FirstName} {originMessage.From.LastName}{(originMessage.From.IsBot ? "🤖" : "")}</b>
+    @{originMessage.From.Username}
+    <code>{originMessage.From.Id}</code>",
+                        replyToMessageId: message.MessageId,
+                        parseMode: ParseMode.Html
+                    );
+                }
             }
         }
 

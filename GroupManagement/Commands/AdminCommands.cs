@@ -119,8 +119,8 @@ Warn Count: {result.WarnCount}",
 
         private static async Task ClearWarnsCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
-            var originMessage = message.ReplyToMessage;
             var client = botService.Client;
+            var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
                 await client.SendTextMessageAsync

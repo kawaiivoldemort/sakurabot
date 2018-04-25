@@ -12,9 +12,9 @@ using Sakura.Uwu.Models;
 
 namespace Sakura.Uwu.GroupManagement
 {
-    static partial class Commands
+    static class Tracking
     {
-        public static void Track(IBotService botService, Message message, BotDbContext dbContext)
+        public static void LogUser(IBotService botService, Message message, BotDbContext dbContext)
         {
             var lookupTable = dbContext.Lookup;
             var entry = lookupTable.FirstOrDefault(user => user.UserId == message.From.Id);

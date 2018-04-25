@@ -40,7 +40,7 @@ namespace Sakura.Uwu.Services
                 }
                 else if (update.Message.Type == MessageType.Text)
                 {
-                    trackTask = Task.Factory.StartNew(() => Commands.Track(_botService, message, _dbContext));
+                    trackTask = Task.Factory.StartNew(() => Tracking.LogUser(_botService, message, _dbContext));
                     if
                     (
                         (message.Entities != null) &&
