@@ -16,9 +16,25 @@ namespace Sakura.Uwu.GroupManagement
     {
         public static readonly Dictionary<string, Command> User = new Dictionary<string, Command>
         {
+            { "/start", StartCommand },
             { "/whoami", WhoAmICommand },
             { "/admins", ListAdminsCommand }
         };
+        private static async Task StartCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            var chat = await client.GetChatAsync(message.Chat.Id);
+            await client.SendTextMessageAsync
+            (
+                message.Chat.Id,
+$@"I smell a new chat!
+<b>{chat.FirstName} {chat.LastName}</b>
+@{chat.Username}
+<code>{chat.Id}</code>",
+                replyToMessageId: message.MessageId,
+                parseMode: ParseMode.Html
+            );
+        }
         private static async Task WhoAmICommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;

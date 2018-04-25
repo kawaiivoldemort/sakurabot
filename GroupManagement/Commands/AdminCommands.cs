@@ -20,7 +20,9 @@ namespace Sakura.Uwu.GroupManagement
             { "/clearwarns", ClearWarnsCommand },
             { "/ban", BanCommand },
             { "/kick", KickCommand },
-            { "/unban", UnbanCommand }
+            { "/unban", UnbanCommand },
+            { "/pin", PinCommand },
+            { "/loudpin", PinLoudlyCommand }
         };
 
         private static async Task WarnUserCommand(IBotService botService, Message message, BotDbContext dbContext)
@@ -287,6 +289,53 @@ $@"Unbanned
                     parseMode: ParseMode.Html
                 );
                 await client.UnbanChatMemberAsync(message.Chat.Id, originUser.Id);
+            }
+        }
+
+        private static async Task PinCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            else
+            {
+                var originUser = originMessage.From;
+                await client.PinChatMessageAsync(
+                    message.Chat.Id,
+                    originMessage.MessageId,
+                    true
+                );
+            }
+        }
+
+        private static async Task PinLoudlyCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            else
+            {
+                var originUser = originMessage.From;
+                await client.PinChatMessageAsync(
+                    message.Chat.Id,
+                    originMessage.MessageId
+                );
             }
         }
     }
