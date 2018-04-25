@@ -38,16 +38,33 @@ $@"I smell a new chat!
         private static async Task WhoAmICommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
+            var profilePhotos = await client.GetUserProfilePhotosAsync(message.From.Id, 0, 1);
+            if (profilePhotos.TotalCount != 0)
+            {
+                await client.SendPhotoAsync
+                (
+                    message.Chat.Id,
+                    profilePhotos.Photos[0][0].FileId,
 $@"You are
 <b>{message.From.FirstName} {message.From.LastName}{(message.From.IsBot ? "🤖" : "")}</b>
 @{message.From.Username}
 <code>{message.From.Id}</code>",
-                replyToMessageId: message.MessageId,
-                parseMode: ParseMode.Html
-            );
+                    parseMode: ParseMode.Html
+                );
+            }
+            else
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+$@"You are
+<b>{message.From.FirstName} {message.From.LastName}{(message.From.IsBot ? "🤖" : "")}</b>
+@{message.From.Username}
+<code>{message.From.Id}</code>",
+                    parseMode: ParseMode.Html
+                );
+                
+            }
         }
 
         private static async Task ListAdminsCommand(IBotService botService, Message message, BotDbContext dbContext)
