@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using System.Linq;
 
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
@@ -10,20 +11,18 @@ using Sakura.Uwu.Models;
 using Sakura.Uwu.GroupManagement;
 using static Sakura.Uwu.Common.Accessories;
 
-using MongoDB;
-using MongoDB.Driver;
-using MongoDB.Bson;
-
 namespace Sakura.Uwu.Services 
 {
     // Service to respond to API requests
     public class UpdateService : IUpdateService
     {
+        private readonly BotDbContext _dbContext;
         private readonly IBotService _botService;
         private readonly ILogger<UpdateService> _logger;
 
-        public UpdateService(IBotService botService, ILogger<UpdateService> logger)
+        public UpdateService(BotDbContext dbContext, IBotService botService, ILogger<UpdateService> logger)
         {
+            _dbContext = dbContext;
             _botService = botService;
             _logger = logger;
         }
@@ -31,9 +30,11 @@ namespace Sakura.Uwu.Services
         public async Task UpdateAsync(Update update)
         {
             Task commandTask = null;
+            Task trackTask = null;
             if (update.Type == UpdateType.Message && update.Message.Type == MessageType.Text)
             {
                 var message = update.Message;
+                trackTask = Task.Factory.StartNew(() => Commands.Track(_botService, message, _dbContext));
                 if
                 (
                     (message.Entities != null) &&
@@ -48,14 +49,14 @@ namespace Sakura.Uwu.Services
                     {
                         if (Commands.User.ContainsKey(command))
                         {
-                            commandTask = Commands.User[command](_botService, message);
+                            commandTask = Commands.User[command](_botService, message, _dbContext);
                         } else {
                             var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
                             if (admins.Any(admin => admin.User.Id == message.From.Id))
                             {
                                 if (Commands.Admin.ContainsKey(command))
                                 {
-                                    commandTask = Commands.Admin[command](_botService, message);
+                                    commandTask = Commands.Admin[command](_botService, message, _dbContext);
                                 }                      
                             }
                             else
@@ -66,9 +67,14 @@ namespace Sakura.Uwu.Services
                     }
                 }
             }
-            if (commandTask != null) {
+            if (commandTask != null)
+            {
                 commandTask.Wait();
-            } 
+            }
+            if (trackTask != null)
+            {
+                trackTask.Wait();
+            }
         }
     }
 }

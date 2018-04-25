@@ -2,26 +2,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using Microsoft.EntityFrameworkCore;
+
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
-
-using MongoDB.Driver;
-using MongoDB.Bson;
 
 using Sakura.Uwu.Services;
 using Sakura.Uwu.Models;
 
-public delegate Task Command(IBotService botService, Message message);
-
 namespace Sakura.Uwu.GroupManagement
 {
-    static class Commands
+    static partial class Commands
     {
-        public static readonly Dictionary<string, Command> User = new Dictionary<string, Command>
-        {
-            { "/whoami", WhoAmICommand },
-            { "/admins", ListAdminsCommand }
-        };
         public static readonly Dictionary<string, Command> Admin = new Dictionary<string, Command>
         {
             { "/warn", WarnUserCommand },
@@ -31,50 +23,10 @@ namespace Sakura.Uwu.GroupManagement
             { "/unban", UnbanCommand }
         };
 
-        private static async Task WhoAmICommand(IBotService botService, Message message)
+        private static async Task WarnUserCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
-$@"You are
-<b>{message.From.FirstName} {message.From.LastName}{(message.From.IsBot ? "🤖" : "")}</b>
-@{message.From.Username}
-<code>{message.From.Id}</code>",
-                replyToMessageId: message.MessageId,
-                parseMode: ParseMode.Html
-            );
-        }
-
-        private static async Task ListAdminsCommand(IBotService botService, Message message)
-        {
-            var client = botService.Client;
-            var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
-            var adminString = admins
-                .Select
-                (
-                    (admin) =>
-$@"• <b>{admin.User.FirstName} {admin.User.LastName}{(admin.User.IsBot ? "🤖" : "")}</b>
-  @{admin.User.Username}
-  <code>{admin.User.Id}</code>"
-                )
-                .Aggregate
-                (
-                    (s1, s2) => s1 + "\n\n" + s2
-                );
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
-                adminString,
-                replyToMessageId: message.MessageId,
-                parseMode: ParseMode.Html
-            );
-        }
-
-        private static async Task WarnUserCommand(IBotService botService, Message message)
-        {
-            var client = botService.Client;
-            var dbms = botService.Dbms;
+            var table = dbContext.Warns;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
@@ -107,13 +59,9 @@ $@"• <b>{admin.User.FirstName} {admin.User.LastName}{(admin.User.IsBot ? "🤖
             }
             else
             {
-                var database = dbms.GetDatabase("UserRecords");
-                var warnsCollection = database.GetCollection<UserWarns>("Warns");
-                var filter = new BsonDocument("UserId", originMessage.From.Id);
-                var results = warnsCollection.FindSync(filter).ToList().ToArray();
-                if (results.Length == 0)
+                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id);
+                if (result == null)
                 {
-                    var document = new UserWarns(originMessage.From.Id);
                     await client.SendTextMessageAsync
                     (
                         message.Chat.Id,
@@ -126,12 +74,12 @@ Warn Count: 1",
                         replyToMessageId: message.MessageId,
                         parseMode: ParseMode.Html
                     );
-                    warnsCollection.InsertOne(document);
+                    table.Add(new UserWarns(originMessage.From.Id));
                 }
                 else
                 {
-                    var warnCount = results[0].WarnCount + 1;
-                    if (warnCount == 3)
+                    result.WarnCount += 1;
+                    if (result.WarnCount == 3)
                     {
                         await client.SendTextMessageAsync
                         (
@@ -157,18 +105,17 @@ $@"Warned
 @{originMessage.From.Username}
 <code>{originMessage.From.Id}</code>
 
-Warn Count: {warnCount}",
+Warn Count: {result.WarnCount}",
                             replyToMessageId: message.MessageId,
                             parseMode: ParseMode.Html
                         );
                     }
-                    var up = new BsonDocument("$set", new BsonDocument("WarnCount", warnCount));
-                    warnsCollection.UpdateOne(filter, up);
                 }
             }
+            dbContext.SaveChanges();
         }
 
-        private static async Task ClearWarnsCommand(IBotService botService, Message message)
+        private static async Task ClearWarnsCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var originMessage = message.ReplyToMessage;
             var client = botService.Client;
@@ -182,12 +129,9 @@ Warn Count: {warnCount}",
                 );
             }
             else {
-                var dbms = botService.Dbms;
-                var database = dbms.GetDatabase("UserRecords");
-                var warnsCollection = database.GetCollection<UserWarns>("Warns");
-                var filter = new BsonDocument("UserId", originMessage.From.Id);
-                var results = warnsCollection.FindSync(filter).ToList().ToArray();
-                if (results.Length != 0)
+                var table = dbContext.Warns;
+                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id);
+                if (result != null)
                 {
                     await client.SendTextMessageAsync
                     (
@@ -199,13 +143,13 @@ $@"Warns reset for
                         replyToMessageId: message.MessageId,
                         parseMode: ParseMode.Html
                     );
-                    var up = new BsonDocument("$set", new BsonDocument("WarnCount", 0));
-                    warnsCollection.UpdateOne(filter, up);
+                    result.WarnCount += 1;
                 }
             }
+            dbContext.SaveChanges();
         }
 
-        private static async Task BanCommand(IBotService botService, Message message)
+        private static async Task BanCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
@@ -260,7 +204,7 @@ $@"Banned
             }
         }
 
-        private static async Task KickCommand(IBotService botService, Message message)
+        private static async Task KickCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
@@ -317,7 +261,7 @@ But they can rejoin in a minute UwU!",
             }
         }
 
-        private static async Task UnbanCommand(IBotService botService, Message message)
+        private static async Task UnbanCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
             var originMessage = message.ReplyToMessage;

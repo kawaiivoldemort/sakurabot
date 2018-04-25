@@ -1,16 +1,20 @@
-using MongoDB.Bson;
+using System.ComponentModel.DataAnnotations;
 
 namespace Sakura.Uwu.Models
 {
     // Configurations Settings Data Model
     public class UserWarns
     {
-        public ObjectId _id { get; set; }
+        [Key]
         public int UserId { get; set; }
         public int WarnCount { get; set; }
+        public UserWarns() 
+        {
+            this.UserId = 0;
+            this.WarnCount = 1;
+        }
         public UserWarns(int uid)
         {
-            this._id = new ObjectId();
             this.UserId = uid;
             this.WarnCount = 1;
         }

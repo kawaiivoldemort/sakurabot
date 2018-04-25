@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 
 using Telegram.Bot;
-using MongoDB.Driver;
 
 using Sakura.Uwu.Models;
 
@@ -15,10 +15,7 @@ namespace Sakura.Uwu.Services
         {
             this.botSettings = botSettings.Value;
             this.Client = new TelegramBotClient(this.botSettings.BotToken);
-            this.Dbms = new MongoClient(this.botSettings.DatabaseConnectionString);
         }
-
         public TelegramBotClient Client { get; }
-        public MongoClient Dbms { get; }
     }
 }
