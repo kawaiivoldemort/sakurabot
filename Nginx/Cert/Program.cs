@@ -19,8 +19,8 @@ namespace Cert
             {
                 var uri = args[0];
                 var client = new TelegramBotClient(botToken);
-                //var cert = new Telegram.Bot.Types.InputFiles.InputFileStream(new FileStream("./cert.pem", FileMode.Open));
-                Task t = client.SetWebhookAsync(uri);
+                var cert = new Telegram.Bot.Types.InputFiles.InputFileStream(System.IO.File.Open("./cert.pem", FileMode.Open));
+                Task t = client.SetWebhookAsync(uri, cert);
                 t.Wait();
             }
             else {
