@@ -1,5 +1,5 @@
 bin/
 obj/
 .vscode/
-Nginx/*.key
-Nginx/*.pem
+*.key
+*.pem

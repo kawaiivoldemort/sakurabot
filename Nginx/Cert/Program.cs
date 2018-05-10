@@ -22,6 +22,12 @@ namespace Cert
                 var cert = new Telegram.Bot.Types.InputFiles.InputFileStream(System.IO.File.Open("./cert.pem", FileMode.Open));
                 Task t = client.SetWebhookAsync(uri, cert);
                 t.Wait();
+                var v = client.GetWebhookInfoAsync();
+                v.Wait();
+                var r = v.Result;
+                Console.WriteLine(
+$@"{r.Url} {r.HasCustomCertificate} {r.LastErrorMessage}"
+                );
             }
             else {
                 Console.WriteLine("No URL Sent");
