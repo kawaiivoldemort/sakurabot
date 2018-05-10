@@ -2,9 +2,8 @@ version: '3'
 
 services:
   sakura:
-    build: ./
-    ports:
-      - 5000:80
+    container_name: sakura
+    build: ./SakuraBot
     depends_on:
       - postgres
   postgres:
@@ -14,15 +13,25 @@ services:
       POSTGRES_USER: nachi
       POSTGRES_PASSWORD: nachi
     restart: unless-stopped
-  pgadmin:
-    links:
-      - postgres:postgres
-    image: fenglc/pgadmin4
-    environment:
-      DEFAULT_USER: nachi@nachi.com
-      DEFAULT_PASSWORD: nachi
-    volumes:
-       - /data/pgadmin:/root/.pgadmin
+  proxy:
+    container_name: nginx
+    build: ./Nginx
     ports:
-      - "5050:5050"
-    restart: unless-stopped
+      - "8080:8080"
+      - "8443:8443"
+    depends_on:
+      - sakura
+    links:
+      - sakura
+    restart: always
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: fenglc/pgadmin4
+  #   environment:
+  #     DEFAULT_USER: nachi@nachi.com
+  #     DEFAULT_PASSWORD: nachi
+  #   volumes:
+  #      - /data/pgadmin:/root/.pgadmin
+  #   ports:
+  #     - "5050:5050"
+  #   restart: unless-stopped

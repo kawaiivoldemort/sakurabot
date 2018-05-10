@@ -89,6 +89,18 @@ namespace Sakura.Uwu.Services
                     }
                 }
             }
+            else if (update.Type == UpdateType.CallbackQuery)
+            {
+                var queryData = update.CallbackQuery.Data.Split(' ');
+                var query = update.CallbackQuery;
+                if(queryData.Length == 3)
+                {
+                    System.Console.WriteLine(query.Data);
+                    // var admins = await _botService.Client.GetChatAdministratorsAsync();
+                    // if (admins.Any(admin => admin.User.Id == query.From.Id))
+                    // if(update.CallbackQuery)
+                }
+            }
             if (mainTask != null)
             {
                 mainTask.Wait();

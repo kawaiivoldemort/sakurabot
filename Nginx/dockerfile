@@ -1,0 +1,10 @@
+FROM nginx:latest
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./Cert/cert.key /etc/nginx/cert.key
+COPY ./Cert/cert.pem /etc/nginx/cert.pem
+
+EXPOSE 8080
+EXPOSE 8443
+
+ENTRYPOINT nginx -t && nginx-debug -g "daemon off;"

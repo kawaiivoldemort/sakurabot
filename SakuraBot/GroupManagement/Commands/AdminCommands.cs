@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -5,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 using Telegram.Bot.Types;
+using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Types.Enums;
 
 using Sakura.Uwu.Services;
@@ -62,6 +64,12 @@ namespace Sakura.Uwu.GroupManagement
             else
             {
                 var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id);
+                var unwarnButton = InlineKeyboardButton.WithCallbackData
+                (
+                    $@"/unwarnid {message.Chat.Id} {originMessage.From.Id.ToString()}"
+                );
+                unwarnButton.Text = "unwarn";
+                var keyboard = new InlineKeyboardMarkup(unwarnButton);
                 if (result == null)
                 {
                     await client.SendTextMessageAsync
@@ -74,7 +82,8 @@ $@"Warned
 
 Warn Count: 1",
                         replyToMessageId: message.MessageId,
-                        parseMode: ParseMode.Html
+                        parseMode: ParseMode.Html,
+                        replyMarkup: keyboard
                     );
                     table.Add(new UserWarns(originMessage.From.Id));
                 }
@@ -83,6 +92,11 @@ Warn Count: 1",
                     result.WarnCount += 1;
                     if (result.WarnCount == 3)
                     {
+                        unwarnButton = InlineKeyboardButton.WithCallbackData
+                        (
+                            $@"/unbanid {message.Chat.Id} {originMessage.From.Id.ToString()}"
+                        );
+                        unwarnButton.Text = "unban";
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
@@ -93,9 +107,17 @@ $@"Warn limit reached! Kicked
     
 UwU",
                             replyToMessageId: message.MessageId,
-                            parseMode: ParseMode.Html
+                            parseMode: ParseMode.Html,
+                            replyMarkup: keyboard
                         );
-                        await client.KickChatMemberAsync(message.Chat.Id, originMessage.From.Id);
+                        try
+                        {
+                            await client.KickChatMemberAsync(message.Chat.Id, originMessage.From.Id);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Exception in Warning : {0} on {1}", e.Message, originMessage.From.Id);
+                        }
                     }
                     else
                     {
@@ -109,7 +131,8 @@ $@"Warned
 
 Warn Count: {result.WarnCount}",
                             replyToMessageId: message.MessageId,
-                            parseMode: ParseMode.Html
+                            parseMode: ParseMode.Html,
+                            replyMarkup: keyboard
                         );
                     }
                 }
@@ -145,7 +168,7 @@ $@"Warns reset for
                         replyToMessageId: message.MessageId,
                         parseMode: ParseMode.Html
                     );
-                    result.WarnCount += 1;
+                    result.WarnCount = 0;
                 }
             }
             dbContext.SaveChanges();
@@ -200,7 +223,14 @@ $@"Banned
                             replyToMessageId: message.MessageId,
                             parseMode: ParseMode.Html
                         );
-                        await client.KickChatMemberAsync(message.Chat.Id, originUser.Id);
+                        try
+                        {
+                            await client.KickChatMemberAsync(message.Chat.Id, originUser.Id);
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Exception in Banning : {0} on {1}", e.Message, originMessage.From.Id);
+                        }
                     }
                 }
             }
@@ -257,7 +287,14 @@ But they can rejoin in a minute UwU!",
                             replyToMessageId: message.MessageId,
                             parseMode: ParseMode.Html
                         );
-                        await client.KickChatMemberAsync(message.Chat.Id, originUser.Id, System.DateTime.Now.AddMinutes(1));
+                        try
+                        {
+                            await client.KickChatMemberAsync(message.Chat.Id, originUser.Id, System.DateTime.Now.AddMinutes(1));
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine("Exception in Kicking : {0} on {1}", e.Message, originMessage.From.Id);
+                        }
                     }
                 }
             }
@@ -288,7 +325,14 @@ $@"Unbanned
 <code>{originMessage.From.Id}</code>",
                     parseMode: ParseMode.Html
                 );
-                await client.UnbanChatMemberAsync(message.Chat.Id, originUser.Id);
+                try
+                {
+                    await client.UnbanChatMemberAsync(message.Chat.Id, originUser.Id);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Exception in Unban : {0} on {1}", e.Message, originUser.Id);
+                }
             }
         }
 
