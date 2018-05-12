@@ -60,10 +60,10 @@ namespace Sakura.Uwu.Services {
                                     break;
                                 default:
                                     break;
-                            }                      
-                        } else {
+                            } else {
                             await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId:message.MessageId);                            
-                        }
+                            }                     
+                        } 
                     }
                 }
             }
