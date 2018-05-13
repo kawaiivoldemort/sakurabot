@@ -25,9 +25,6 @@ namespace Cert
                 var v = client.GetWebhookInfoAsync();
                 v.Wait();
                 var r = v.Result;
-                Console.WriteLine(
-$@"{r.Url} {r.HasCustomCertificate} {r.LastErrorMessage}"
-                );
             }
             else {
                 Console.WriteLine("No URL Sent");
