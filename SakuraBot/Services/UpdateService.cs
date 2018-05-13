@@ -114,7 +114,7 @@ namespace Sakura.Uwu.Services
             }
             catch(Exception e)
             {
-                System.Console.WriteLine($@"Exception Ocurred: {e.Message}")
+                System.Console.WriteLine($@"Exception Ocurred: {e.Message}");
             }
         }
     }
