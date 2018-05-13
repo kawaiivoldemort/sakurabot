@@ -7,11 +7,13 @@ services:
     depends_on:
       - postgres
   postgres:
-    container_name: postgres
+    container_name: postgres:latest
     image: postgres
     environment:
       POSTGRES_USER: nachi
       POSTGRES_PASSWORD: nachi
+    ports:
+      - "5432:5432"
     restart: unless-stopped
   proxy:
     container_name: nginx
