@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using System.Linq;
 
@@ -31,83 +32,89 @@ namespace Sakura.Uwu.Services
         {
             Task mainTask = null;
             Task trackTask = null;
-            if (update.Type == UpdateType.Message)
-            {
-                var message = update.Message;
-                if (update.Message.Type == MessageType.ChatMembersAdded)
+            try{
+                if (update.Type == UpdateType.Message)
                 {
-                    mainTask = Responses.WelcomeResponse(_botService, message, _dbContext);
-                }
-                else if (update.Message.Type == MessageType.Text)
-                {
-                    trackTask = Task.Factory.StartNew(() => Tracking.LogUser(_botService, message, _dbContext));
-                    if
-                    (
-                        (message.Entities != null) &&
-                        (message.Entities[0].Offset == 0) &&
-                        (message.Entities[0].Type == MessageEntityType.BotCommand)
-                    )
+                    var message = update.Message;
+                    if (update.Message.Type == MessageType.ChatMembersAdded)
                     {
-                        var commandMetadata = message.Entities[0];
-                        var command = message.Text.Substring(commandMetadata.Offset, commandMetadata.Length);
-                        var chat = await _botService.Client.GetChatAsync(message.Chat.Id);
-                        if (chat.Type == ChatType.Group || chat.Type == ChatType.Supergroup)
+                        mainTask = Responses.WelcomeResponse(_botService, message, _dbContext);
+                    }
+                    else if (update.Message.Type == MessageType.Text)
+                    {
+                        trackTask = Task.Factory.StartNew(() => Tracking.LogUser(_botService, message, _dbContext));
+                        if
+                        (
+                            (message.Entities != null) &&
+                            (message.Entities[0].Offset == 0) &&
+                            (message.Entities[0].Type == MessageEntityType.BotCommand)
+                        )
                         {
-                            if (Commands.User.ContainsKey(command))
+                            var commandMetadata = message.Entities[0];
+                            var command = message.Text.Substring(commandMetadata.Offset, commandMetadata.Length);
+                            var chat = await _botService.Client.GetChatAsync(message.Chat.Id);
+                            if (chat.Type == ChatType.Group || chat.Type == ChatType.Supergroup)
                             {
-                                mainTask = Commands.User[command](_botService, message, _dbContext);
-                            } else {
-                                var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
-                                if (admins.Any(admin => admin.User.Id == message.From.Id))
+                                if (Commands.User.ContainsKey(command))
                                 {
+                                    mainTask = Commands.User[command](_botService, message, _dbContext);
+                                } else {
                                     if (Commands.Admin.ContainsKey(command))
                                     {
-                                        var bot = await _botService.Client.GetMeAsync();
-                                        var botChatMember = await _botService.Client.GetChatMemberAsync(message.Chat.Id, bot.Id);
-                                        if
-                                        (
-                                            botChatMember.CanPinMessages != null &&
-                                            botChatMember.CanRestrictMembers != null &&
-                                            (bool) botChatMember.CanPinMessages &&
-                                            (bool) botChatMember.CanRestrictMembers
-                                        )
+                                        var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
+                                        if (admins.Any(admin => admin.User.Id == message.From.Id))
                                         {
-                                            mainTask = Commands.Admin[command](_botService, message, _dbContext);
+                                            var bot = await _botService.Client.GetMeAsync();
+                                            var botChatMember = await _botService.Client.GetChatMemberAsync(message.Chat.Id, bot.Id);
+                                            if
+                                            (
+                                                botChatMember.CanPinMessages != null &&
+                                                botChatMember.CanRestrictMembers != null &&
+                                                (bool) botChatMember.CanPinMessages &&
+                                                (bool) botChatMember.CanRestrictMembers
+                                            )
+                                            {
+                                                mainTask = Commands.Admin[command](_botService, message, _dbContext);
+                                            }
+                                            else
+                                            {
+                                                await _botService.Client.SendTextMessageAsync(message.Chat.Id, "I would gladly do that for you if you make me Senpai UwU", replyToMessageId: message.MessageId);
+                                            }                   
                                         }
                                         else
                                         {
-                                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "I would gladly do that for you if you make me Senpai UwU", replyToMessageId: message.MessageId);
+                                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId: message.MessageId);                            
                                         }
-                                    }                      
-                                }
-                                else
-                                {
-                                    await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId: message.MessageId);                            
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            else if (update.Type == UpdateType.CallbackQuery)
-            {
-                var queryData = update.CallbackQuery.Data.Split(' ');
-                var query = update.CallbackQuery;
-                if(queryData.Length == 3)
+                else if (update.Type == UpdateType.CallbackQuery)
                 {
-                    System.Console.WriteLine(query.Data);
-                    // var admins = await _botService.Client.GetChatAdministratorsAsync();
-                    // if (admins.Any(admin => admin.User.Id == query.From.Id))
-                    // if(update.CallbackQuery)
+                    var queryData = update.CallbackQuery.Data.Split(' ');
+                    var query = update.CallbackQuery;
+                    if(queryData.Length == 3)
+                    {
+                        System.Console.WriteLine(query.Data);
+                        // var admins = await _botService.Client.GetChatAdministratorsAsync();
+                        // if (admins.Any(admin => admin.User.Id == query.From.Id))
+                        // if(update.CallbackQuery)
+                    }
+                }
+                if (mainTask != null)
+                {
+                    mainTask.Wait();
+                }
+                if (trackTask != null)
+                {
+                    trackTask.Wait();
                 }
             }
-            if (mainTask != null)
+            catch(Exception e)
             {
-                mainTask.Wait();
-            }
-            if (trackTask != null)
-            {
-                trackTask.Wait();
+                System.Console.WriteLine($@"Exception Ocurred: {e.Message}")
             }
         }
     }
