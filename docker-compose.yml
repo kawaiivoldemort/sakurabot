@@ -6,13 +6,15 @@ services:
     build: ./SakuraBot
     depends_on:
       - postgres
+    links:
+      - postgres
   postgres:
     container_name: postgres
     image: postgres:latest
     environment:
       POSTGRES_USER: nachi
       POSTGRES_PASSWORD: nachi
-    restart: always
+    restart: unless-stopped
   proxy:
     container_name: nginx
     build: ./Nginx
