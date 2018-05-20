@@ -300,7 +300,7 @@ Poster : @{originMessage.From.Username}",
             }
         }
 
-        private static InputOnlineFile wutFile = new InputOnlineFile("CgADBAAD3ZQAAiQaZAdTb4CEzE80BAI");
+        private static InputOnlineFile wutFile = new InputOnlineFile("CgADBAAD3ZQAAiQaZAfJNSjIa8ybFwI");
         private static async Task WutCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
@@ -324,7 +324,7 @@ Poster : @{originMessage.From.Username}",
             }
         }
 
-        private static InputOnlineFile gurlFile = new InputOnlineFile("CgADBAAD-J4AAr0XZAc88-AgbFca-gI");
+        private static InputOnlineFile gurlFile = new InputOnlineFile("CgADBAAD-J4AAr0XZAfsBBNcYH1u5gI");
         private static async Task GurlCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
@@ -348,7 +348,7 @@ Poster : @{originMessage.From.Username}",
             }
         }
 
-        private static InputOnlineFile stahpFile = new InputOnlineFile("CgADBAADgqAAAiQdZAcevG5LiWJuBAI");
+        private static InputOnlineFile stahpFile = new InputOnlineFile("CgADBAADgqAAAiQdZAcIQd39ISh6SQI");
         private static async Task StahpCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
@@ -372,7 +372,7 @@ Poster : @{originMessage.From.Username}",
             }
         }
 
-        private static InputOnlineFile tellMeWhyFile = new InputOnlineFile("BQADBQADTwADBWcJVMow491tTS9KAg");
+        private static InputOnlineFile tellMeWhyFile = new InputOnlineFile("BQADBQADTwADBWcJVFRdrXnZKD7IAg");
         private static async Task TellMeWhyCommand(IBotService botService, Message message, BotDbContext dbContext)
         {
             var client = botService.Client;
