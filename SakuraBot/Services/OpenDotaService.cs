@@ -11,7 +11,7 @@ namespace Sakura.Uwu.Services
     {
         public OpenDotaService(IOptions<BotSettings> botSettings)
         {
-            this.Client = new DotaClient(false);
+            this.Client = new DotaClient(true);
         }
         public DotaClient Client { get; }
     }
