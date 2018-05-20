@@ -3,7 +3,7 @@ version: '3'
 services:
   sakura:
     container_name: sakura
-    build: ./SakuraBot
+    build: ./
     depends_on:
       - postgres
     links:

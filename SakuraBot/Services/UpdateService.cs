@@ -10,6 +10,7 @@ using Telegram.Bot.Types.Enums;
 
 using Sakura.Uwu.Models;
 using Sakura.Uwu.GroupManagement;
+using Sakura.Uwu.Dota;
 using static Sakura.Uwu.Common.Accessories;
 
 namespace Sakura.Uwu.Services 
@@ -19,13 +20,15 @@ namespace Sakura.Uwu.Services
     {
         private readonly BotDbContext _dbContext;
         private readonly IBotService _botService;
+        private readonly IOpenDotaService _dotaService;
         private readonly ILogger<UpdateService> _logger;
 
-        public UpdateService(BotDbContext dbContext, IBotService botService, ILogger<UpdateService> logger)
+        public UpdateService(BotDbContext dbContext, IBotService botService, IOpenDotaService dotaService, ILogger<UpdateService> logger)
         {
             _dbContext = dbContext;
             _botService = botService;
             _logger = logger;
+            _dotaService = dotaService;
         }
 
         public async Task UpdateAsync(Update update)
@@ -58,32 +61,43 @@ namespace Sakura.Uwu.Services
                                 if (Commands.User.ContainsKey(command))
                                 {
                                     mainTask = Commands.User[command](_botService, message, _dbContext);
-                                } else {
-                                    if (Commands.Admin.ContainsKey(command))
+                                }
+                                else if (Commands.Admin.ContainsKey(command))
+                                {
+                                    var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
+                                    if (admins.Any(admin => admin.User.Id == message.From.Id))
                                     {
-                                        var admins = await _botService.Client.GetChatAdministratorsAsync(message.Chat.Id);
-                                        if (admins.Any(admin => admin.User.Id == message.From.Id))
+                                        var bot = await _botService.Client.GetMeAsync();
+                                        var botChatMember = await _botService.Client.GetChatMemberAsync(message.Chat.Id, bot.Id);
+                                        if
+                                        (
+                                            botChatMember.CanPinMessages != null &&
+                                            botChatMember.CanRestrictMembers != null &&
+                                            (bool) botChatMember.CanPinMessages &&
+                                            (bool) botChatMember.CanRestrictMembers
+                                        )
                                         {
-                                            var bot = await _botService.Client.GetMeAsync();
-                                            var botChatMember = await _botService.Client.GetChatMemberAsync(message.Chat.Id, bot.Id);
-                                            if
-                                            (
-                                                botChatMember.CanPinMessages != null &&
-                                                botChatMember.CanRestrictMembers != null &&
-                                                (bool) botChatMember.CanPinMessages &&
-                                                (bool) botChatMember.CanRestrictMembers
-                                            )
-                                            {
-                                                mainTask = Commands.Admin[command](_botService, message, _dbContext);
-                                            }
-                                            else
-                                            {
-                                                await _botService.Client.SendTextMessageAsync(message.Chat.Id, "I would gladly do that for you if you make me Senpai UwU", replyToMessageId: message.MessageId);
-                                            }                   
+                                            mainTask = Commands.Admin[command](_botService, message, _dbContext);
                                         }
                                         else
                                         {
-                                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId: message.MessageId);                            
+                                            await _botService.Client.SendTextMessageAsync(message.Chat.Id, "I would gladly do that for you if you make me Senpai UwU", replyToMessageId: message.MessageId);
+                                        }                   
+                                    }
+                                    else
+                                    {
+                                        await _botService.Client.SendTextMessageAsync(message.Chat.Id, "Naughty senpai, you aren't admin", replyToMessageId: message.MessageId);                            
+                                    }
+                                }
+                                else if (command.Equals("/dota"))
+                                {
+                                    var messageParts = message.Text.Split(' ');
+                                    if(messageParts.Length >= 1)
+                                    {
+                                        var matchIdString = messageParts[1];
+                                        if(DotaCommands.Commands.ContainsKey(matchIdString))
+                                        {
+                                            await DotaCommands.Commands[matchIdString](_botService, message, _dotaService);
                                         }
                                     }
                                 }

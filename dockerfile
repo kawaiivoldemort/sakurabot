@@ -3,15 +3,14 @@
 ############################################################
 
 FROM microsoft/aspnetcore-build AS builder
-WORKDIR /source
+WORKDIR /SakuraBot
 
-# Copy the Project Metadata and download dependencies
-COPY *.csproj ./
+# Copy the Source Files and download dependencies
+COPY ./SakuraBot .
+COPY ./OpenDotaApi /OpenDotaApi
 RUN dotnet restore
 
-# Copy the App Source Code and build it
-COPY . .
-COPY appsettings*.json ./
+# Build it
 RUN dotnet publish --output /app/ --configuration Release
 
 FROM microsoft/aspnetcore

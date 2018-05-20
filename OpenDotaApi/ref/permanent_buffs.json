@@ -1,0 +1,40 @@
+{
+	"permanent_buffs": [
+		{
+            "id": 1,
+            "localized_name": "Consumed Moon Shard",
+            "buff_origin": "Item",
+            "buff_origin_id": 247
+        },        
+		{
+            "id": 2,
+            "localized_name": "Aghanim's Scepter Synth",
+            "buff_origin": "Item",
+            "buff_origin_id": 108
+        },        
+		{
+            "id": 3,
+            "localized_name": "Stolen Intelligence",
+            "buff_origin": "Ability",
+            "buff_origin_id": 5378
+        },        
+		{
+            "id": 4,
+            "localized_name": "Flesh Heap Stacks",
+            "buff_origin": "Ability",
+            "buff_origin_id": 5074
+        },        
+		{
+            "id": 5,
+            "localized_name": "Duel Damage",
+            "buff_origin": "Ability",
+            "buff_origin_id": 5598
+        },
+		{
+            "id": 6,
+            "localized_name": "Tome of Knowledge",
+            "buff_origin": "Item",
+            "buff_origin_id": 257
+        }
+    ]
+}

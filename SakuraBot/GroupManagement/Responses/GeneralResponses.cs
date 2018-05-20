@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Telegram.Bot.Types;
@@ -20,6 +21,9 @@ namespace Sakura.Uwu.GroupManagement
                 try
                 {
                     var profilePhotos = await client.GetUserProfilePhotosAsync(newMember.Id, 0, 1);
+                    var table = dbContext.WelcomeMessages;
+                    var setWelcomeFooter = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+                    var welcomeFooter = (setWelcomeFooter != null ? $"\n\n{setWelcomeFooter.Text}" : "");
                     if (profilePhotos.TotalCount != 0)
                     {
                         await client.SendPhotoAsync
@@ -27,9 +31,10 @@ namespace Sakura.Uwu.GroupManagement
                             message.Chat.Id,
                             profilePhotos.Photos[0][0].FileId,
 $@"Welcome
+
 <b>{newMember.FirstName} {newMember.LastName}{(newMember.IsBot ? "🤖" : "")}</b>
 @{newMember.Username}
-<code>{newMember.Id}</code>",
+<code>{newMember.Id}</code>" + welcomeFooter,
                             parseMode: ParseMode.Html
                         );
                     }
@@ -39,9 +44,10 @@ $@"Welcome
                         (
                             message.Chat.Id,
 $@"Welcome
+
 <b>{newMember.FirstName} {newMember.LastName}{(newMember.IsBot ? "🤖" : "")}</b>
 @{newMember.Username}
-<code>{newMember.Id}</code>",
+<code>{newMember.Id}</code>" + welcomeFooter,
                             parseMode: ParseMode.Html
                         );
                         

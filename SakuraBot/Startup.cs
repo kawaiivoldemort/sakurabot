@@ -39,6 +39,8 @@ namespace Sakura.Uwu {
             
             services.AddSingleton<IBotService, BotService>();
 
+            services.AddSingleton<IOpenDotaService, OpenDotaService>();
+
             services.AddScoped<IUpdateService, UpdateService>();
             
             services.Configure<BotSettings>(

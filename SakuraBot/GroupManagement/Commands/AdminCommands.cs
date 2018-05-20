@@ -24,7 +24,9 @@ namespace Sakura.Uwu.GroupManagement
             { "/kick", KickCommand },
             { "/unban", UnbanCommand },
             { "/pin", PinCommand },
-            { "/loudpin", PinLoudlyCommand }
+            { "/loudpin", PinLoudlyCommand },
+            { "/welcome", WelcomeCommand },
+            { "/clearwelcome", ClearWelcomeCommand }
         };
 
         private static async Task WarnUserCommand(IBotService botService, Message message, BotDbContext dbContext)
@@ -63,7 +65,7 @@ namespace Sakura.Uwu.GroupManagement
             }
             else
             {
-                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id);
+                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id && x.GroupId == originMessage.Chat.Id);
                 var unwarnButton = InlineKeyboardButton.WithCallbackData
                 (
                     $@"/unwarnid {message.Chat.Id} {originMessage.From.Id.ToString()}"
@@ -85,7 +87,7 @@ Warn Count: 1",
                         parseMode: ParseMode.Html,
                         replyMarkup: keyboard
                     );
-                    table.Add(new UserWarns(originMessage.From.Id));
+                    table.Add(new UserWarns(originMessage.Chat.Id, originMessage.From.Id));
                 }
                 else
                 {
@@ -155,7 +157,7 @@ Warn Count: {result.WarnCount}",
             }
             else {
                 var table = dbContext.Warns;
-                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id);
+                var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id && x.GroupId == originMessage.Chat.Id);
                 if (result != null)
                 {
                     await client.SendTextMessageAsync
@@ -381,6 +383,75 @@ $@"Unbanned
                     originMessage.MessageId
                 );
             }
+        }
+
+        private static async Task WelcomeCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            if(message.Text.Length > 10)
+            {
+                var welcomeMessage = message.Text.Substring(9);
+                var table = dbContext.WelcomeMessages;
+                var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+                if(existingEntry != null)
+                {
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "Updated Welcome Message",
+                        replyToMessageId: message.MessageId
+                    );
+                    existingEntry.ChatId = message.Chat.Id;
+                    existingEntry.Text = welcomeMessage;
+                }
+                else
+                {
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "Saved Welcome Message",
+                        replyToMessageId: message.MessageId
+                    );
+                    table.Add(new GroupWelcomeMessages(message.Chat.Id, welcomeMessage));
+                }
+                dbContext.SaveChanges();
+            }
+            else
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Invalid Request",
+                    replyToMessageId: message.MessageId
+                );
+            }
+        }
+
+        private static async Task ClearWelcomeCommand(IBotService botService, Message message, BotDbContext dbContext)
+        {
+            var client = botService.Client;
+            var table = dbContext.WelcomeMessages;
+            var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+            if(existingEntry != null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Updated Welcome Message",
+                    replyToMessageId: message.MessageId
+                );
+                table.Remove(existingEntry);
+            }
+            else
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "No Welcome Message",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            dbContext.SaveChanges();
         }
     }
 }

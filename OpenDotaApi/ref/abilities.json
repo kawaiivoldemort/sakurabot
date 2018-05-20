@@ -1,0 +1,3346 @@
+{
+	"abilities": [
+		{
+			"name": "centaur_khan_war_stomp",
+			"id": "5295",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_khan_war_stomp_lg.png",
+			"localized_name": "War Stomp"
+		},
+		{
+			"name": "necronomicon_warrior_last_will",
+			"id": "5200",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necronomicon_warrior_last_will_lg.png",
+			"localized_name": "Last Will"
+		},
+		{
+			"name": "enigma_demonic_conversion",
+			"id": "5147",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enigma_demonic_conversion_lg.png",
+			"localized_name": "Demonic Conversion"
+		},
+		{
+			"name": "beastmaster_boar_poison",
+			"id": "5171",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_boar_poison_lg.png",
+			"localized_name": "Poison"
+		},
+		{
+			"name": "juggernaut_blade_fury",
+			"id": "5028",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_blade_fury_lg.png",
+			"localized_name": "Blade Fury"
+		},
+		{
+			"name": "witch_doctor_voodoo_restoration",
+			"id": "5139",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/witch_doctor_voodoo_restoration_lg.png",
+			"localized_name": "Voodoo Restoration"
+		},
+		{
+			"name": "bloodseeker_blood_bath",
+			"id": "5016",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bloodseeker_blood_bath_lg.png",
+			"localized_name": "Blood Bath"
+		},
+		{
+			"name": "backdoor_protection_in_base",
+			"id": "5351",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/backdoor_protection_in_base_lg.png",
+			"localized_name": "Backdoor Protection In Base"
+		},
+		{
+			"name": "broodmother_spawn_spiderite",
+			"id": "5283",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_spawn_spiderite_lg.png",
+			"localized_name": "Spawn Spiderite"
+		},
+		{
+			"name": "spirit_breaker_charge_of_darkness",
+			"id": "5353",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spirit_breaker_charge_of_darkness_lg.png",
+			"localized_name": "Charge Of Darkness"
+		},
+		{
+			"name": "chaos_knight_reality_rift",
+			"id": "5427",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chaos_knight_reality_rift_lg.png",
+			"localized_name": "Reality Rift"
+		},
+		{
+			"name": "lina_laguna_blade",
+			"id": "5043",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lina_laguna_blade_lg.png",
+			"localized_name": "Laguna Blade"
+		},
+		{
+			"name": "riki_backstab",
+			"id": "5144",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/riki_backstab_lg.png",
+			"localized_name": "Backstab"
+		},
+		{
+			"name": "forest_troll_high_priest_heal",
+			"id": "5318",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/forest_troll_high_priest_heal_lg.png",
+			"localized_name": "Heal"
+		},
+		{
+			"name": "warlock_upheaval",
+			"id": "5164",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_upheaval_lg.png",
+			"localized_name": "Upheaval"
+		},
+		{
+			"name": "ogre_magi_frost_armor",
+			"id": "5304",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ogre_magi_frost_armor_lg.png",
+			"localized_name": "Frost Armor"
+		},
+		{
+			"name": "stats",
+			"id": "5002",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/stats_lg.png",
+			"localized_name": ""
+		},
+		{
+			"name": "dazzle_poison_touch",
+			"id": "5233",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dazzle_poison_touch_lg.png",
+			"localized_name": "Poison Touch"
+		},
+		{
+			"name": "templar_assassin_self_trap",
+			"id": "5199",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_self_trap_lg.png",
+			"localized_name": "Self Trap"
+		},
+		{
+			"name": "silencer_glaives_of_wisdom",
+			"id": "5378",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/silencer_glaives_of_wisdom_lg.png",
+			"localized_name": "Glaives Of Wisdom"
+		},
+		{
+			"name": "warlock_rain_of_chaos",
+			"id": "5165",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_rain_of_chaos_lg.png",
+			"localized_name": "Rain Of Chaos"
+		},
+		{
+			"name": "sven_warcry",
+			"id": "5096",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sven_warcry_lg.png",
+			"localized_name": "Warcry"
+		},
+		{
+			"name": "templar_assassin_meld",
+			"id": "5195",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_meld_lg.png",
+			"localized_name": "Meld"
+		},
+		{
+			"name": "enchantress_impetus",
+			"id": "5270",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enchantress_impetus_lg.png",
+			"localized_name": "Impetus"
+		},
+		{
+			"name": "earthshaker_enchant_totem",
+			"id": "5024",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earthshaker_enchant_totem_lg.png",
+			"localized_name": "Enchant Totem"
+		},
+		{
+			"name": "lone_druid_synergy",
+			"id": "5414",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_synergy_lg.png",
+			"localized_name": "Synergy"
+		},
+		{
+			"name": "invoker_forge_spirit",
+			"id": "5387",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_forge_spirit_lg.png",
+			"localized_name": "Forge Spirit"
+		},
+		{
+			"name": "chaos_knight_phantasm",
+			"id": "5429",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chaos_knight_phantasm_lg.png",
+			"localized_name": "Phantasm"
+		},
+		{
+			"name": "satyr_hellcaller_unholy_aura",
+			"id": "5317",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/satyr_hellcaller_unholy_aura_lg.png",
+			"localized_name": "Unholy Aura"
+		},
+		{
+			"name": "shadow_shaman_shackles",
+			"id": "5080",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_shaman_shackles_lg.png",
+			"localized_name": "Shackles"
+		},
+		{
+			"name": "ogre_magi_bloodlust",
+			"id": "5440",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ogre_magi_bloodlust_lg.png",
+			"localized_name": "Bloodlust"
+		},
+		{
+			"name": "shadow_demon_shadow_poison_release",
+			"id": "5424",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_demon_shadow_poison_release_lg.png",
+			"localized_name": "Shadow Poison Release"
+		},
+		{
+			"name": "blue_dragonspawn_sorcerer_evasion",
+			"id": "5325",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/blue_dragonspawn_sorcerer_evasion_lg.png",
+			"localized_name": "Evasion"
+		},
+		{
+			"name": "antimage_mana_break",
+			"id": "5003",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/antimage_mana_break_lg.png",
+			"localized_name": "Mana Break"
+		},
+		{
+			"name": "spirit_breaker_empowering_haste",
+			"id": "5354",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spirit_breaker_empowering_haste_lg.png",
+			"localized_name": "Empowering Haste"
+		},
+		{
+			"name": "satyr_hellcaller_shockwave",
+			"id": "5316",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/satyr_hellcaller_shockwave_lg.png",
+			"localized_name": "Shockwave"
+		},
+		{
+			"name": "morphling_morph_agi",
+			"id": "5055",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_morph_agi_lg.png",
+			"localized_name": "Agi"
+		},
+		{
+			"name": "bounty_hunter_track",
+			"id": "5288",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bounty_hunter_track_lg.png",
+			"localized_name": "Track"
+		},
+		{
+			"name": "bloodseeker_bloodrage",
+			"id": "5015",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bloodseeker_bloodrage_lg.png",
+			"localized_name": "Bloodrage"
+		},
+		{
+			"name": "obsidian_destroyer_astral_imprisonment",
+			"id": "5392",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/obsidian_destroyer_astral_imprisonment_lg.png",
+			"localized_name": "Astral Imprisonment"
+		},
+		{
+			"name": "lich_dark_ritual",
+			"id": "5136",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lich_dark_ritual_lg.png",
+			"localized_name": "Dark Ritual"
+		},
+		{
+			"name": "antimage_spell_shield",
+			"id": "5005",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/antimage_spell_shield_lg.png",
+			"localized_name": "Spell Shield"
+		},
+		{
+			"name": "enchantress_natures_attendants",
+			"id": "5269",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enchantress_natures_attendants_lg.png",
+			"localized_name": "Natures Attendants"
+		},
+		{
+			"name": "broodmother_incapacitating_bite",
+			"id": "5281",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_incapacitating_bite_lg.png",
+			"localized_name": "Incapacitating Bite"
+		},
+		{
+			"name": "undying_flesh_golem",
+			"id": "5447",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_flesh_golem_lg.png",
+			"localized_name": "Flesh Golem"
+		},
+		{
+			"name": "lone_druid_rabid",
+			"id": "5413",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_rabid_lg.png",
+			"localized_name": "Rabid"
+		},
+		{
+			"name": "slardar_sprint",
+			"id": "5114",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slardar_sprint_lg.png",
+			"localized_name": "Sprint"
+		},
+		{
+			"name": "sandking_caustic_finale",
+			"id": "5104",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sandking_caustic_finale_lg.png",
+			"localized_name": "Caustic Finale"
+		},
+		{
+			"name": "nevermore_dark_lord",
+			"id": "5063",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_dark_lord_lg.png",
+			"localized_name": "Dark Lord"
+		},
+		{
+			"name": "lycan_summon_wolves_invisibility",
+			"id": "5500",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_summon_wolves_invisibility_lg.png",
+			"localized_name": "Summon Wolves Invisibility"
+		},
+		{
+			"name": "life_stealer_infest",
+			"id": "5252",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/life_stealer_infest_lg.png",
+			"localized_name": "Infest"
+		},
+		{
+			"name": "lycan_feral_impulse",
+			"id": "5397",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_feral_impulse_lg.png",
+			"localized_name": "Feral Impulse"
+		},
+		{
+			"name": "ursa_overpower",
+			"id": "5358",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ursa_overpower_lg.png",
+			"localized_name": "Overpower"
+		},
+		{
+			"name": "enraged_wildkin_toughness_aura",
+			"id": "5313",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enraged_wildkin_toughness_aura_lg.png",
+			"localized_name": "Wildkin Toughness Aura"
+		},
+		{
+			"name": "pudge_flesh_heap",
+			"id": "5074",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pudge_flesh_heap_lg.png",
+			"localized_name": "Flesh Heap"
+		},
+		{
+			"name": "witch_doctor_maledict",
+			"id": "5140",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/witch_doctor_maledict_lg.png",
+			"localized_name": "Maledict"
+		},
+		{
+			"name": "vengefulspirit_nether_swap",
+			"id": "5125",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/vengefulspirit_nether_swap_lg.png",
+			"localized_name": "Nether Swap"
+		},
+		{
+			"name": "weaver_shukuchi",
+			"id": "5290",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/weaver_shukuchi_lg.png",
+			"localized_name": "Shukuchi"
+		},
+		{
+			"name": "weaver_the_swarm",
+			"id": "5289",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/weaver_the_swarm_lg.png",
+			"localized_name": "The Swarm"
+		},
+		{
+			"name": "alchemist_acid_spray",
+			"id": "5365",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_acid_spray_lg.png",
+			"localized_name": "Acid Spray"
+		},
+		{
+			"name": "phantom_assassin_stifling_dagger",
+			"id": "5190",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_assassin_stifling_dagger_lg.png",
+			"localized_name": "Stifling Dagger"
+		},
+		{
+			"name": "sandking_epicenter",
+			"id": "5105",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sandking_epicenter_lg.png",
+			"localized_name": "Epicenter"
+		},
+		{
+			"name": "tornado_tempest",
+			"id": "5310",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tornado_tempest_lg.png",
+			"localized_name": "Tempest"
+		},
+		{
+			"name": "jakiro_liquid_fire",
+			"id": "5299",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_liquid_fire_lg.png",
+			"localized_name": "Liquid Fire"
+		},
+		{
+			"name": "chen_hand_of_god",
+			"id": "5331",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chen_hand_of_god_lg.png",
+			"localized_name": "Hand Of God"
+		},
+		{
+			"name": "batrider_flaming_lasso",
+			"id": "5323",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/batrider_flaming_lasso_lg.png",
+			"localized_name": "Flaming Lasso"
+		},
+		{
+			"name": "lone_druid_true_form",
+			"id": "5416",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_true_form_lg.png",
+			"localized_name": "True Form"
+		},
+		{
+			"name": "spirit_breaker_nether_strike",
+			"id": "5356",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spirit_breaker_nether_strike_lg.png",
+			"localized_name": "Nether Strike"
+		},
+		{
+			"name": "spectre_haunt",
+			"id": "5337",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spectre_haunt_lg.png",
+			"localized_name": "Haunt"
+		},
+		{
+			"name": "alchemist_chemical_rage",
+			"id": "5369",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_chemical_rage_lg.png",
+			"localized_name": "Chemical Rage"
+		},
+		{
+			"name": "silencer_last_word",
+			"id": "5379",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/silencer_last_word_lg.png",
+			"localized_name": "Last Word"
+		},
+		{
+			"name": "tinker_rearm",
+			"id": "5153",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tinker_rearm_lg.png",
+			"localized_name": "Rearm"
+		},
+		{
+			"name": "rattletrap_rocket_flare",
+			"id": "5239",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rattletrap_rocket_flare_lg.png",
+			"localized_name": "Rocket Flare"
+		},
+		{
+			"name": "omniknight_guardian_angel",
+			"id": "5266",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/omniknight_guardian_angel_lg.png",
+			"localized_name": "Guardian Angel"
+		},
+		{
+			"name": "leshrac_diabolic_edict",
+			"id": "5242",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/leshrac_diabolic_edict_lg.png",
+			"localized_name": "Diabolic Edict"
+		},
+		{
+			"name": "tiny_toss",
+			"id": "5107",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tiny_toss_lg.png",
+			"localized_name": "Toss"
+		},
+		{
+			"name": "razor_static_link",
+			"id": "5083",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/razor_static_link_lg.png",
+			"localized_name": "Static Link"
+		},
+		{
+			"name": "invoker_ice_wall",
+			"id": "5389",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_ice_wall_lg.png",
+			"localized_name": "Ice Wall"
+		},
+		{
+			"name": "brewmaster_drunken_haze",
+			"id": "5401",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_drunken_haze_lg.png",
+			"localized_name": "Drunken Haze"
+		},
+		{
+			"name": "batrider_flamebreak",
+			"id": "5321",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/batrider_flamebreak_lg.png",
+			"localized_name": "Flamebreak"
+		},
+		{
+			"name": "dark_seer_ion_shell",
+			"id": "5256",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_seer_ion_shell_lg.png",
+			"localized_name": "Ion Shell"
+		},
+		{
+			"name": "queenofpain_scream_of_pain",
+			"id": "5175",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/queenofpain_scream_of_pain_lg.png",
+			"localized_name": "Scream Of Pain"
+		},
+		{
+			"name": "phantom_assassin_blur",
+			"id": "5192",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_assassin_blur_lg.png",
+			"localized_name": "Blur"
+		},
+		{
+			"name": "phantom_lancer_juxtapose",
+			"id": "5067",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_lancer_juxtapose_lg.png",
+			"localized_name": "Juxtapose"
+		},
+		{
+			"name": "tidehunter_anchor_smash",
+			"id": "5120",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tidehunter_anchor_smash_lg.png",
+			"localized_name": "Anchor Smash"
+		},
+		{
+			"name": "axe_battle_hunger",
+			"id": "5008",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/axe_battle_hunger_lg.png",
+			"localized_name": "Battle Hunger"
+		},
+		{
+			"name": "pugna_life_drain",
+			"id": "5189",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pugna_life_drain_lg.png",
+			"localized_name": "Life Drain"
+		},
+		{
+			"name": "batrider_firefly",
+			"id": "5322",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/batrider_firefly_lg.png",
+			"localized_name": "Firefly"
+		},
+		{
+			"name": "beastmaster_primal_roar",
+			"id": "5177",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_primal_roar_lg.png",
+			"localized_name": "Primal Roar"
+		},
+		{
+			"name": "shadow_shaman_mass_serpent_ward",
+			"id": "5081",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_shaman_mass_serpent_ward_lg.png",
+			"localized_name": "Mass Serpent Ward"
+		},
+		{
+			"name": "treant_leech_seed",
+			"id": "5435",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/treant_leech_seed_lg.png",
+			"localized_name": "Leech Seed"
+		},
+		{
+			"name": "chen_holy_persuasion",
+			"id": "5330",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chen_holy_persuasion_lg.png",
+			"localized_name": "Holy Persuasion"
+		},
+		{
+			"name": "courier_burst",
+			"id": "5210",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_burst_lg.png",
+			"localized_name": "Burst"
+		},
+		{
+			"name": "luna_lucent_beam",
+			"id": "5222",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/luna_lucent_beam_lg.png",
+			"localized_name": "Lucent Beam"
+		},
+		{
+			"name": "morphling_morph_replicate",
+			"id": "5058",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_morph_replicate_lg.png",
+			"localized_name": "Morph Replicate"
+		},
+		{
+			"name": "venomancer_poison_sting",
+			"id": "5179",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/venomancer_poison_sting_lg.png",
+			"localized_name": "Poison Sting"
+		},
+		{
+			"name": "roshan_bash",
+			"id": "5214",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/roshan_bash_lg.png",
+			"localized_name": "Bash"
+		},
+		{
+			"name": "tinker_march_of_the_machines",
+			"id": "5152",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tinker_march_of_the_machines_lg.png",
+			"localized_name": "March Of the Machines"
+		},
+		{
+			"name": "lone_druid_spirit_bear_demolish",
+			"id": "5420",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_spirit_bear_demolish_lg.png",
+			"localized_name": "Demolish"
+		},
+		{
+			"name": "mirana_leap",
+			"id": "5050",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/mirana_leap_lg.png",
+			"localized_name": "Leap"
+		},
+		{
+			"name": "brewmaster_storm_wind_walk",
+			"id": "5410",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_storm_wind_walk_lg.png",
+			"localized_name": "Wind Walk"
+		},
+		{
+			"name": "skeleton_king_reincarnation",
+			"id": "5089",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skeleton_king_reincarnation_lg.png",
+			"localized_name": "Reincarnation"
+		},
+		{
+			"name": "beastmaster_call_of_the_wild",
+			"id": "5169",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_call_of_the_wild_lg.png",
+			"localized_name": "Call Of the Wild"
+		},
+		{
+			"name": "riki_permanent_invisibility",
+			"id": "5145",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/riki_permanent_invisibility_lg.png",
+			"localized_name": "Permanent Invisibility"
+		},
+		{
+			"name": "courier_shield",
+			"id": "5209",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_shield_lg.png",
+			"localized_name": "Shield"
+		},
+		{
+			"name": "clinkz_searing_arrows",
+			"id": "5260",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/clinkz_searing_arrows_lg.png",
+			"localized_name": "Searing Arrows"
+		},
+		{
+			"name": "puck_illusory_orb",
+			"id": "5069",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/puck_illusory_orb_lg.png",
+			"localized_name": "Illusory Orb"
+		},
+		{
+			"name": "forged_spirit_melting_strike",
+			"id": "5388",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/forged_spirit_melting_strike_lg.png",
+			"localized_name": "Melting Strike"
+		},
+		{
+			"name": "viper_viper_strike",
+			"id": "5221",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/viper_viper_strike_lg.png",
+			"localized_name": "Viper Strike"
+		},
+		{
+			"name": "furion_wrath_of_nature",
+			"id": "5248",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/furion_wrath_of_nature_lg.png",
+			"localized_name": "Wrath Of Nature"
+		},
+		{
+			"name": "silencer_curse_of_the_silent",
+			"id": "5377",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/silencer_curse_of_the_silent_lg.png",
+			"localized_name": "Curse Of the Silent"
+		},
+		{
+			"name": "lich_frost_nova",
+			"id": "5134",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lich_frost_nova_lg.png",
+			"localized_name": "Frost Nova"
+		},
+		{
+			"name": "doom_bringer_doom",
+			"id": "5342",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_doom_lg.png",
+			"localized_name": "Doom"
+		},
+		{
+			"name": "warlock_golem_flaming_fists",
+			"id": "5166",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_golem_flaming_fists_lg.png",
+			"localized_name": "Flaming Fists"
+		},
+		{
+			"name": "invoker_quas",
+			"id": "5370",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_quas_lg.png",
+			"localized_name": "Quas"
+		},
+		{
+			"name": "invoker_invoke",
+			"id": "5375",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_invoke_lg.png",
+			"localized_name": "Invoke"
+		},
+		{
+			"name": "dazzle_weave",
+			"id": "5236",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dazzle_weave_lg.png",
+			"localized_name": "Weave"
+		},
+		{
+			"name": "courier_go_to_secretshop",
+			"id": "5492",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_go_to_secretshop_lg.png",
+			"localized_name": "Go To Secretshop"
+		},
+		{
+			"name": "meepo_geostrike",
+			"id": "5432",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/meepo_geostrike_lg.png",
+			"localized_name": "Geostrike"
+		},
+		{
+			"name": "ogre_magi_multicast",
+			"id": "5441",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ogre_magi_multicast_lg.png",
+			"localized_name": "Multicast"
+		},
+		{
+			"name": "crystal_maiden_frostbite",
+			"id": "5127",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/crystal_maiden_frostbite_lg.png",
+			"localized_name": "Frostbite"
+		},
+		{
+			"name": "invoker_deafening_blast",
+			"id": "5390",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_deafening_blast_lg.png",
+			"localized_name": "Deafening Blast"
+		},
+		{
+			"name": "crystal_maiden_freezing_field",
+			"id": "5129",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/crystal_maiden_freezing_field_lg.png",
+			"localized_name": "Freezing Field"
+		},
+		{
+			"name": "lina_light_strike_array",
+			"id": "5041",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lina_light_strike_array_lg.png",
+			"localized_name": "Light Strike Array"
+		},
+		{
+			"name": "dragon_knight_breathe_fire",
+			"id": "5226",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dragon_knight_breathe_fire_lg.png",
+			"localized_name": "Breathe Fire"
+		},
+		{
+			"name": "earthshaker_fissure",
+			"id": "5023",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earthshaker_fissure_lg.png",
+			"localized_name": "Fissure"
+		},
+		{
+			"name": "witch_doctor_paralyzing_cask",
+			"id": "5138",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/witch_doctor_paralyzing_cask_lg.png",
+			"localized_name": "Paralyzing Cask"
+		},
+		{
+			"name": "centaur_khan_endurance_aura",
+			"id": "5294",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_khan_endurance_aura_lg.png",
+			"localized_name": "Endurance Aura"
+		},
+		{
+			"name": "gyrocopter_homing_missile",
+			"id": "5362",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/gyrocopter_homing_missile_lg.png",
+			"localized_name": "Homing Missile"
+		},
+		{
+			"name": "death_prophet_silence",
+			"id": "5091",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/death_prophet_silence_lg.png",
+			"localized_name": "Silence"
+		},
+		{
+			"name": "beastmaster_wild_axes",
+			"id": "5168",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_wild_axes_lg.png",
+			"localized_name": "Wild Axes"
+		},
+		{
+			"name": "doom_bringer_lvl_death",
+			"id": "5341",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_lvl_death_lg.png",
+			"localized_name": "Lvl Death"
+		},
+		{
+			"name": "queenofpain_shadow_strike",
+			"id": "5173",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/queenofpain_shadow_strike_lg.png",
+			"localized_name": "Shadow Strike"
+		},
+		{
+			"name": "tiny_avalanche",
+			"id": "5106",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tiny_avalanche_lg.png",
+			"localized_name": "Avalanche"
+		},
+		{
+			"name": "invoker_exort",
+			"id": "5372",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_exort_lg.png",
+			"localized_name": "Exort"
+		},
+		{
+			"name": "lone_druid_true_form_battle_cry",
+			"id": "5417",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_true_form_battle_cry_lg.png",
+			"localized_name": "Battle Cry"
+		},
+		{
+			"name": "tiny_craggy_exterior",
+			"id": "5108",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tiny_craggy_exterior_lg.png",
+			"localized_name": "Craggy Exterior"
+		},
+		{
+			"name": "antimage_mana_void",
+			"id": "5006",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/antimage_mana_void_lg.png",
+			"localized_name": "Mana Void"
+		},
+		{
+			"name": "riki_smoke_screen",
+			"id": "5142",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/riki_smoke_screen_lg.png",
+			"localized_name": "Smoke Screen"
+		},
+		{
+			"name": "roshan_spell_block",
+			"id": "5213",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/roshan_spell_block_lg.png",
+			"localized_name": "Spell Block"
+		},
+		{
+			"name": "juggernaut_healing_ward",
+			"id": "5029",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_healing_ward_lg.png",
+			"localized_name": "Healing Ward"
+		},
+		{
+			"name": "ancient_apparition_ice_blast_release",
+			"id": "5349",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ancient_apparition_ice_blast_release_lg.png",
+			"localized_name": "Ice Blast Release"
+		},
+		{
+			"name": "obsidian_destroyer_arcane_orb",
+			"id": "5391",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/obsidian_destroyer_arcane_orb_lg.png",
+			"localized_name": "Arcane Orb"
+		},
+		{
+			"name": "earthshaker_aftershock",
+			"id": "5025",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earthshaker_aftershock_lg.png",
+			"localized_name": "Aftershock"
+		},
+		{
+			"name": "satyr_trickster_purge",
+			"id": "5314",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/satyr_trickster_purge_lg.png",
+			"localized_name": "Purge"
+		},
+		{
+			"name": "slardar_amplify_damage",
+			"id": "5117",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slardar_amplify_damage_lg.png",
+			"localized_name": "Amplify Damage"
+		},
+		{
+			"name": "dazzle_shallow_grave",
+			"id": "5234",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dazzle_shallow_grave_lg.png",
+			"localized_name": "Shallow Grave"
+		},
+		{
+			"name": "tiny_grow",
+			"id": "5109",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tiny_grow_lg.png",
+			"localized_name": "Grow"
+		},
+		{
+			"name": "shadow_demon_demonic_purge",
+			"id": "5425",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_demon_demonic_purge_lg.png",
+			"localized_name": "Demonic Purge"
+		},
+		{
+			"name": "enigma_midnight_pulse",
+			"id": "5148",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enigma_midnight_pulse_lg.png",
+			"localized_name": "Midnight Pulse"
+		},
+		{
+			"name": "treant_living_armor",
+			"id": "5436",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/treant_living_armor_lg.png",
+			"localized_name": "Living Armor"
+		},
+		{
+			"name": "spectre_desolate",
+			"id": "5335",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spectre_desolate_lg.png",
+			"localized_name": "Desolate"
+		},
+		{
+			"name": "weaver_time_lapse",
+			"id": "5292",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/weaver_time_lapse_lg.png",
+			"localized_name": "Time Lapse"
+		},
+		{
+			"name": "ancient_apparition_chilling_touch",
+			"id": "5347",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ancient_apparition_chilling_touch_lg.png",
+			"localized_name": "Chilling Touch"
+		},
+		{
+			"name": "brewmaster_storm_cyclone",
+			"id": "5409",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_storm_cyclone_lg.png",
+			"localized_name": "Cyclone"
+		},
+		{
+			"name": "vengefulspirit_command_aura",
+			"id": "5123",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/vengefulspirit_command_aura_lg.png",
+			"localized_name": "Command Aura"
+		},
+		{
+			"name": "broodmother_spawn_spiderlings",
+			"id": "5279",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_spawn_spiderlings_lg.png",
+			"localized_name": "Spawn Spiderlings"
+		},
+		{
+			"name": "bane_fiends_grip",
+			"id": "5013",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bane_fiends_grip_lg.png",
+			"localized_name": "Fiends Grip"
+		},
+		{
+			"name": "gyrocopter_flak_cannon",
+			"id": "5363",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/gyrocopter_flak_cannon_lg.png",
+			"localized_name": "Flak Cannon"
+		},
+		{
+			"name": "sniper_take_aim",
+			"id": "5156",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sniper_take_aim_lg.png",
+			"localized_name": "Take Aim"
+		},
+		{
+			"name": "sven_great_cleave",
+			"id": "5095",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sven_great_cleave_lg.png",
+			"localized_name": "Great Cleave"
+		},
+		{
+			"name": "death_prophet_exorcism",
+			"id": "5093",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/death_prophet_exorcism_lg.png",
+			"localized_name": "Exorcism"
+		},
+		{
+			"name": "mirana_arrow",
+			"id": "5048",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/mirana_arrow_lg.png",
+			"localized_name": "Arrow"
+		},
+		{
+			"name": "bounty_hunter_jinada",
+			"id": "5286",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bounty_hunter_jinada_lg.png",
+			"localized_name": "Jinada"
+		},
+		{
+			"name": "pudge_rot",
+			"id": "5076",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pudge_rot_lg.png",
+			"localized_name": "Rot"
+		},
+		{
+			"name": "chen_test_of_faith",
+			"id": "5329",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chen_test_of_faith_lg.png",
+			"localized_name": "Test Of Faith"
+		},
+		{
+			"name": "jakiro_ice_path",
+			"id": "5298",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_ice_path_lg.png",
+			"localized_name": "Ice Path"
+		},
+		{
+			"name": "enraged_wildkin_tornado",
+			"id": "5312",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enraged_wildkin_tornado_lg.png",
+			"localized_name": "Tornado"
+		},
+		{
+			"name": "pugna_decrepify",
+			"id": "5187",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pugna_decrepify_lg.png",
+			"localized_name": "Decrepify"
+		},
+		{
+			"name": "dark_troll_warlord_raise_dead",
+			"id": "5306",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_troll_warlord_raise_dead_lg.png",
+			"localized_name": "Raise Dead"
+		},
+		{
+			"name": "drow_ranger_trueshot",
+			"id": "5021",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/drow_ranger_trueshot_lg.png",
+			"localized_name": "Trueshot"
+		},
+		{
+			"name": "vengefulspirit_wave_of_terror",
+			"id": "5124",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/vengefulspirit_wave_of_terror_lg.png",
+			"localized_name": "Wave Of Terror"
+		},
+		{
+			"name": "bounty_hunter_wind_walk",
+			"id": "5287",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bounty_hunter_wind_walk_lg.png",
+			"localized_name": "Wind Walk"
+		},
+		{
+			"name": "nevermore_requiem",
+			"id": "5064",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_requiem_lg.png",
+			"localized_name": "Requiem"
+		},
+		{
+			"name": "courier_transfer_items",
+			"id": "5206",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_transfer_items_lg.png",
+			"localized_name": "Transfer Items"
+		},
+		{
+			"name": "viper_poison_attack",
+			"id": "5218",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/viper_poison_attack_lg.png",
+			"localized_name": "Poison Attack"
+		},
+		{
+			"name": "brewmaster_fire_permanent_immolation",
+			"id": "5411",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_fire_permanent_immolation_lg.png",
+			"localized_name": "Permanent Immolation"
+		},
+		{
+			"name": "alchemist_unstable_concoction",
+			"id": "5366",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_unstable_concoction_lg.png",
+			"localized_name": "Unstable Concoction"
+		},
+		{
+			"name": "undying_soul_rip",
+			"id": "5443",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_soul_rip_lg.png",
+			"localized_name": "Soul Rip"
+		},
+		{
+			"name": "roshan_devotion",
+			"id": "5217",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/roshan_devotion_lg.png",
+			"localized_name": "Devotion"
+		},
+		{
+			"name": "zuus_thundergods_wrath",
+			"id": "5113",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/zuus_thundergods_wrath_lg.png",
+			"localized_name": "Thundergods Wrath"
+		},
+		{
+			"name": "broodmother_spin_web",
+			"id": "5280",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_spin_web_lg.png",
+			"localized_name": "Spin Web"
+		},
+		{
+			"name": "jakiro_dual_breath",
+			"id": "5297",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_dual_breath_lg.png",
+			"localized_name": "Dual Breath"
+		},
+		{
+			"name": "luna_moon_glaive",
+			"id": "5223",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/luna_moon_glaive_lg.png",
+			"localized_name": "Moon Glaive"
+		},
+		{
+			"name": "roshan_slam",
+			"id": "5215",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/roshan_slam_lg.png",
+			"localized_name": "Slam"
+		},
+		{
+			"name": "queenofpain_sonic_wave",
+			"id": "5176",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/queenofpain_sonic_wave_lg.png",
+			"localized_name": "Sonic Wave"
+		},
+		{
+			"name": "sniper_assassinate",
+			"id": "5157",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sniper_assassinate_lg.png",
+			"localized_name": "Assassinate"
+		},
+		{
+			"name": "invoker_tornado",
+			"id": "5382",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_tornado_lg.png",
+			"localized_name": "Tornado"
+		},
+		{
+			"name": "dark_troll_warlord_ensnare",
+			"id": "5305",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_troll_warlord_ensnare_lg.png",
+			"localized_name": "Ensnare"
+		},
+		{
+			"name": "courier_return_stash_items",
+			"id": "5207",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_return_stash_items_lg.png",
+			"localized_name": "Return Stash Items"
+		},
+		{
+			"name": "batrider_sticky_napalm",
+			"id": "5320",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/batrider_sticky_napalm_lg.png",
+			"localized_name": "Sticky Napalm"
+		},
+		{
+			"name": "ancient_apparition_ice_vortex",
+			"id": "5346",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ancient_apparition_ice_vortex_lg.png",
+			"localized_name": "Ice Vortex"
+		},
+		{
+			"name": "windrunner_shackleshot",
+			"id": "5130",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/windrunner_shackleshot_lg.png",
+			"localized_name": "Shackleshot"
+		},
+		{
+			"name": "lion_voodoo",
+			"id": "5045",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lion_voodoo_lg.png",
+			"localized_name": "Voodoo"
+		},
+		{
+			"name": "undying_decay",
+			"id": "5442",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_decay_lg.png",
+			"localized_name": "Decay"
+		},
+		{
+			"name": "tinker_heat_seeking_missile",
+			"id": "5151",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tinker_heat_seeking_missile_lg.png",
+			"localized_name": "Heat Seeking Missile"
+		},
+		{
+			"name": "lion_mana_drain",
+			"id": "5046",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lion_mana_drain_lg.png",
+			"localized_name": "Mana Drain"
+		},
+		{
+			"name": "lone_druid_spirit_bear",
+			"id": "5412",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_spirit_bear_lg.png",
+			"localized_name": "Bear"
+		},
+		{
+			"name": "shadow_shaman_voodoo",
+			"id": "5079",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_shaman_voodoo_lg.png",
+			"localized_name": "Voodoo"
+		},
+		{
+			"name": "brewmaster_thunder_clap",
+			"id": "5400",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_thunder_clap_lg.png",
+			"localized_name": "Thunder Clap"
+		},
+		{
+			"name": "meepo_divided_we_stand",
+			"id": "5433",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/meepo_divided_we_stand_lg.png",
+			"localized_name": "Divided We Stand"
+		},
+		{
+			"name": "big_thunder_lizard_frenzy",
+			"id": "5333",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/big_thunder_lizard_frenzy_lg.png",
+			"localized_name": "Frenzy"
+		},
+		{
+			"name": "luna_eclipse",
+			"id": "5225",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/luna_eclipse_lg.png",
+			"localized_name": "Eclipse"
+		},
+		{
+			"name": "sandking_sand_storm",
+			"id": "5103",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sandking_sand_storm_lg.png",
+			"localized_name": "Sand Storm"
+		},
+		{
+			"name": "giant_wolf_critical_strike",
+			"id": "5307",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/giant_wolf_critical_strike_lg.png",
+			"localized_name": "Critical Strike"
+		},
+		{
+			"name": "brewmaster_storm_dispel_magic",
+			"id": "5408",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_storm_dispel_magic_lg.png",
+			"localized_name": "Dispel Magic"
+		},
+		{
+			"name": "big_thunder_lizard_slam",
+			"id": "5332",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/big_thunder_lizard_slam_lg.png",
+			"localized_name": "Slam"
+		},
+		{
+			"name": "forest_troll_high_priest_mana_aura",
+			"id": "5491",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/forest_troll_high_priest_mana_aura_lg.png",
+			"localized_name": "Mana Aura"
+		},
+		{
+			"name": "invoker_wex",
+			"id": "5371",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_wex_lg.png",
+			"localized_name": "Wex"
+		},
+		{
+			"name": "clinkz_wind_walk",
+			"id": "5261",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/clinkz_wind_walk_lg.png",
+			"localized_name": "Wind Walk"
+		},
+		{
+			"name": "lone_druid_true_form",
+			"id": "5415",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_true_form_lg.png",
+			"localized_name": "True Form"
+		},
+		{
+			"name": "undying_tombstone_zombie_deathstrike",
+			"id": "5446",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_tombstone_zombie_deathstrike_lg.png",
+			"localized_name": "Deathstrike"
+		},
+		{
+			"name": "queenofpain_blink",
+			"id": "5174",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/queenofpain_blink_lg.png",
+			"localized_name": "Blink"
+		},
+		{
+			"name": "roshan_illusion_protection",
+			"id": "5216",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/roshan_illusion_protection_lg.png",
+			"localized_name": "Illusion Protection"
+		},
+		{
+			"name": "necronomicon_archer_aoe",
+			"id": "5204",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necronomicon_archer_aoe_lg.png",
+			"localized_name": "Archer Aoe"
+		},
+		{
+			"name": "witch_doctor_death_ward",
+			"id": "5141",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/witch_doctor_death_ward_lg.png",
+			"localized_name": "Death Ward"
+		},
+		{
+			"name": "enchantress_untouchable",
+			"id": "5267",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enchantress_untouchable_lg.png",
+			"localized_name": "Untouchable"
+		},
+		{
+			"name": "night_stalker_void",
+			"id": "5275",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/night_stalker_void_lg.png",
+			"localized_name": "Void"
+		},
+		{
+			"name": "faceless_void_time_lock",
+			"id": "5184",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/faceless_void_time_lock_lg.png",
+			"localized_name": "Time Lock"
+		},
+		{
+			"name": "faceless_void_backtrack",
+			"id": "5183",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/faceless_void_backtrack_lg.png",
+			"localized_name": "Backtrack"
+		},
+		{
+			"name": "polar_furbolg_ursa_warrior_thunder_clap",
+			"id": "5302",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/polar_furbolg_ursa_warrior_thunder_clap_lg.png",
+			"localized_name": "Thunder Clap"
+		},
+		{
+			"name": "slardar_bash",
+			"id": "5116",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slardar_bash_lg.png",
+			"localized_name": "Bash"
+		},
+		{
+			"name": "omniknight_repel",
+			"id": "5264",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/omniknight_repel_lg.png",
+			"localized_name": "Repel"
+		},
+		{
+			"name": "huskar_life_break",
+			"id": "5274",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/huskar_life_break_lg.png",
+			"localized_name": "Life Break"
+		},
+		{
+			"name": "spirit_breaker_greater_bash",
+			"id": "5355",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spirit_breaker_greater_bash_lg.png",
+			"localized_name": "Breaker Greater Bash"
+		},
+		{
+			"name": "invoker_ghost_walk",
+			"id": "5381",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_ghost_walk_lg.png",
+			"localized_name": "Ghost Walk"
+		},
+		{
+			"name": "tidehunter_gush",
+			"id": "5118",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tidehunter_gush_lg.png",
+			"localized_name": "Gush"
+		},
+		{
+			"name": "tidehunter_ravage",
+			"id": "5121",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tidehunter_ravage_lg.png",
+			"localized_name": "Ravage"
+		},
+		{
+			"name": "lycan_summon_wolves",
+			"id": "5395",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_summon_wolves_lg.png",
+			"localized_name": "Summon Wolves"
+		},
+		{
+			"name": "drow_ranger_frost_arrows",
+			"id": "5019",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/drow_ranger_frost_arrows_lg.png",
+			"localized_name": "Frost Arrows"
+		},
+		{
+			"name": "rattletrap_power_cogs",
+			"id": "5238",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rattletrap_power_cogs_lg.png",
+			"localized_name": "Power Cogs"
+		},
+		{
+			"name": "chen_penitence",
+			"id": "5328",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chen_penitence_lg.png",
+			"localized_name": "Penitence"
+		},
+		{
+			"name": "skeleton_king_critical_strike",
+			"id": "5088",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skeleton_king_critical_strike_lg.png",
+			"localized_name": "Critical Strike"
+		},
+		{
+			"name": "dazzle_shadow_wave",
+			"id": "5235",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dazzle_shadow_wave_lg.png",
+			"localized_name": "Shadow Wave"
+		},
+		{
+			"name": "sniper_headshot",
+			"id": "5155",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sniper_headshot_lg.png",
+			"localized_name": "Headshot"
+		},
+		{
+			"name": "life_stealer_consume",
+			"id": "5253",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/life_stealer_consume_lg.png",
+			"localized_name": "Consume"
+		},
+		{
+			"name": "kunkka_x_marks_the_spot",
+			"id": "5033",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kunkka_x_marks_the_spot_lg.png",
+			"localized_name": "X Marks the Spot"
+		},
+		{
+			"name": "furion_teleportation",
+			"id": "5246",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/furion_teleportation_lg.png",
+			"localized_name": "Teleportation"
+		},
+		{
+			"name": "brewmaster_drunken_brawler",
+			"id": "5402",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_drunken_brawler_lg.png",
+			"localized_name": "Drunken Brawler"
+		},
+		{
+			"name": "morphling_waveform",
+			"id": "5052",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_waveform_lg.png",
+			"localized_name": "Waveform"
+		},
+		{
+			"name": "morphling_replicate",
+			"id": "5057",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_replicate_lg.png",
+			"localized_name": "Replicate"
+		},
+		{
+			"name": "storm_spirit_static_remnant",
+			"id": "5098",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/storm_spirit_static_remnant_lg.png",
+			"localized_name": "Static Remnant"
+		},
+		{
+			"name": "drow_ranger_marksmanship",
+			"id": "5022",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/drow_ranger_marksmanship_lg.png",
+			"localized_name": "Marksmanship"
+		},
+		{
+			"name": "night_stalker_darkness",
+			"id": "5278",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/night_stalker_darkness_lg.png",
+			"localized_name": "Darkness"
+		},
+		{
+			"name": "windrunner_powershot",
+			"id": "5131",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/windrunner_powershot_lg.png",
+			"localized_name": "Powershot"
+		},
+		{
+			"name": "venomancer_plague_ward",
+			"id": "5180",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/venomancer_plague_ward_lg.png",
+			"localized_name": "Plague Ward"
+		},
+		{
+			"name": "invoker_sun_strike",
+			"id": "5386",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_sun_strike_lg.png",
+			"localized_name": "Sun Strike"
+		},
+		{
+			"name": "riki_blink_strike",
+			"id": "5143",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/riki_blink_strike_lg.png",
+			"localized_name": "Blink Strike"
+		},
+		{
+			"name": "zuus_static_field",
+			"id": "5112",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/zuus_static_field_lg.png",
+			"localized_name": "Static Field"
+		},
+		{
+			"name": "pudge_meat_hook",
+			"id": "5075",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pudge_meat_hook_lg.png",
+			"localized_name": "Meat Hook"
+		},
+		{
+			"name": "pugna_nether_ward",
+			"id": "5188",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pugna_nether_ward_lg.png",
+			"localized_name": "Nether Ward"
+		},
+		{
+			"name": "treant_overgrowth",
+			"id": "5437",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/treant_overgrowth_lg.png",
+			"localized_name": "Overgrowth"
+		},
+		{
+			"name": "zuus_lightning_bolt",
+			"id": "5111",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/zuus_lightning_bolt_lg.png",
+			"localized_name": "Lightning Bolt"
+		},
+		{
+			"name": "luna_lunar_blessing",
+			"id": "5224",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/luna_lunar_blessing_lg.png",
+			"localized_name": "Lunar Blessing"
+		},
+		{
+			"name": "brewmaster_primal_split",
+			"id": "5403",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_primal_split_lg.png",
+			"localized_name": "Primal Split"
+		},
+		{
+			"name": "invoker_chaos_meteor",
+			"id": "5385",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_chaos_meteor_lg.png",
+			"localized_name": "Chaos Meteor"
+		},
+		{
+			"name": "ogre_magi_fireblast",
+			"id": "5438",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ogre_magi_fireblast_lg.png",
+			"localized_name": "Fireblast"
+		},
+		{
+			"name": "tidehunter_kraken_shell",
+			"id": "5119",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tidehunter_kraken_shell_lg.png",
+			"localized_name": "Kraken Shell"
+		},
+		{
+			"name": "ursa_enrage",
+			"id": "5360",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ursa_enrage_lg.png",
+			"localized_name": "Enrage"
+		},
+		{
+			"name": "lich_chain_frost",
+			"id": "5137",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lich_chain_frost_lg.png",
+			"localized_name": "Chain Frost"
+		},
+		{
+			"name": "razor_eye_of_the_storm",
+			"id": "5085",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/razor_eye_of_the_storm_lg.png",
+			"localized_name": "Eye Of the Storm"
+		},
+		{
+			"name": "ursa_fury_swipes",
+			"id": "5359",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ursa_fury_swipes_lg.png",
+			"localized_name": "Fury Swipes"
+		},
+		{
+			"name": "juggernaut_omni_slash",
+			"id": "5030",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_omni_slash_lg.png",
+			"localized_name": "Omni Slash"
+		},
+		{
+			"name": "obsidian_destroyer_essence_aura",
+			"id": "5393",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/obsidian_destroyer_essence_aura_lg.png",
+			"localized_name": "Essence Aura"
+		},
+		{
+			"name": "warlock_shadow_word",
+			"id": "5163",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_shadow_word_lg.png",
+			"localized_name": "Shadow Word"
+		},
+		{
+			"name": "axe_berserkers_call",
+			"id": "5007",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/axe_berserkers_call_lg.png",
+			"localized_name": "Berserkers Call"
+		},
+		{
+			"name": "dark_seer_wall_of_replica",
+			"id": "5258",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_seer_wall_of_replica_lg.png",
+			"localized_name": "Wall Of Replica"
+		},
+		{
+			"name": "razor_unstable_current",
+			"id": "5084",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/razor_unstable_current_lg.png",
+			"localized_name": "Unstable Current"
+		},
+		{
+			"name": "necrolyte_death_pulse",
+			"id": "5158",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necrolyte_death_pulse_lg.png",
+			"localized_name": "Death Pulse"
+		},
+		{
+			"name": "necrolyte_reapers_scythe",
+			"id": "5161",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necrolyte_reapers_scythe_lg.png",
+			"localized_name": "Reapers Scythe"
+		},
+		{
+			"name": "broodmother_insatiable_hunger",
+			"id": "5282",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_insatiable_hunger_lg.png",
+			"localized_name": "Insatiable Hunger"
+		},
+		{
+			"name": "templar_assassin_psi_blades",
+			"id": "5196",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_psi_blades_lg.png",
+			"localized_name": "Psi Blades"
+		},
+		{
+			"name": "pugna_nether_blast",
+			"id": "5186",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pugna_nether_blast_lg.png",
+			"localized_name": "Nether Blast"
+		},
+		{
+			"name": "leshrac_pulse_nova",
+			"id": "5244",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/leshrac_pulse_nova_lg.png",
+			"localized_name": "Pulse Nova"
+		},
+		{
+			"name": "doom_bringer_scorched_earth",
+			"id": "5340",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_scorched_earth_lg.png",
+			"localized_name": "Scorched Earth"
+		},
+		{
+			"name": "warlock_golem_permanent_immolation",
+			"id": "5167",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_golem_permanent_immolation_lg.png",
+			"localized_name": "Permanent Immolation"
+		},
+		{
+			"name": "bloodseeker_thirst",
+			"id": "5017",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bloodseeker_thirst_lg.png",
+			"localized_name": "Thirst"
+		},
+		{
+			"name": "mirana_starfall",
+			"id": "5051",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/mirana_starfall_lg.png",
+			"localized_name": "Starfall"
+		},
+		{
+			"name": "viper_corrosive_skin",
+			"id": "5220",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/viper_corrosive_skin_lg.png",
+			"localized_name": "Corrosive Skin"
+		},
+		{
+			"name": "kunkka_ghostship",
+			"id": "5035",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kunkka_ghostship_lg.png",
+			"localized_name": "Ghostship"
+		},
+		{
+			"name": "dark_seer_surge",
+			"id": "5257",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_seer_surge_lg.png",
+			"localized_name": "Surge"
+		},
+		{
+			"name": "lone_druid_spirit_bear_return",
+			"id": "5418",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_spirit_bear_return_lg.png",
+			"localized_name": "Return"
+		},
+		{
+			"name": "meepo_poof",
+			"id": "5431",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/meepo_poof_lg.png",
+			"localized_name": "Poof"
+		},
+		{
+			"name": "black_dragon_splash_attack",
+			"id": "5324",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/black_dragon_splash_attack_lg.png",
+			"localized_name": "Splash Attack"
+		},
+		{
+			"name": "rattletrap_battery_assault",
+			"id": "5237",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rattletrap_battery_assault_lg.png",
+			"localized_name": "Battery Assault"
+		},
+		{
+			"name": "drow_ranger_silence",
+			"id": "5020",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/drow_ranger_silence_lg.png",
+			"localized_name": "Silence"
+		},
+		{
+			"name": "nevermore_necromastery",
+			"id": "5062",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_necromastery_lg.png",
+			"localized_name": "Necromastery"
+		},
+		{
+			"name": "jakiro_macropyre",
+			"id": "5300",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/jakiro_macropyre_lg.png",
+			"localized_name": "Macropyre"
+		},
+		{
+			"name": "lone_druid_spirit_bear_entangle",
+			"id": "5419",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lone_druid_spirit_bear_entangle_lg.png",
+			"localized_name": "Entangle"
+		},
+		{
+			"name": "treant_natures_guise",
+			"id": "5434",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/treant_natures_guise_lg.png",
+			"localized_name": "Natures Guise"
+		},
+		{
+			"name": "beastmaster_greater_boar_poison",
+			"id": "5352",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_greater_boar_poison_lg.png",
+			"localized_name": "Poison"
+		},
+		{
+			"name": "tinker_laser",
+			"id": "5150",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tinker_laser_lg.png",
+			"localized_name": "Laser"
+		},
+		{
+			"name": "clinkz_death_pact",
+			"id": "5262",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/clinkz_death_pact_lg.png",
+			"localized_name": "Death Pact"
+		},
+		{
+			"name": "morphling_morph",
+			"id": "5054",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_morph_lg.png",
+			"localized_name": "Morph"
+		},
+		{
+			"name": "morphling_adaptive_strike",
+			"id": "5053",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_adaptive_strike_lg.png",
+			"localized_name": "Adaptive Strike"
+		},
+		{
+			"name": "mirana_invis",
+			"id": "5049",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/mirana_invis_lg.png",
+			"localized_name": "Invis"
+		},
+		{
+			"name": "enigma_malefice",
+			"id": "5146",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enigma_malefice_lg.png",
+			"localized_name": "Malefice"
+		},
+		{
+			"name": "skeleton_king_hellfire_blast",
+			"id": "5086",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skeleton_king_hellfire_blast_lg.png",
+			"localized_name": "Hellfire Blast"
+		},
+		{
+			"name": "silencer_global_silence",
+			"id": "5380",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/silencer_global_silence_lg.png",
+			"localized_name": "Global Silence"
+		},
+		{
+			"name": "phantom_assassin_phantom_strike",
+			"id": "5191",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_assassin_phantom_strike_lg.png",
+			"localized_name": "Phantom Strike"
+		},
+		{
+			"name": "lycan_shapeshift",
+			"id": "5398",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_shapeshift_lg.png",
+			"localized_name": "Shapeshift"
+		},
+		{
+			"name": "templar_assassin_refraction",
+			"id": "5194",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_refraction_lg.png",
+			"localized_name": "Refraction"
+		},
+		{
+			"name": "warlock_fatal_bonds",
+			"id": "5162",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/warlock_fatal_bonds_lg.png",
+			"localized_name": "Fatal Bonds"
+		},
+		{
+			"name": "death_prophet_carrion_swarm",
+			"id": "5090",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/death_prophet_carrion_swarm_lg.png",
+			"localized_name": "Carrion Swarm"
+		},
+		{
+			"name": "lion_finger_of_death",
+			"id": "5047",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lion_finger_of_death_lg.png",
+			"localized_name": "Finger Of Death"
+		},
+		{
+			"name": "ursa_earthshock",
+			"id": "5357",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ursa_earthshock_lg.png",
+			"localized_name": "Earthshock"
+		},
+		{
+			"name": "life_stealer_open_wounds",
+			"id": "5251",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/life_stealer_open_wounds_lg.png",
+			"localized_name": "Open Wounds"
+		},
+		{
+			"name": "blue_dragonspawn_overseer_evasion",
+			"id": "5326",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/blue_dragonspawn_overseer_evasion_lg.png",
+			"localized_name": "Evasion"
+		},
+		{
+			"name": "slardar_slithereen_crush",
+			"id": "5115",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slardar_slithereen_crush_lg.png",
+			"localized_name": "Slithereen Crush"
+		},
+		{
+			"name": "razor_plasma_field",
+			"id": "5082",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/razor_plasma_field_lg.png",
+			"localized_name": "Plasma Field"
+		},
+		{
+			"name": "storm_spirit_electric_vortex",
+			"id": "5099",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/storm_spirit_electric_vortex_lg.png",
+			"localized_name": "Electric Vortex"
+		},
+		{
+			"name": "spectre_dispersion",
+			"id": "5336",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spectre_dispersion_lg.png",
+			"localized_name": "Dispersion"
+		},
+		{
+			"name": "courier_return_to_base",
+			"id": "5205",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_return_to_base_lg.png",
+			"localized_name": "Return To Base"
+		},
+		{
+			"name": "sven_gods_strength",
+			"id": "5097",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sven_gods_strength_lg.png",
+			"localized_name": "Gods Strength"
+		},
+		{
+			"name": "leshrac_lightning_storm",
+			"id": "5243",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/leshrac_lightning_storm_lg.png",
+			"localized_name": "Lightning Storm"
+		},
+		{
+			"name": "life_stealer_rage",
+			"id": "5249",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/life_stealer_rage_lg.png",
+			"localized_name": "Rage"
+		},
+		{
+			"name": "spectre_reality",
+			"id": "5338",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spectre_reality_lg.png",
+			"localized_name": "Reality"
+		},
+		{
+			"name": "antimage_blink",
+			"id": "5004",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/antimage_blink_lg.png",
+			"localized_name": "Blink"
+		},
+		{
+			"name": "sniper_shrapnel",
+			"id": "5154",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sniper_shrapnel_lg.png",
+			"localized_name": "Shrapnel"
+		},
+		{
+			"name": "rattletrap_hookshot",
+			"id": "5240",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rattletrap_hookshot_lg.png",
+			"localized_name": "Hookshot"
+		},
+		{
+			"name": "invoker_cold_snap",
+			"id": "5376",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_cold_snap_lg.png",
+			"localized_name": "Cold Snap"
+		},
+		{
+			"name": "crystal_maiden_crystal_nova",
+			"id": "5126",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/crystal_maiden_crystal_nova_lg.png",
+			"localized_name": "Crystal Nova"
+		},
+		{
+			"name": "bloodseeker_rupture",
+			"id": "5018",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bloodseeker_rupture_lg.png",
+			"localized_name": "Rupture"
+		},
+		{
+			"name": "kunkka_tidebringer",
+			"id": "5032",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kunkka_tidebringer_lg.png",
+			"localized_name": "Tidebringer"
+		},
+		{
+			"name": "invoker_alacrity",
+			"id": "5384",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_alacrity_lg.png",
+			"localized_name": "Alacrity"
+		},
+		{
+			"name": "huskar_inner_vitality",
+			"id": "5271",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/huskar_inner_vitality_lg.png",
+			"localized_name": "Inner Vitality"
+		},
+		{
+			"name": "axe_counter_helix",
+			"id": "5009",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/axe_counter_helix_lg.png",
+			"localized_name": "Counter Helix"
+		},
+		{
+			"name": "spectre_spectral_dagger",
+			"id": "5334",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/spectre_spectral_dagger_lg.png",
+			"localized_name": "Spectral Dagger"
+		},
+		{
+			"name": "furion_force_of_nature",
+			"id": "5247",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/furion_force_of_nature_lg.png",
+			"localized_name": "Force Of Nature"
+		},
+		{
+			"name": "brewmaster_earth_hurl_boulder",
+			"id": "5404",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_earth_hurl_boulder_lg.png",
+			"localized_name": "Earth Hurl Boulder"
+		},
+		{
+			"name": "alchemist_goblins_greed",
+			"id": "5368",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_goblins_greed_lg.png",
+			"localized_name": "Goblins Greed"
+		},
+		{
+			"name": "windrunner_windrun",
+			"id": "5132",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/windrunner_windrun_lg.png",
+			"localized_name": "Windrun"
+		},
+		{
+			"name": "kunkka_return",
+			"id": "5034",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kunkka_return_lg.png",
+			"localized_name": "Return"
+		},
+		{
+			"name": "backdoor_protection",
+			"id": "5350",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/backdoor_protection_lg.png",
+			"localized_name": "Protection"
+		},
+		{
+			"name": "dragon_knight_dragon_blood",
+			"id": "5228",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dragon_knight_dragon_blood_lg.png",
+			"localized_name": "Dragon Blood"
+		},
+		{
+			"name": "vengefulspirit_magic_missile",
+			"id": "5122",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/vengefulspirit_magic_missile_lg.png",
+			"localized_name": "Magic Missile"
+		},
+		{
+			"name": "phantom_lancer_spirit_lance",
+			"id": "5065",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_lancer_spirit_lance_lg.png",
+			"localized_name": "Spirit Lance"
+		},
+		{
+			"name": "nevermore_shadowraze1",
+			"id": "5059",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_shadowraze1_lg.png",
+			"localized_name": "Shadowraze 1"
+		},
+		{
+			"name": "courier_take_stash_items",
+			"id": "5208",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/courier_take_stash_items_lg.png",
+			"localized_name": "Take Stash Items"
+		},
+		{
+			"name": "nevermore_shadowraze2",
+			"id": "5060",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_shadowraze2_lg.png",
+			"localized_name": "Shadowraze 2"
+		},
+		{
+			"name": "nevermore_shadowraze3",
+			"id": "5061",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nevermore_shadowraze3_lg.png",
+			"localized_name": "Shadowraze 3"
+		},
+		{
+			"name": "weaver_geminate_attack",
+			"id": "5291",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/weaver_geminate_attack_lg.png",
+			"localized_name": "Geminate Attack"
+		},
+		{
+			"name": "alpha_wolf_command_aura",
+			"id": "5309",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alpha_wolf_command_aura_lg.png",
+			"localized_name": "Command Aura"
+		},
+		{
+			"name": "ancient_apparition_ice_blast",
+			"id": "5348",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ancient_apparition_ice_blast_lg.png",
+			"localized_name": "Ice Blast"
+		},
+		{
+			"name": "ogre_magi_ignite",
+			"id": "5439",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ogre_magi_ignite_lg.png",
+			"localized_name": "Ignite"
+		},
+		{
+			"name": "harpy_storm_chain_lightning",
+			"id": "5319",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/harpy_storm_chain_lightning_lg.png",
+			"localized_name": "Lightning"
+		},
+		{
+			"name": "omniknight_degen_aura",
+			"id": "5265",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/omniknight_degen_aura_lg.png",
+			"localized_name": "Degen Aura"
+		},
+		{
+			"name": "enchantress_enchant",
+			"id": "5268",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enchantress_enchant_lg.png",
+			"localized_name": "Enchant"
+		},
+		{
+			"name": "leshrac_split_earth",
+			"id": "5241",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/leshrac_split_earth_lg.png",
+			"localized_name": "Split Earth"
+		},
+		{
+			"name": "death_prophet_witchcraft",
+			"id": "5092",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/death_prophet_witchcraft_lg.png",
+			"localized_name": "Witchcraft"
+		},
+		{
+			"name": "viper_nethertoxin",
+			"id": "5219",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/viper_nethertoxin_lg.png",
+			"localized_name": "Nethertoxin"
+		},
+		{
+			"name": "necrolyte_sadist",
+			"id": "5160",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necrolyte_sadist_lg.png",
+			"localized_name": "Sadist"
+		},
+		{
+			"name": "phantom_assassin_coup_de_grace",
+			"id": "5193",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_assassin_coup_de_grace_lg.png",
+			"localized_name": "Coup De Grace"
+		},
+		{
+			"name": "ancient_apparition_cold_feet",
+			"id": "5345",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ancient_apparition_cold_feet_lg.png",
+			"localized_name": "Cold Feet"
+		},
+		{
+			"name": "puck_dream_coil",
+			"id": "5073",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/puck_dream_coil_lg.png",
+			"localized_name": "Dream Coil"
+		},
+		{
+			"name": "venomancer_poison_nova",
+			"id": "5181",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/venomancer_poison_nova_lg.png",
+			"localized_name": "Poison Nova"
+		},
+		{
+			"name": "chaos_knight_chaos_bolt",
+			"id": "5426",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chaos_knight_chaos_bolt_lg.png",
+			"localized_name": "Chaos Bolt"
+		},
+		{
+			"name": "doom_bringer_devour",
+			"id": "5339",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_devour_lg.png",
+			"localized_name": "Devour"
+		},
+		{
+			"name": "bounty_hunter_shuriken_toss",
+			"id": "5285",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bounty_hunter_shuriken_toss_lg.png",
+			"localized_name": "Shuriken Toss"
+		},
+		{
+			"name": "blue_dragonspawn_overseer_devotion_aura",
+			"id": "5327",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/blue_dragonspawn_overseer_devotion_aura_lg.png",
+			"localized_name": "Devotion Aura"
+		},
+		{
+			"name": "earthshaker_echo_slam",
+			"id": "5026",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earthshaker_echo_slam_lg.png",
+			"localized_name": "Echo Slam"
+		},
+		{
+			"name": "necronomicon_warrior_sight",
+			"id": "5201",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necronomicon_warrior_sight_lg.png",
+			"localized_name": "Warrior Sight"
+		},
+		{
+			"name": "huskar_berserkers_blood",
+			"id": "5273",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/huskar_berserkers_blood_lg.png",
+			"localized_name": "Berserkers Blood"
+		},
+		{
+			"name": "templar_assassin_psionic_trap",
+			"id": "5197",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_psionic_trap_lg.png",
+			"localized_name": "Psionic Trap"
+		},
+		{
+			"name": "night_stalker_crippling_fear",
+			"id": "5276",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/night_stalker_crippling_fear_lg.png",
+			"localized_name": "Crippling Fear"
+		},
+		{
+			"name": "storm_spirit_overload",
+			"id": "5100",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/storm_spirit_overload_lg.png",
+			"localized_name": "Overload"
+		},
+		{
+			"name": "alchemist_unstable_concoction_throw",
+			"id": "5367",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alchemist_unstable_concoction_throw_lg.png",
+			"localized_name": "Unstable Concoction Throw"
+		},
+		{
+			"name": "morphling_morph_str",
+			"id": "5056",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/morphling_morph_str_lg.png",
+			"localized_name": "Morph Str"
+		},
+		{
+			"name": "doom_bringer_empty",
+			"id": "5343",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_empty_lg.png",
+			"localized_name": "Empty"
+		},
+		{
+			"name": "doom_bringer_empty",
+			"id": "5344",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/doom_bringer_empty_lg.png",
+			"localized_name": "Empty"
+		},
+		{
+			"name": "lycan_howl",
+			"id": "5396",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_howl_lg.png",
+			"localized_name": "Howl"
+		},
+		{
+			"name": "beastmaster_hawk_invisibility",
+			"id": "5170",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_hawk_invisibility_lg.png",
+			"localized_name": "Invisibility"
+		},
+		{
+			"name": "storm_spirit_ball_lightning",
+			"id": "5101",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/storm_spirit_ball_lightning_lg.png",
+			"localized_name": "Ball Lightning"
+		},
+		{
+			"name": "omniknight_purification",
+			"id": "5263",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/omniknight_purification_lg.png",
+			"localized_name": "Purification"
+		},
+		{
+			"name": "shadow_demon_shadow_poison",
+			"id": "5423",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_demon_shadow_poison_lg.png",
+			"localized_name": "Shadow Poison"
+		},
+		{
+			"name": "dragon_knight_elder_dragon_form",
+			"id": "5229",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dragon_knight_elder_dragon_form_lg.png",
+			"localized_name": "Elder Dragon Form"
+		},
+		{
+			"name": "juggernaut_blade_dance",
+			"id": "5027",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/juggernaut_blade_dance_lg.png",
+			"localized_name": "Blade Dance"
+		},
+		{
+			"name": "shadow_demon_disruption",
+			"id": "5421",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_demon_disruption_lg.png",
+			"localized_name": "Disruption"
+		},
+		{
+			"name": "venomancer_venomous_gale",
+			"id": "5178",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/venomancer_venomous_gale_lg.png",
+			"localized_name": "Venomous Gale"
+		},
+		{
+			"name": "gnoll_assassin_envenomed_weapon",
+			"id": "5296",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/gnoll_assassin_envenomed_weapon_lg.png",
+			"localized_name": "Envenomed Weapon"
+		},
+		{
+			"name": "alpha_wolf_critical_strike",
+			"id": "5308",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/alpha_wolf_critical_strike_lg.png",
+			"localized_name": "Critical Strike"
+		},
+		{
+			"name": "shadow_shaman_ether_shock",
+			"id": "5078",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_shaman_ether_shock_lg.png",
+			"localized_name": "Ether Shock"
+		},
+		{
+			"name": "night_stalker_hunter_in_the_night",
+			"id": "5277",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/night_stalker_hunter_in_the_night_lg.png",
+			"localized_name": "Hunter In the Night"
+		},
+		{
+			"name": "dragon_knight_dragon_tail",
+			"id": "5227",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dragon_knight_dragon_tail_lg.png",
+			"localized_name": "Dragon Tail"
+		},
+		{
+			"name": "gyrocopter_call_down",
+			"id": "5364",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/gyrocopter_call_down_lg.png",
+			"localized_name": "Call Down"
+		},
+		{
+			"name": "beastmaster_inner_beast",
+			"id": "5172",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/beastmaster_inner_beast_lg.png",
+			"localized_name": "Inner Beast"
+		},
+		{
+			"name": "pudge_dismember",
+			"id": "5077",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/pudge_dismember_lg.png",
+			"localized_name": "Dismember"
+		},
+		{
+			"name": "windrunner_focusfire",
+			"id": "5133",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/windrunner_focusfire_lg.png",
+			"localized_name": "Focusfire"
+		},
+		{
+			"name": "ghost_frost_attack",
+			"id": "5301",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ghost_frost_attack_lg.png",
+			"localized_name": "Frost Attack"
+		},
+		{
+			"name": "bane_brain_sap",
+			"id": "5011",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bane_brain_sap_lg.png",
+			"localized_name": "Brain Sap"
+		},
+		{
+			"name": "necrolyte_heartstopper_aura",
+			"id": "5159",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necrolyte_heartstopper_aura_lg.png",
+			"localized_name": "Heartstopper Aura"
+		},
+		{
+			"name": "chaos_knight_chaos_strike",
+			"id": "5428",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/chaos_knight_chaos_strike_lg.png",
+			"localized_name": "Chaos Strike"
+		},
+		{
+			"name": "skeleton_king_vampiric_aura",
+			"id": "5087",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skeleton_king_vampiric_aura_lg.png",
+			"localized_name": "Vampiric Aura"
+		},
+		{
+			"name": "clinkz_strafe",
+			"id": "5259",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/clinkz_strafe_lg.png",
+			"localized_name": "Strafe"
+		},
+		{
+			"name": "life_stealer_feast",
+			"id": "5250",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/life_stealer_feast_lg.png",
+			"localized_name": "Feast"
+		},
+		{
+			"name": "faceless_void_chronosphere",
+			"id": "5185",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/faceless_void_chronosphere_lg.png",
+			"localized_name": "Chronosphere"
+		},
+		{
+			"name": "lion_impale",
+			"id": "5044",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lion_impale_lg.png",
+			"localized_name": "Impale"
+		},
+		{
+			"name": "necronomicon_archer_mana_burn",
+			"id": "5203",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necronomicon_archer_mana_burn_lg.png",
+			"localized_name": "Archer Mana Burn"
+		},
+		{
+			"name": "axe_culling_blade",
+			"id": "5010",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/axe_culling_blade_lg.png",
+			"localized_name": "Culling Blade"
+		},
+		{
+			"name": "huskar_burning_spear",
+			"id": "5272",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/huskar_burning_spear_lg.png",
+			"localized_name": "Burning Spear"
+		},
+		{
+			"name": "brewmaster_earth_pulverize",
+			"id": "5406",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_earth_pulverize_lg.png",
+			"localized_name": "Earth Pulverize"
+		},
+		{
+			"name": "kobold_taskmaster_speed_aura",
+			"id": "5293",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kobold_taskmaster_speed_aura_lg.png",
+			"localized_name": "Taskmaster Speed Aura"
+		},
+		{
+			"name": "brewmaster_earth_spell_immunity",
+			"id": "5405",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/brewmaster_earth_spell_immunity_lg.png",
+			"localized_name": "Earth Spell Immunity"
+		},
+		{
+			"name": "necronomicon_warrior_mana_burn",
+			"id": "5202",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/necronomicon_warrior_mana_burn_lg.png",
+			"localized_name": "Warrior Mana Burn"
+		},
+		{
+			"name": "furion_sprout",
+			"id": "5245",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/furion_sprout_lg.png",
+			"localized_name": "Sprout"
+		},
+		{
+			"name": "invoker_empty2",
+			"id": "5374",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_empty2_lg.png",
+			"localized_name": "Empty2"
+		},
+		{
+			"name": "puck_ethereal_jaunt",
+			"id": "5070",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/puck_ethereal_jaunt_lg.png",
+			"localized_name": "Ethereal Jaunt"
+		},
+		{
+			"name": "invoker_empty1",
+			"id": "5373",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_empty1_lg.png",
+			"localized_name": "Empty1"
+		},
+		{
+			"name": "kunkka_torrent",
+			"id": "5031",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/kunkka_torrent_lg.png",
+			"localized_name": "Torrent"
+		},
+		{
+			"name": "phantom_lancer_doppelwalk",
+			"id": "5066",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_lancer_doppelwalk_lg.png",
+			"localized_name": "Doppelwalk"
+		},
+		{
+			"name": "undying_tombstone",
+			"id": "5444",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_tombstone_lg.png",
+			"localized_name": "Tombstone"
+		},
+		{
+			"name": "bane_nightmare",
+			"id": "5014",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bane_nightmare_lg.png",
+			"localized_name": "Nightmare"
+		},
+		{
+			"name": "zuus_arc_lightning",
+			"id": "5110",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/zuus_arc_lightning_lg.png",
+			"localized_name": "Arc Lightning"
+		},
+		{
+			"name": "undying_tombstone_zombie_aura",
+			"id": "5445",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/undying_tombstone_zombie_aura_lg.png",
+			"localized_name": "Tombstone Zombie Aura"
+		},
+		{
+			"name": "crystal_maiden_brilliance_aura",
+			"id": "5128",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/crystal_maiden_brilliance_aura_lg.png",
+			"localized_name": "Brilliance Aura"
+		},
+		{
+			"name": "bane_enfeeble",
+			"id": "5012",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bane_enfeeble_lg.png",
+			"localized_name": "Enfeeble"
+		},
+		{
+			"name": "satyr_soulstealer_mana_burn",
+			"id": "5315",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/satyr_soulstealer_mana_burn_lg.png",
+			"localized_name": "Mana Burn"
+		},
+		{
+			"name": "gyrocopter_rocket_barrage",
+			"id": "5361",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/gyrocopter_rocket_barrage_lg.png",
+			"localized_name": "Rocket Barrage"
+		},
+		{
+			"name": "dragon_knight_frost_breath",
+			"id": "5232",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dragon_knight_frost_breath_lg.png",
+			"localized_name": "Frost Breath"
+		},
+		{
+			"name": "invoker_emp",
+			"id": "5383",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/invoker_emp_lg.png",
+			"localized_name": "E.M.P"
+		},
+		{
+			"name": "shadow_demon_soul_catcher",
+			"id": "5422",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shadow_demon_soul_catcher_lg.png",
+			"localized_name": "Soul Catcher"
+		},
+		{
+			"name": "lina_fiery_soul",
+			"id": "5042",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lina_fiery_soul_lg.png",
+			"localized_name": "Fiery Soul"
+		},
+		{
+			"name": "lina_dragon_slave",
+			"id": "5040",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lina_dragon_slave_lg.png",
+			"localized_name": "Dragon Slave"
+		},
+		{
+			"name": "sven_storm_bolt",
+			"id": "5094",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sven_storm_bolt_lg.png",
+			"localized_name": "Storm Bolt"
+		},
+		{
+			"name": "broodmother_poison_sting",
+			"id": "5284",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/broodmother_poison_sting_lg.png",
+			"localized_name": "Poison Sting"
+		},
+		{
+			"name": "meepo_earthbind",
+			"id": "5430",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/meepo_earthbind_lg.png",
+			"localized_name": "Earthbind"
+		},
+		{
+			"name": "phantom_lancer_phantom_edge",
+			"id": "5068",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phantom_lancer_phantom_edge_lg.png",
+			"localized_name": "Phantom Edge"
+		},
+		{
+			"name": "puck_phase_shift",
+			"id": "5072",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/puck_phase_shift_lg.png",
+			"localized_name": "Phase Shift"
+		},
+		{
+			"name": "faceless_void_time_walk",
+			"id": "5182",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/faceless_void_time_walk_lg.png",
+			"localized_name": "Time Walk"
+		},
+		{
+			"name": "puck_waning_rift",
+			"id": "5071",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/puck_waning_rift_lg.png",
+			"localized_name": "Waning Rift"
+		},
+		{
+			"name": "lich_frost_armor",
+			"id": "5135",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lich_frost_armor_lg.png",
+			"localized_name": "Frost Armor"
+		},
+		{
+			"name": "sandking_burrowstrike",
+			"id": "5102",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/sandking_burrowstrike_lg.png",
+			"localized_name": "Burrowstrike"
+		},
+		{
+			"name": "dark_seer_vacuum",
+			"id": "5255",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/dark_seer_vacuum_lg.png",
+			"localized_name": "Vacuum"
+		},
+		{
+			"name": "obsidian_destroyer_sanity_eclipse",
+			"id": "5394",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/obsidian_destroyer_sanity_eclipse_lg.png",
+			"localized_name": "Sanity Eclipse"
+		},
+		{
+			"name": "enigma_black_hole",
+			"id": "5149",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/enigma_black_hole_lg.png",
+			"localized_name": "Black Hole"
+		},
+		{
+			"name": "lycan_summon_wolves_critical_strike",
+			"id": "5399",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/lycan_summon_wolves_critical_strike_lg.png",
+			"localized_name": "Critical Strike"
+		},
+		{
+			"name": "default_attack",
+			"id": "5001",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/default_attack_lg.png",
+			"localized_name": "Attack"
+		},
+		{
+			"name": "templar_assassin_trap",
+			"id": "5198",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/templar_assassin_trap_lg.png",
+			"localized_name": "Trap"
+		},
+		{
+			"name": "neutral_spell_immunity",
+			"id": "5303",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/neutral_spell_immunity_lg.png",
+			"localized_name": "Spell Immunity"
+		},
+		{
+			"name": "nyx_assassin_impale",
+			"id": "5462",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nyx_assassin_impale_lg.png",
+			"localized_name": "Impale"
+		},
+		{
+			"name": "nyx_assassin_mana_burn",
+			"id": "5463",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nyx_assassin_mana_burn_lg.png",
+			"localized_name": "Mana Burn"
+		},
+		{
+			"name": "nyx_assassin_spiked_carapace",
+			"id": "5464",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nyx_assassin_spiked_carapace_lg.png",
+			"localized_name": "Spiked Carapace"
+		},
+		{
+			"name": "nyx_assassin_vendetta",
+			"id": "5465",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/nyx_assassin_vendetta_lg.png",
+			"localized_name": "Vendetta"
+		},
+		{
+			"name": "slark_dark_pact",
+			"id": "5494",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slark_dark_pact_lg.png",
+			"localized_name": "Dark Pact"
+		},
+		{
+			"name": "slark_pounce",
+			"id": "5495",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slark_pounce_lg.png",
+			"localized_name": "Pounce"
+		},
+		{
+			"name": "slark_essence_shift",
+			"id": "5496",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slark_essence_shift_lg.png",
+			"localized_name": "Essence Shift"
+		},
+		{
+			"name": "slark_shadow_dance",
+			"id": "5497",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/slark_shadow_dance_lg.png",
+			"localized_name": "Shadow Dance"
+		},
+		{
+			"name": "medusa_split_shot",
+			"id": "5504",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/medusa_split_shot_lg.png",
+			"localized_name": "Split Shot"
+		},
+		{
+			"name": "medusa_mystic_snake",
+			"id": "5505",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/medusa_mystic_snake_lg.png",
+			"localized_name": "Mystic Snake"
+		},
+		{
+			"name": "medusa_mana_shield",
+			"id": "5506",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/medusa_mana_shield_lg.png",
+			"localized_name": "Mana Shield"
+		},
+		{
+			"name": "medusa_stone_gaze",
+			"id": "5507",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/medusa_stone_gaze_lg.png",
+			"localized_name": "Stone Gaze"
+		},
+		{
+			"name": "troll_warlord_berserkers_rage",
+			"id": "5508",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/troll_warlord_berserkers_rage_lg.png",
+			"localized_name": "Berserkers Rage"
+		},
+		{
+			"name": "troll_warlord_whirling_axes_ranged",
+			"id": "5509",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/troll_warlord_whirling_axes_ranged_lg.png",
+			"localized_name": "Whirling Axes Ranged"
+		},
+		{
+			"name": "troll_warlord_whirling_axes_melee",
+			"id": "5510",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/troll_warlord_whirling_axes_melee_lg.png",
+			"localized_name": "Whirling Axes Melee"
+		},
+		{
+			"name": "troll_warlord_fervor",
+			"id": "5511",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/troll_warlord_fervor_lg.png",
+			"localized_name": "Fervor"
+		},
+		{
+			"name": "troll_warlord_battle_trance",
+			"id": "5512",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/troll_warlord_battle_trance_lg.png",
+			"localized_name": "Battle Trance"
+		},
+		{
+			"name": "centaur_hoof_stomp",
+			"id": "5514",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_hoof_stomp_lg.png",
+			"localized_name": "Hoof Stomp"
+		},
+		{
+			"name": "centaur_double_edge",
+			"id": "5515",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_double_edge_lg.png",
+			"localized_name": "Double Edge"
+		},
+		{
+			"name": "centaur_return",
+			"id": "5516",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_return_lg.png",
+			"localized_name": "Return"
+		},
+		{
+			"name": "centaur_stampede",
+			"id": "5517",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/centaur_stampede_lg.png",
+			"localized_name": "Stampede"
+		},
+		{
+			"name": "magnataur_shockwave",
+			"id": "5518",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/magnataur_shockwave_lg.png",
+			"localized_name": "Shockwave"
+		},
+		{
+			"name": "magnataur_empower",
+			"id": "5519",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/magnataur_empower_lg.png",
+			"localized_name": "Empower"
+		},
+		{
+			"name": "magnataur_skewer",
+			"id": "5520",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/magnataur_skewer_lg.png",
+			"localized_name": "Skewer"
+		},
+		{
+			"name": "magnataur_reverse_polarity",
+			"id": "5521",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/magnataur_reverse_polarity_lg.png",
+			"localized_name": "Reverse Polarity"
+		},
+		{
+			"name": "shredder_whirling_death",
+			"id": "5524",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shredder_whirling_death_lg.png",
+			"localized_name": "Whirling Death"
+		},
+		{
+			"name": "shredder_timber_chain",
+			"id": "5525",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shredder_timber_chain_lg.png",
+			"localized_name": "Timber Chain"
+		},
+		{
+			"name": "shredder_reactive_armor",
+			"id": "5526",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shredder_reactive_armor_lg.png",
+			"localized_name": "Reactive Armor"
+		},
+		{
+			"name": "shredder_chakram",
+			"id": "5527",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shredder_chakram_lg.png",
+			"localized_name": "Chakram"
+		},
+		{
+			"name": "shredder_return_chakram",
+			"id": "5528",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/shredder_return_chakram_lg.png",
+			"localized_name": "Return Chakram"
+		},
+		{
+			"name": "keeper_of_the_light_illuminate",
+			"id": "5471",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_illuminate_lg.png",
+			"localized_name": "Illuminate"
+		},
+		{
+			"name": "keeper_of_the_light_mana_leak",
+			"id": "5472",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_mana_leak_lg.png",
+			"localized_name": "Mana Leak"
+		},
+		{
+			"name": "keeper_of_the_light_chakra_magic",
+			"id": "5473",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_chakra_magic_lg.png",
+			"localized_name": "Chakra Magic"
+		},
+		{
+			"name": "keeper_of_the_light_spirit_form",
+			"id": "5474",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_spirit_form_lg.png",
+			"localized_name": "Spirit Form"
+		},
+		{
+			"name": "keeper_of_the_light_recall",
+			"id": "5475",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_recall_lg.png",
+			"localized_name": "Recall"
+		},
+		{
+			"name": "keeper_of_the_light_blinding_light",
+			"id": "5476",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_blinding_light_lg.png",
+			"localized_name": "Blinding Light"
+		},
+		{
+			"name": "keeper_of_the_light_illuminate_end",
+			"id": "5477",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_illuminate_end_lg.png",
+			"localized_name": "Illuminate End"
+		},
+		{
+			"name": "keeper_of_the_light_spirit_form_illuminate",
+			"id": "5479",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/keeper_of_the_light_spirit_form_illuminate_lg.png",
+			"localized_name": "Spirit Form Illuminate"
+		},
+		{
+			"name": "rubick_telekinesis",
+			"id": "5448",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rubick_telekinesis_lg.png",
+			"localized_name": "Telekinesis"
+		},
+		{
+			"name": "rubick_fade_bolt",
+			"id": "5450",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rubick_fade_bolt_lg.png",
+			"localized_name": "Fade Bolt"
+		},
+		{
+			"name": "rubick_null_field",
+			"id": "5451",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rubick_null_field_lg.png",
+			"localized_name": "Null Field"
+		},
+		{
+			"name": "rubick_spell_steal",
+			"id": "5452",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/rubick_spell_steal_lg.png",
+			"localized_name": "Spell Steal"
+		},
+		{
+			"name": "disruptor_thunder_strike",
+			"id": "5458",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/disruptor_thunder_strike_lg.png",
+			"localized_name": "Thunder Strike"
+		},
+		{
+			"name": "disruptor_glimpse",
+			"id": "5459",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/disruptor_glimpse_lg.png",
+			"localized_name": "Glimpse"
+		},
+		{
+			"name": "disruptor_kinetic_field",
+			"id": "5460",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/disruptor_kinetic_field_lg.png",
+			"localized_name": "Kinetic Field"
+		},
+		{
+			"name": "disruptor_static_storm",
+			"id": "5461",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/disruptor_static_storm_lg.png",
+			"localized_name": "Static Storm"
+		},
+		{
+			"name": "naga_siren_mirror_image",
+			"id": "5467",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_mirror_image_lg.png",
+			"localized_name": "Mirror Image"
+		},
+		{
+			"name": "naga_siren_ensnare",
+			"id": "5468",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_ensnare_lg.png",
+			"localized_name": "Ensnare"
+		},
+		{
+			"name": "naga_siren_rip_tide",
+			"id": "5469",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_rip_tide_lg.png",
+			"localized_name": "Rip Tide"
+		},
+		{
+			"name": "naga_siren_song_of_the_siren",
+			"id": "5470",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/naga_siren_song_of_the_siren_lg.png",
+			"localized_name": "Song Of the Siren"
+		},
+		{
+			"name": "visage_grave_chill",
+			"id": "5480",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/visage_grave_chill_lg.png",
+			"localized_name": "Grave Chill"
+		},
+		{
+			"name": "visage_soul_assumption",
+			"id": "5481",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/visage_soul_assumption_lg.png",
+			"localized_name": "Soul Assumption"
+		},
+		{
+			"name": "visage_gravekeepers_cloak",
+			"id": "5482",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/visage_gravekeepers_cloak_lg.png",
+			"localized_name": "Gravekeepers Cloak"
+		},
+		{
+			"name": "visage_summon_familiars",
+			"id": "5483",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/visage_summon_familiars_lg.png",
+			"localized_name": "Summon Familiars"
+		},
+		{
+			"name": "wisp_tether",
+			"id": "5485",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/wisp_tether_lg.png",
+			"localized_name": "Tether"
+		},
+		{
+			"name": "wisp_spirits",
+			"id": "5486",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/wisp_spirits_lg.png",
+			"localized_name": "Spirits"
+		},
+		{
+			"name": "wisp_overcharge",
+			"id": "5487",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/wisp_overcharge_lg.png",
+			"localized_name": "Overcharge"
+		},
+		{
+			"name": "wisp_relocate",
+			"id": "5488",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/wisp_relocate_lg.png",
+			"localized_name": "Relocate"
+		},
+		{
+			"name": "wisp_tether_break",
+			"id": "5489",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/wisp_tether_break_lg.png",
+			"localized_name": "Tether Break"
+		},
+		{
+			"name": "bristleback_viscous_nasal_goo",
+			"id": "5548",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bristleback_viscous_nasal_goo_lg.png",
+			"localized_name": "Viscous Nasal Goo"
+		},
+		{
+			"name": "bristleback_quill_spray",
+			"id": "5549",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bristleback_quill_spray_lg.png",
+			"localized_name": "Quill Spray"
+		},
+		{
+			"name": "bristleback_bristleback",
+			"id": "5550",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bristleback_bristleback_lg.png",
+			"localized_name": "Bristleback"
+		},
+		{
+			"name": "bristleback_warpath",
+			"id": "5551",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/bristleback_warpath_lg.png",
+			"localized_name": "Warpath"
+		},
+		{
+			"name": "tusk_ice_shards",
+			"id": "5565",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tusk_ice_shards_lg.png",
+			"localized_name": "Ice Shards"
+		},
+		{
+			"name": "tusk_snowball",
+			"id": "5566",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tusk_snowball_lg.png",
+			"localized_name": "Snowball"
+		},
+		{
+			"name": "tusk_frozen_sigil",
+			"id": "5567",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tusk_frozen_sigil_lg.png",
+			"localized_name": "Frozen Sigil"
+		},
+		{
+			"name": "tusk_walrus_punch",
+			"id": "5568",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/tusk_walrus_punch_lg.png",
+			"localized_name": "Walrus Punch"
+		},
+		{
+			"name": "skywrath_mage_arcane_bolt",
+			"id": "5581",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skywrath_mage_arcane_bolt_lg.png",
+			"localized_name": "Arcane Bolt"
+		},
+		{
+			"name": "skywrath_mage_concussive_shot",
+			"id": "5582",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skywrath_mage_concussive_shot_lg.png",
+			"localized_name": "Concussive Shot"
+		},
+		{
+			"name": "skywrath_mage_ancient_seal",
+			"id": "5583",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skywrath_mage_ancient_seal_lg.png",
+			"localized_name": "Ancient Seal"
+		},
+		{
+			"name": "skywrath_mage_mystic_flare",
+			"id": "5584",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/skywrath_mage_mystic_flare_lg.png",
+			"localized_name": "Mystic Flare"
+		},
+		{
+			"name": "abaddon_death_coil",
+			"id": "5585",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abaddon_death_coil_lg.png",
+			"localized_name": "Death Coil"
+		},
+		{
+			"name": "abaddon_aphotic_shield",
+			"id": "5586",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abaddon_aphotic_shield_lg.png",
+			"localized_name": "Aphotic Shield"
+		},
+		{
+			"name": "abaddon_frostmourne",
+			"id": "5587",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abaddon_frostmourne_lg.png",
+			"localized_name": "Frostmourne"
+		},
+		{
+			"name": "abaddon_borrowed_time",
+			"id": "5588",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abaddon_borrowed_time_lg.png",
+			"localized_name": "Borrowed Time"
+		},
+		{
+			"name": "elder_titan_echo_stomp",
+			"id": "5589",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/elder_titan_echo_stomp_lg.png",
+			"localized_name": "Echo Stomp"
+		},
+		{
+			"name": "elder_titan_ancestral_spirit",
+			"id": "5591",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/elder_titan_ancestral_spirit_lg.png",
+			"localized_name": "Ancestral Spirit"
+		},
+		{
+			"name": "elder_titan_natural_order",
+			"id": "5593",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/elder_titan_natural_order_lg.png",
+			"localized_name": "Natural Order"
+		},
+		{
+			"name": "elder_titan_earth_splitter",
+			"id": "5594",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/elder_titan_earth_splitter_lg.png",
+			"localized_name": "Earth Splitter"
+		},
+		{
+			"name": "legion_commander_overwhelming_odds",
+			"id": "5595",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/legion_commander_overwhelming_odds_lg.png",
+			"localized_name": "Overwhelming Odds"
+		},
+		{
+			"name": "legion_commander_press_the_attack",
+			"id": "5596",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/legion_commander_press_the_attack_lg.png",
+			"localized_name": "Press the Attack"
+		},
+		{
+			"name": "legion_commander_moment_of_courage",
+			"id": "5597",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/legion_commander_moment_of_courage_lg.png",
+			"localized_name": "Moment Of Courage"
+		},
+		{
+			"name": "legion_commander_duel",
+			"id": "5598",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/legion_commander_duel_lg.png",
+			"localized_name": "Duel"
+		},
+		{
+			"name": "techies_land_mines",
+			"id": "5599",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/techies_land_mines_lg.png",
+			"localized_name": "Land Mines"
+		},
+		{
+			"name": "techies_stasis_trap",
+			"id": "5600",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/techies_stasis_trap_lg.png",
+			"localized_name": "Stasis Trap"
+		},
+		{
+			"name": "techies_suicide_squad_attack",
+			"id": "5601",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/techies_suicide_squad_attack_lg.png",
+			"localized_name": "Suicide Squad Attack"
+		},
+		{
+			"name": "techies_remote_mines",
+			"id": "5602",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/techies_remote_mines_lg.png",
+			"localized_name": "Remote Mines"
+		},
+		{
+			"name": "ember_spirit_searing_chains",
+			"id": "5603",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ember_spirit_searing_chains_lg.png",
+			"localized_name": "Searing Chains"
+		},
+		{
+			"name": "ember_spirit_sleight_of_fist",
+			"id": "5604",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ember_spirit_sleight_of_fist_lg.png",
+			"localized_name": "Sleight Of Fist"
+		},
+		{
+			"name": "ember_spirit_flame_guard",
+			"id": "5605",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ember_spirit_flame_guard_lg.png",
+			"localized_name": "Flame Guard"
+		},
+		{
+			"name": "ember_spirit_fire_remnant",
+			"id": "5606",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ember_spirit_fire_remnant_lg.png",
+			"localized_name": "Fire Remnant"
+		},
+		{
+			"name": "ember_spirit_activate_fire_remnant",
+			"id": "5607",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/ember_spirit_activate_fire_remnant_lg.png",
+			"localized_name": "Activate Fire Remnant"
+		},
+		{
+			"name": "earth_spirit_boulder_smash",
+			"id": "5608",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earth_spirit_boulder_smash_lg.png",
+			"localized_name": "Boulder Smash"
+		},
+		{
+			"name": "earth_spirit_rolling_boulder",
+			"id": "5609",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earth_spirit_rolling_boulder_lg.png",
+			"localized_name": "Rolling Boulder"
+		},
+		{
+			"name": "earth_spirit_geomagnetic_grip",
+			"id": "5610",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earth_spirit_geomagnetic_grip_lg.png",
+			"localized_name": "Geomagnetic Grip"
+		},
+		{
+			"name": "earth_spirit_stone_caller",
+			"id": "5611",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earth_spirit_stone_caller_lg.png",
+			"localized_name": "Stone Caller"
+		},
+		{
+			"name": "earth_spirit_magnetize",
+			"id": "5612",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/earth_spirit_magnetize_lg.png",
+			"localized_name": "Magnetize"
+		},
+		{
+			"name": "abyssal_underlord_firestorm",
+			"id": "5613",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abyssal_underlord_firestorm_lg.png",
+			"localized_name": "Firestorm"
+		},
+		{
+			"name": "abyssal_underlord_pit_of_malice",
+			"id": "5614",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abyssal_underlord_pit_of_malice_lg.png",
+			"localized_name": "Pit Of Malice"
+		},
+		{
+			"name": "abyssal_underlord_atrophy_aura",
+			"id": "5615",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abyssal_underlord_atrophy_aura_lg.png",
+			"localized_name": "Atrophy Aura"
+		},
+		{
+			"name": "abyssal_underlord_dark_rift",
+			"id": "5616",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/abyssal_underlord_dark_rift_lg.png",
+			"localized_name": "Dark Rift"
+		},
+		{
+			"name": "terrorblade_reflection",
+			"id": "5619",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/terrorblade_reflection_lg.png",
+			"localized_name": "Reflection"
+		},
+		{
+			"name": "terrorblade_conjure_image",
+			"id": "5620",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/terrorblade_conjure_image_lg.png",
+			"localized_name": "Conjure Image"
+		},
+		{
+			"name": "terrorblade_metamorphosis",
+			"id": "5621",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/terrorblade_metamorphosis_lg.png",
+			"localized_name": "Metamorphosis"
+		},
+		{
+			"name": "terrorblade_sunder",
+			"id": "5622",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/terrorblade_sunder_lg.png",
+			"localized_name": "Sunder"
+		},
+		{
+			"name": "phoenix_icarus_dive",
+			"id": "5623",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phoenix_icarus_dive_lg.png",
+			"localized_name": "Icarus Dive"
+		},
+		{
+			"name": "phoenix_fire_spirits",
+			"id": "5625",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phoenix_fire_spirits_lg.png",
+			"localized_name": "Spirits"
+		},
+		{
+			"name": "phoenix_sun_ray",
+			"id": "5626",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phoenix_sun_ray_lg.png",
+			"localized_name": "Sun Ray"
+		},
+		{
+			"name": "phoenix_supernova",
+			"id": "5630",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/phoenix_supernova_lg.png",
+			"localized_name": "Supernova"
+		},
+		{
+			"name": "drow_ranger_wave_of_silence",
+			"id": "5632",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/drow_ranger_wave_of_silence_lg.png",
+			"localized_name": "Wave Of Silence"
+		},
+		{
+			"name": "oracle_fortunes_end",
+			"id": "5637",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/oracle_fortunes_end_lg.png",
+			"localized_name": "Fortunes End"
+		},
+		{
+			"name": "oracle_fates_edict",
+			"id": "5638",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/oracle_fates_edict_lg.png",
+			"localized_name": "Fates Edict"
+		},
+		{
+			"name": "oracle_purifying_flames",
+			"id": "5639",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/oracle_purifying_flames_lg.png",
+			"localized_name": "Purifying Flames"
+		},
+		{
+			"name": "oracle_false_promise",
+			"id": "5640",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/oracle_false_promise_lg.png",
+			"localized_name": "False Promise"
+		},
+		{
+			"name": "winter_wyvern_arctic_burn",
+			"id": "5651",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/winter_wyvern_arctic_burn_lg.png",
+			"localized_name": "Arctic Burn"
+		},
+		{
+			"name": "winter_wyvern_splinter_blast",
+			"id": "5652",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/winter_wyvern_splinter_blast_lg.png",
+			"localized_name": "Splinter Blast"
+		},
+		{
+			"name": "winter_wyvern_cold_embrace",
+			"id": "5653",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/winter_wyvern_cold_embrace_lg.png",
+			"localized_name": "Cold Embrace"
+		},
+		{
+			"name": "winter_wyvern_winters_curse",
+			"id": "5654",
+			"url_image": "http://cdn.dota2.com/apps/dota2/images/abilities/winter_wyvern_winters_curse_lg.png",
+			"localized_name": "Winters Curse"
+		}
+	]
+}

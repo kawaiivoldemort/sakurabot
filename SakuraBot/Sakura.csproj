@@ -16,6 +16,9 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.1" />
     <PackageReference Include="Telegram.Bot" Version="14.2.0-rc-452" />
+    <ProjectReference Include="..\OpenDotaApi\OpenDotaApi.csproj">
+      <Name>OpenDotaApi</Name>
+    </ProjectReference>
   </ItemGroup>
 
 </Project>
