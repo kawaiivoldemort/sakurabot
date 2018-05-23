@@ -9,9 +9,16 @@ namespace Sakura.Uwu.Models
         public int UserId { get; set; }
         public long GroupId { get; set; }
         public int WarnCount { get; set; }
+        public UserWarns() 
+        {
+            this.UserId = 0;
+            this.GroupId = 0;
+            this.WarnCount = 1;
+        }
         public UserWarns(long gid) 
         {
             this.UserId = 0;
+            this.GroupId = gid;
             this.WarnCount = 1;
         }
         public UserWarns(long gid, int uid)
