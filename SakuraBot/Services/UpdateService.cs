@@ -35,7 +35,7 @@ namespace Sakura.Uwu.Services
             {
                 if (update.Type == UpdateType.Message)
                 {
-                    if(update.Message.Text.StartsWith("/help"))
+                    if(update.Message.Type == MessageType.Text && update.Message.Text.StartsWith("/help"))
                     {
                         await _commandProcessorService.ServiceContext.TelegramBotService.Client.SendTextMessageAsync
                         (
@@ -44,34 +44,29 @@ namespace Sakura.Uwu.Services
                             parseMode: ParseMode.Html
                         );
                     }
-                    else
+                }
+                var commandTaskList = new List<Task>();
+                foreach(var commandProcessor in _commandProcessorService.CommandProcessors)
+                {
+                    if (update.Type == commandProcessor.Type)
+                    if(commandProcessor.DoesProcessCommand(update))
                     {
-                        var commandTaskList = new List<Task>();
-                        foreach(var commandProcessor in _commandProcessorService.CommandProcessors)
+                        commandTaskList.Add
+                        (
+                            commandProcessor.ProcessCommand
+                            (
+                                update.Message,
+                                _commandProcessorService.ServiceContext,
+                                _dbContext
+                            )
+                        );
+                        if(commandProcessor.IsFinalCommand)
                         {
-                            if(commandProcessor.DoesProcessCommand(update))
-                            {
-                                commandTaskList.Add
-                                (
-                                    commandProcessor.ProcessCommand
-                                    (
-                                        update.Message,
-                                        _commandProcessorService.ServiceContext,
-                                        _dbContext
-                                    )
-                                );
-                                if(commandProcessor.IsFinalCommand)
-                                {
-                                    break;
-                                }
-                            }
+                            break;
                         }
-                        await Task.WhenAll(commandTaskList.ToArray());
                     }
                 }
-                else if (update.Type == UpdateType.CallbackQuery)
-                {
-                }
+                await Task.WhenAll(commandTaskList.ToArray());
             }
             catch(Exception e)
             {
