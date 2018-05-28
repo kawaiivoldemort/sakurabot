@@ -25,18 +25,20 @@ namespace Sakura.Uwu.CommandProcessors
             Type = UpdateType.Message;
             Commands = new Dictionary<string, Command>
             {
-                { "/warn",          new Command() { TaskName="/warn",           TaskDescription="Warns User. Kicks on 3 Warns.",                          TaskProcess=WarnUserCommand     } },
-                { "/clearwarns",    new Command() { TaskName="/clearwarns",     TaskDescription="Forgives a User and Sets Warns to 0",                    TaskProcess=ClearWarnsCommand   } },
-                { "/ban",           new Command() { TaskName="/ban",            TaskDescription="Bans a User from the Chat",                              TaskProcess=BanCommand          } },
-                { "/unban",         new Command() { TaskName="/unban",          TaskDescription="Unbans a User from the Chat",                            TaskProcess=UnbanCommand        } },
-                { "/kick",          new Command() { TaskName="/kick",           TaskDescription="Kicks a User from the Chat for 1 Minute",                TaskProcess=KickCommand         } },
-                { "/pin",           new Command() { TaskName="/pin",            TaskDescription="Pins a message in a group",                              TaskProcess=PinCommand          } },
-                { "/loudpin",       new Command() { TaskName="/loudpin",        TaskDescription="Pins a message in a group and Notify all Chat Members",  TaskProcess=PinLoudlyCommand    } },
-                { "/setwelcome",    new Command() { TaskName="/setwelcome",     TaskDescription="Sets Group Welcome Message",                                           TaskProcess=SetWelcomeCommand   } },
-                { "/clearwelcome",  new Command() { TaskName="/clearwelcome",   TaskDescription="Clears Group Welcome Message",                                         TaskProcess=ClearWelcomeCommand } },
-                { "/save",          new Command() { TaskName="/save",           TaskDescription="Save Message for Future Reference",                                    TaskProcess=SaveMessage         } },
-                { "/saved",         new Command() { TaskName="/saved",          TaskDescription="List Saved Messages",                                                  TaskProcess=SavedMessage        } },
-                { "/clearsaved",    new Command() { TaskName="/clearsaved",     TaskDescription="Clear Saved Messages",                                                 TaskProcess=ClearSavedMessage   } }
+                { "/warn",              new Command() { TaskName="/warn",               TaskDescription="Warns User. Kicks on 3 Warns.",                          TaskProcess=WarnUserCommand           } },
+                { "/clearwarns",        new Command() { TaskName="/clearwarns",         TaskDescription="Forgives a User and Sets Warns to 0",                    TaskProcess=ClearWarnsCommand         } },
+                { "/ban",               new Command() { TaskName="/ban",                TaskDescription="Bans a User from the Chat",                              TaskProcess=BanCommand                } },
+                { "/unban",             new Command() { TaskName="/unban",              TaskDescription="Unbans a User from the Chat",                            TaskProcess=UnbanCommand              } },
+                { "/kick",              new Command() { TaskName="/kick",               TaskDescription="Kicks a User from the Chat for 1 Minute",                TaskProcess=KickCommand               } },
+                { "/pin",               new Command() { TaskName="/pin",                TaskDescription="Pins a message in a group",                              TaskProcess=PinCommand                } },
+                { "/loudpin",           new Command() { TaskName="/loudpin",            TaskDescription="Pins a message in a group and Notify all Chat Members",  TaskProcess=PinLoudlyCommand          } },
+                { "/setwelcometext",    new Command() { TaskName="/setwelcometext",     TaskDescription="Sets Group Welcome Text Message",                        TaskProcess=SetWelcomeMessageCommand  } },
+                { "/setwelcomerules",   new Command() { TaskName="/setwelcomerules",    TaskDescription="Sets Group Welcome Rules Message",                       TaskProcess=SetRulesCommand           } },
+                { "/setwelcomemedia",   new Command() { TaskName="/setwelcomemedia",    TaskDescription="Sets Group Welcome Media Message",                       TaskProcess=SetWelcomeMediaCommand    } },
+                { "/clearwelcome",      new Command() { TaskName="/clearwelcome",       TaskDescription="Clears Group Welcome Message",                           TaskProcess=ClearWelcomeCommand       } },
+                { "/save",              new Command() { TaskName="/save",               TaskDescription="Save Message for Future Reference",                      TaskProcess=SaveMessage               } },
+                { "/saved",             new Command() { TaskName="/saved",              TaskDescription="List Saved Messages",                                    TaskProcess=SavedMessage              } },
+                { "/clearsaved",        new Command() { TaskName="/clearsaved",         TaskDescription="Clear Saved Messages",                                   TaskProcess=ClearSavedMessage         } }
             };
             IsFinalCommand = true;
         }
@@ -441,46 +443,109 @@ $@"Unbanned
             }
         }
 
-        private async Task SetWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        private async Task SetWelcomeMessageCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
             var client = serviceContext.TelegramBotService.Client;
-            if(message.Text.Length > 10)
-            {
-                var welcomeMessage = message.Text.Substring(9);
-                var table = dbContext.WelcomeMessages;
-                var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-                if(existingEntry != null)
-                {
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        "Updated Welcome Message",
-                        replyToMessageId: message.MessageId
-                    );
-                    existingEntry.ChatId = message.Chat.Id;
-                    existingEntry.Text = welcomeMessage;
-                }
-                else
-                {
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        "Saved Welcome Message",
-                        replyToMessageId: message.MessageId
-                    );
-                    table.Add(new GroupWelcomeMessages(message.Chat.Id, welcomeMessage));
-                }
-                dbContext.SaveChanges();
-            }
-            else
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
             {
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "Invalid Request",
+                    "pweese repwy to the mewssage you wanna pin UwU!",
                     replyToMessageId: message.MessageId
                 );
             }
+            else
+            {
+                var table = dbContext.WelcomeMessages;
+                var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+                if(existingEntry != null)
+                {
+                    existingEntry.WelcomeMessage = originMessage.MessageId;
+                }
+                else
+                {
+                    table.Add(new GroupMessages() { ChatId = message.Chat.Id, WelcomeMessage = originMessage.MessageId });
+                }
+                dbContext.SaveChanges();                
+            }
+            await client.SendTextMessageAsync
+            (
+                message.Chat.Id,
+                "Set Welcome Message",
+                replyToMessageId: message.MessageId
+            );
+        }
+
+        private async Task SetRulesCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var client = serviceContext.TelegramBotService.Client;
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            else
+            {
+                var table = dbContext.WelcomeMessages;
+                var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+                if(existingEntry != null)
+                {
+                    existingEntry.RulesMessage = originMessage.MessageId;
+                }
+                else
+                {
+                    table.Add(new GroupMessages() { ChatId = message.Chat.Id, RulesMessage = originMessage.MessageId });
+                }
+                dbContext.SaveChanges();                
+            }
+            await client.SendTextMessageAsync
+            (
+                message.Chat.Id,
+                "Set Group Rules",
+                replyToMessageId: message.MessageId
+            );
+        }
+
+        private async Task SetWelcomeMediaCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var client = serviceContext.TelegramBotService.Client;
+            var originMessage = message.ReplyToMessage;
+            if (originMessage == null)
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    replyToMessageId: message.MessageId
+                );
+            }
+            else
+            {
+                var table = dbContext.WelcomeMessages;
+                var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+                if(existingEntry != null)
+                {
+                    existingEntry.WelcomeMedia = originMessage.MessageId;
+                }
+                else
+                {
+                    table.Add(new GroupMessages() { ChatId = message.Chat.Id, WelcomeMedia = originMessage.MessageId });
+                }
+                dbContext.SaveChanges();                
+            }
+            await client.SendTextMessageAsync
+            (
+                message.Chat.Id,
+                "Set Welcome Media",
+                replyToMessageId: message.MessageId
+            );
         }
 
         private async Task ClearWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
@@ -548,7 +613,7 @@ $@"Unbanned
                             "Saved Message",
                             replyToMessageId: message.MessageId
                         );
-                        table.Add(new GroupSavedMessages(messageParts[1], message.Chat.Id, originMessage.MessageId));
+                        table.Add(new AdminSavedMessages(messageParts[1], message.Chat.Id, originMessage.MessageId));
                     }
                     await dbContext.SaveChangesAsync();
                 }
@@ -633,7 +698,7 @@ $@"Unbanned
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.SavedMessages;
-            IQueryable<GroupSavedMessages> results;
+            IQueryable<AdminSavedMessages> results;
             if(messageParts.Length >= 2)
             {
                 results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]);

@@ -29,6 +29,7 @@ namespace Sakura.Uwu.CommandProcessors
                 { "/whoisthis",     new Command() { TaskName="/whoisthis",     TaskDescription="Get User Summary (Other)",          TaskProcess=WhoIsThisCommand    } },
                 { "/admins",        new Command() { TaskName="/admins",        TaskDescription="Get Group Admins",                  TaskProcess=ListAdminsCommand   } },
                 { "/whatmedia",     new Command() { TaskName="/whatmedia",     TaskDescription="Get Media Message Summary",         TaskProcess=WhatMediaCommand    } },
+                { "/rules",         new Command() { TaskName="/rules",         TaskDescription="Get Group Rules",                   TaskProcess=RulesCommand        } },
                 { "/wut",           new Command() { TaskName="/wut",           TaskDescription="Get Dota Match Summary",            TaskProcess=WutCommand          } },
                 { "/gurl",          new Command() { TaskName="/gurl",          TaskDescription="Get Dota Match Summary",            TaskProcess=GurlCommand         } },
                 { "/stahp",         new Command() { TaskName="/stahp",         TaskDescription="Get Dota Match Summary",            TaskProcess=StahpCommand        } },
@@ -326,6 +327,30 @@ Poster : @{originMessage.From.Username}",
                         parseMode: ParseMode.Html
                     );
                 }
+            }
+        }
+        private async Task RulesCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var client = serviceContext.TelegramBotService.Client;
+            var table = dbContext.WelcomeMessages;
+            var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
+            if(existingEntry != null)
+            {
+                await client.ForwardMessageAsync
+                (
+                    message.Chat.Id,
+                    message.Chat.Id,
+                    (int) existingEntry.RulesMessage
+                );
+            }
+            else
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "No Rules Set",
+                    replyToMessageId: message.MessageId
+                );
             }
         }
         private static InputOnlineFile wutFile = new InputOnlineFile("CgADBAAD3ZQAAiQaZAfJNSjIa8ybFwI");

@@ -43,42 +43,60 @@ namespace Sakura.Uwu.CommandProcessors
                 {
                     var profilePhotos = await client.GetUserProfilePhotosAsync(newMember.Id, 0, 1);
                     var table = dbContext.WelcomeMessages;
-                    var setWelcomeText = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-                    var welcomeMessage = $@"Welcome
-
-<b>{newMember.FirstName} {newMember.LastName}{(newMember.IsBot ? "🤖" : "")}</b>
-@{newMember.Username}
-<code>{newMember.Id}</code>
-
-{(setWelcomeText != null ? setWelcomeText.Text : null)}";
+                    var welcomeMessage = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
                     if (profilePhotos.TotalCount != 0)
                     {
                         await client.SendPhotoAsync
                         (
                             message.Chat.Id,
                             profilePhotos.Photos[0][0].FileId,
-                            welcomeMessage.Substring(0, 200),
+$@"Welcome
+
+<b>{newMember.FirstName} {newMember.LastName}{(newMember.IsBot ? "🤖" : "")}</b>
+@{newMember.Username}
+<code>{newMember.Id}</code>",
                             parseMode: ParseMode.Html
                         );
-                        if(welcomeMessage.Length > 200)
-                        {
-                            await client.SendTextMessageAsync
-                            (
-                                message.Chat.Id,
-                                welcomeMessage.Substring(200),
-                                parseMode: ParseMode.Html
-                            );
-                        }
                     }
                     else
                     {
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
-                            welcomeMessage,
+$@"Welcome
+
+<b>{newMember.FirstName} {newMember.LastName}{(newMember.IsBot ? "🤖" : "")}</b>
+@{newMember.Username}
+<code>{newMember.Id}</code>",
                             parseMode: ParseMode.Html
                         );
-                        
+                    }
+                    if(welcomeMessage.WelcomeMessage != null)
+                    {
+                        await client.ForwardMessageAsync
+                        (
+                            message.Chat.Id,
+                            message.Chat.Id,
+                            (int) welcomeMessage.WelcomeMessage
+                        );
+                    }
+                    if(welcomeMessage.RulesMessage != null)
+                    {
+                        await client.ForwardMessageAsync
+                        (
+                            message.Chat.Id,
+                            message.Chat.Id,
+                            (int) welcomeMessage.RulesMessage
+                        );
+                    }
+                    if(welcomeMessage.WelcomeMedia != null)
+                    {
+                        await client.ForwardMessageAsync
+                        (
+                            message.Chat.Id,
+                            message.Chat.Id,
+                            (int) welcomeMessage.WelcomeMedia
+                        );
                     }
                 }
                 catch (Exception e)

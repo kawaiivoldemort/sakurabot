@@ -49,20 +49,22 @@ namespace Sakura.Uwu.Services
                 foreach(var commandProcessor in _commandProcessorService.CommandProcessors)
                 {
                     if (update.Type == commandProcessor.Type)
-                    if(commandProcessor.DoesProcessCommand(update))
                     {
-                        commandTaskList.Add
-                        (
-                            commandProcessor.ProcessCommand
-                            (
-                                update.Message,
-                                _commandProcessorService.ServiceContext,
-                                _dbContext
-                            )
-                        );
-                        if(commandProcessor.IsFinalCommand)
+                        if(commandProcessor.DoesProcessCommand(update))
                         {
-                            break;
+                            commandTaskList.Add
+                            (
+                                commandProcessor.ProcessCommand
+                                (
+                                    update.Message,
+                                    _commandProcessorService.ServiceContext,
+                                    _dbContext
+                                )
+                            );
+                            if(commandProcessor.IsFinalCommand)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
