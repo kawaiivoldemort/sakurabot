@@ -61,9 +61,9 @@ namespace OpenDotaApi
             verdanaBig = fontfamily.CreateFont(24, FontStyle.Regular);
             verdanaBigBold = fontfamily.CreateFont(24, FontStyle.Bold);
         }
-        public List<byte[]> DrawReport(DotaMatch match)
+        public byte[] DrawMatchReport(DotaMatch match)
         {
-            var images = new List<byte[]>();
+            byte[] reportImage;
             using(var matchReport = Image.Load(this.assembly.GetManifestResourceStream($"OpenDotaApi.ref.assets.{match.winner}Win.png")))
             {
                 matchReport.Mutate(
@@ -376,17 +376,16 @@ $@":  {(j == 0 ? match.radiantKills : match.direKills)}
                                 Rgba32.White,
                                 new PointF(imgx + 850, imgy + 40)
                             );
-                            images.Add(DrawPlayerReport(match, player));
                         }
                     }
                 );
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
                     matchReport.SaveAsPng(memoryStream);
-                    images.Insert(0, memoryStream.ToArray());
+                    reportImage =  memoryStream.ToArray();
                 }
             }
-            return images;
+            return reportImage;
         }
         // Draws a report picture for each Match Player
         public byte[] DrawPlayerReport(DotaMatch match, MatchPlayers player)
@@ -785,7 +784,6 @@ $@":  {(j == 0 ? match.radiantKills : match.direKills)}
                         );
                         x = 326;
                         y = 360;
-                        var t = 1;
                         var skillLevel = 0;
                         var talentNumber = 0;
                         for(var j = 0; j < player.skillBuild.Length; j++)

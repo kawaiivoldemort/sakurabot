@@ -263,9 +263,13 @@ namespace OpenDotaApi
                 return null;
             }
         }
-        public List<byte[]> DrawMatchReport(DotaMatch match)
+        public byte[] DrawMatchReport(DotaMatch match)
         {
-            return this.drawer.DrawReport(match);
+            return this.drawer.DrawMatchReport(match);
+        }
+        public byte[] DrawPlayerReport(DotaMatch match, MatchPlayers player)
+        {
+            return this.drawer.DrawPlayerReport(match, player);
         }
         public Dictionary<uint, DotaHeroes> GetHeroes()
         {

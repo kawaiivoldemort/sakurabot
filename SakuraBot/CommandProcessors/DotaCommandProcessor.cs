@@ -85,62 +85,56 @@ namespace Sakura.Uwu.CommandProcessors
                     var match = await context.DotaService.Client.GetMatchDetails(matchId);
                     if (match != null)
                     {
-                        var report = context.DotaService.Client.DrawMatchReport(match).ToArray();
-                        var radiantReports = new List<InputMediaPhoto>();
-                        var direReports = new List<InputMediaPhoto>();
-                        for (var i = 0; i < report.Length; i++)
+                        var matchReport = context.DotaService.Client.DrawMatchReport(match);
+                        using(var pictureStream = new MemoryStream(matchReport))
                         {
-                            var picture = report[i];
-                            string pictureName;
-                            if (i == 0)
-                            {
-                                using(var pictureStream = new MemoryStream(picture))
-                                {
-                                    await client.SendPhotoAsync(
-                                        message.Chat.Id,
-                                        new InputOnlineFile(pictureStream, "MatchReport.png"),
-                                        disableNotification : true,
-                                        caption: "MatchReport",
-                                        replyToMessageId : message.MessageId
-                                    );
-                                }
-                            }
-                            else if (i < 6)
-                            {
-                                pictureName = $"{((i - 1) / 5 == 0 ? "Radiant" : "Dire")} {(i - 1) % 5 + 1}";
-                                var media = new InputMediaPhoto();
-                                var pictureStream = new MemoryStream(picture);
-                                media.Media = new InputMedia(pictureStream, $"{pictureName}.png");
-                                media.Caption = pictureName;
-                                radiantReports.Add(media);
-                            }
-                            else
-                            {
-                                pictureName = $"{((i - 1) / 5 == 0 ? "Radiant" : "Dire")} {(i - 1) % 5 + 1}";
-                                var media = new InputMediaPhoto();
-                                var pictureStream = new MemoryStream(picture);
-                                media.Media = new InputMedia(pictureStream, $"{pictureName}.png");
-                                media.Caption = pictureName;
-                                direReports.Add(media);
-                            }
+                            await client.SendPhotoAsync(
+                                message.Chat.Id,
+                                new InputOnlineFile(pictureStream, "MatchReport.png"),
+                                disableNotification : true,
+                                caption: "MatchReport",
+                                replyToMessageId : message.MessageId
+                            );
                         }
+                        var radiantAlbum = match.players
+                            .Where(player => player.team == 0)
+                            .Select(
+                                (player) => { 
+                                    return new InputMediaPhoto()
+                                    {
+                                        Media = new InputMedia(new MemoryStream(context.DotaService.Client.DrawPlayerReport(match, player)), $"Radiant {player.slot}.png"),
+                                        Caption = $"Radiant {player.slot}"
+                                    };
+                                }
+                            );
                         await client.SendMediaGroupAsync(
                             message.Chat.Id,
-                            radiantReports,
+                            radiantAlbum,
                             disableNotification : true,
                             replyToMessageId : message.MessageId
                         );
+                        var direAlbum = match.players
+                            .Where(player => player.team == 1)
+                            .Select(
+                                (player) => { 
+                                    return new InputMediaPhoto()
+                                    {
+                                        Media = new InputMedia(new MemoryStream(context.DotaService.Client.DrawPlayerReport(match, player)), $"Dire {player.slot}.png"),
+                                        Caption = $"Dire {player.slot}"
+                                    };
+                                }
+                            );
                         await client.SendMediaGroupAsync(
                             message.Chat.Id,
-                            direReports,
+                            direAlbum,
                             disableNotification : true,
                             replyToMessageId : message.MessageId
                         );
-                        foreach (var playerReport in radiantReports)
+                        foreach (var playerReport in radiantAlbum)
                         {
                             playerReport.Media.Content.Dispose();
                         }
-                        foreach (var playerReport in direReports)
+                        foreach (var playerReport in direAlbum)
                         {
                             playerReport.Media.Content.Dispose();
                         }
