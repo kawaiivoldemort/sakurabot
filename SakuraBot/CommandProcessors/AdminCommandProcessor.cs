@@ -1,37 +1,107 @@
 using System;
-using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-using Microsoft.EntityFrameworkCore;
-
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.ReplyMarkups;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
-using Sakura.Uwu.Services;
 using Sakura.Uwu.Models;
+using Sakura.Uwu.Services;
 
-namespace Sakura.Uwu.GroupManagement
+namespace Sakura.Uwu.CommandProcessors
 {
-    static partial class Commands
+    class AdminCommandProcessor : ICommandProcessor
     {
-        public static readonly Dictionary<string, Command> Admin = new Dictionary<string, Command>
+        public string Name { get; }
+        public UpdateType Type { get; }
+        public Dictionary<string, Command> Commands { get; }
+        public bool IsFinalCommand { get; }
+        public AdminCommandProcessor()
         {
-            { "/warn", WarnUserCommand },
-            { "/clearwarns", ClearWarnsCommand },
-            { "/ban", BanCommand },
-            { "/kick", KickCommand },
-            { "/unban", UnbanCommand },
-            { "/pin", PinCommand },
-            { "/loudpin", PinLoudlyCommand },
-            { "/welcome", WelcomeCommand },
-            { "/clearwelcome", ClearWelcomeCommand }
-        };
-
-        private static async Task WarnUserCommand(IBotService botService, Message message, BotDbContext dbContext)
+            Name = "Administrator Commands";
+            Type = UpdateType.Message;
+            Commands = new Dictionary<string, Command>
+            {
+                { "/warn",          new Command() { TaskName="/warn",           TaskDescription="Warns User. Kicks on 3 Warns.",                          TaskProcess=WarnUserCommand     } },
+                { "/clearwarns",    new Command() { TaskName="/clearwarns",     TaskDescription="Forgives a User and Sets Warns to 0",                    TaskProcess=ClearWarnsCommand   } },
+                { "/ban",           new Command() { TaskName="/ban",            TaskDescription="Bans a User from the Chat",                              TaskProcess=BanCommand          } },
+                { "/unban",         new Command() { TaskName="/unban",          TaskDescription="Unbans a User from the Chat",                            TaskProcess=UnbanCommand        } },
+                { "/kick",          new Command() { TaskName="/kick",           TaskDescription="Kicks a User from the Chat for 1 Minute",                TaskProcess=KickCommand         } },
+                { "/pin",           new Command() { TaskName="/pin",            TaskDescription="Pins a message in a group",                              TaskProcess=PinCommand          } },
+                { "/loudpin",       new Command() { TaskName="/loudpin",        TaskDescription="Pins a message in a group and Notify all Chat Members",  TaskProcess=PinLoudlyCommand    } },
+                { "/setwelcome",    new Command() { TaskName="/setwelcome",     TaskDescription="Sets Group Welcome Message",                                           TaskProcess=SetWelcomeCommand   } },
+                { "/clearwelcome",  new Command() { TaskName="/clearwelcome",   TaskDescription="Clears Group Welcome Message",                                         TaskProcess=ClearWelcomeCommand } },
+                { "/save",          new Command() { TaskName="/save",           TaskDescription="Save Message for Future Reference",                                    TaskProcess=SaveMessage         } },
+                { "/saved",         new Command() { TaskName="/saved",          TaskDescription="List Saved Messages",                                                  TaskProcess=SavedMessage        } },
+                { "/clearsaved",    new Command() { TaskName="/clearsaved",     TaskDescription="Clear Saved Messages",                                                 TaskProcess=ClearSavedMessage   } }
+            };
+            IsFinalCommand = true;
+        }
+        public bool DoesProcessCommand(Update update)
         {
-            var client = botService.Client;
+            if(update.Message.Type == MessageType.Text)
+            {
+                var messageParts = update.Message.Text.Split(' ');
+                if(this.Commands.ContainsKey(messageParts[0]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public async Task ProcessCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var admins = await serviceContext.TelegramBotService.Client.GetChatAdministratorsAsync(message.Chat.Id);
+            if (admins.Any(admin => admin.User.Id == message.From.Id))
+            {
+                var self = await serviceContext.TelegramBotService.Client.GetMeAsync();
+                var selfChatMember = await serviceContext.TelegramBotService.Client.GetChatMemberAsync(message.Chat.Id, self.Id);
+                if
+                (
+                    selfChatMember.CanPinMessages != null &&
+                    selfChatMember.CanRestrictMembers != null &&
+                    (bool) selfChatMember.CanPinMessages &&
+                    (bool) selfChatMember.CanRestrictMembers
+                )
+                {
+                    var messageParts = message.Text.Split(' ');
+                    await this.Commands[messageParts[0]].TaskProcess(message, serviceContext, dbContext);
+                }
+                else
+                {
+                    await serviceContext.TelegramBotService.Client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "I would gladly do that for you if you make me Senpai UwU",
+                        replyToMessageId: message.MessageId
+                    );
+                }
+            }
+            else
+            {
+                await serviceContext.TelegramBotService.Client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Naughty senpai, you aren't admin",
+                    replyToMessageId: message.MessageId
+                ); 
+            }
+        }
+        public string GetDescriptions()
+        {
+            var descriptions = new StringBuilder($"--------\n<b>{Name}</b>\n\n");
+            foreach(var cmd in this.Commands)
+            {
+                descriptions.AppendLine($"<b>{cmd.Value.TaskName}</b>: <i>{cmd.Value.TaskDescription}</i>");
+            }
+            return descriptions.ToString();
+        }
+        private async Task WarnUserCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.Warns;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
             var originMessage = message.ReplyToMessage;
@@ -66,12 +136,6 @@ namespace Sakura.Uwu.GroupManagement
             else
             {
                 var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id && x.GroupId == originMessage.Chat.Id);
-                var unwarnButton = InlineKeyboardButton.WithCallbackData
-                (
-                    $@"/unwarnid {message.Chat.Id} {originMessage.From.Id.ToString()}"
-                );
-                unwarnButton.Text = "unwarn";
-                var keyboard = new InlineKeyboardMarkup(unwarnButton);
                 if (result == null)
                 {
                     await client.SendTextMessageAsync
@@ -84,8 +148,7 @@ $@"Warned
 
 Warn Count: 1",
                         replyToMessageId: message.MessageId,
-                        parseMode: ParseMode.Html,
-                        replyMarkup: keyboard
+                        parseMode: ParseMode.Html
                     );
                     table.Add(new UserWarns(originMessage.Chat.Id, originMessage.From.Id));
                 }
@@ -94,11 +157,6 @@ Warn Count: 1",
                     result.WarnCount += 1;
                     if (result.WarnCount == 3)
                     {
-                        unwarnButton = InlineKeyboardButton.WithCallbackData
-                        (
-                            $@"/unbanid {message.Chat.Id} {originMessage.From.Id.ToString()}"
-                        );
-                        unwarnButton.Text = "unban";
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
@@ -109,8 +167,7 @@ $@"Warn limit reached! Kicked
     
 UwU",
                             replyToMessageId: message.MessageId,
-                            parseMode: ParseMode.Html,
-                            replyMarkup: keyboard
+                            parseMode: ParseMode.Html
                         );
                         try
                         {
@@ -133,8 +190,7 @@ $@"Warned
 
 Warn Count: {result.WarnCount}",
                             replyToMessageId: message.MessageId,
-                            parseMode: ParseMode.Html,
-                            replyMarkup: keyboard
+                            parseMode: ParseMode.Html
                         );
                     }
                 }
@@ -142,9 +198,9 @@ Warn Count: {result.WarnCount}",
             dbContext.SaveChanges();
         }
 
-        private static async Task ClearWarnsCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task ClearWarnsCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -176,9 +232,9 @@ $@"Warns reset for
             dbContext.SaveChanges();
         }
 
-        private static async Task BanCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task BanCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
@@ -238,9 +294,9 @@ $@"Banned
             }
         }
 
-        private static async Task KickCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task KickCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
@@ -302,9 +358,9 @@ But they can rejoin in a minute UwU!",
             }
         }
 
-        private static async Task UnbanCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task UnbanCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -338,9 +394,9 @@ $@"Unbanned
             }
         }
 
-        private static async Task PinCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task PinCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -362,9 +418,9 @@ $@"Unbanned
             }
         }
 
-        private static async Task PinLoudlyCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task PinLoudlyCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -385,9 +441,9 @@ $@"Unbanned
             }
         }
 
-        private static async Task WelcomeCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task SetWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             if(message.Text.Length > 10)
             {
                 var welcomeMessage = message.Text.Substring(9);
@@ -427,9 +483,9 @@ $@"Unbanned
             }
         }
 
-        private static async Task ClearWelcomeCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task ClearWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.WelcomeMessages;
             var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
             if(existingEntry != null)
@@ -452,6 +508,142 @@ $@"Unbanned
                 );
             }
             dbContext.SaveChanges();
+        }
+        private async Task SaveMessage(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var messageParts = message.Text.Split(' ');
+            var client = serviceContext.TelegramBotService.Client;
+            if(messageParts.Length >= 2)
+            {                
+                var originMessage = message.ReplyToMessage;
+                if (originMessage == null)
+                {                
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "pweese repwy to that users message fiwst >w<!",
+                        replyToMessageId: message.MessageId
+                    );
+                }
+                else
+                {
+                    var table = dbContext.SavedMessages;
+                    var existingEntry = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]).FirstOrDefault();
+                    if(existingEntry != null)
+                    {
+                        await client.SendTextMessageAsync
+                        (
+                            message.Chat.Id,
+                            "Updated Message",
+                            replyToMessageId: message.MessageId
+                        );
+                        existingEntry.ChatId = message.Chat.Id;
+                        existingEntry.MessageId = originMessage.MessageId;
+                    }
+                    else
+                    {
+                        await client.SendTextMessageAsync
+                        (
+                            message.Chat.Id,
+                            "Saved Message",
+                            replyToMessageId: message.MessageId
+                        );
+                        table.Add(new GroupSavedMessages(messageParts[1], message.Chat.Id, originMessage.MessageId));
+                    }
+                    await dbContext.SaveChangesAsync();
+                }
+            }
+            else
+            {
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Invalid Request",
+                    replyToMessageId: message.MessageId
+                );
+            }
+        }        
+        private async Task SavedMessage(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var messageParts = message.Text.Split(' ');
+            var client = serviceContext.TelegramBotService.Client;
+            var table = dbContext.SavedMessages;
+            if(messageParts.Length >= 2)
+            {
+                var tag = messageParts[1];
+                var results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == tag);
+                if(results.Count() > 0)
+                {
+                    var result = results.First();
+                    try
+                    {
+                        await client.ForwardMessageAsync
+                        (
+                            message.Chat.Id,
+                            result.ChatId,
+                            result.MessageId
+                        );                        
+                    }
+                    catch (System.Exception e)
+                    {
+                        System.Console.WriteLine(e);
+                    }
+                }
+                else
+                {
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "No Saved Messages",
+                        replyToMessageId: message.MessageId
+                    );
+                }
+            }
+            else
+            {
+                var results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id);
+                if(results.Count() > 0)
+                {
+                    var text = new StringBuilder("<b>Saved Messages</b>\n\n");
+                    foreach(var result in results)
+                    {
+                        text.Append($"<b>{result.MessageTag}</b> : Message in Group {result.ChatId.ToString()}\n");
+                    }
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        text.ToString(),
+                        replyToMessageId: message.MessageId,
+                        parseMode: ParseMode.Html
+                    );
+                }
+                else
+                {
+                    await client.SendTextMessageAsync
+                    (
+                        message.Chat.Id,
+                        "No Saved Messages",
+                        replyToMessageId: message.MessageId
+                    );
+                }
+            }
+        }       
+        private async Task ClearSavedMessage(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var messageParts = message.Text.Split(' ');
+            var client = serviceContext.TelegramBotService.Client;
+            var table = dbContext.SavedMessages;
+            IQueryable<GroupSavedMessages> results;
+            if(messageParts.Length >= 2)
+            {
+                results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]);
+            }
+            else
+            {
+                results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id);
+            }
+            table.RemoveRange(results);
+            await dbContext.SaveChangesAsync();
         }
     }
 }

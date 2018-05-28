@@ -97,8 +97,22 @@ namespace OpenDotaApi
             var deserializationContext = context.Context as DotaDeserializationContext;
             var gameModes = deserializationContext.gameModes;
             var regions = deserializationContext.regions;
-            this.matchType = gameModes[(uint) undeserializedData["game_mode"]];
-            this.server = regions[(uint) undeserializedData["cluster"]];
+            if(gameModes.ContainsKey((uint) undeserializedData["game_mode"]))
+            {
+                this.matchType = gameModes[(uint) undeserializedData["game_mode"]];
+            }
+            else
+            {
+                this.server = new DotaRegions() { id = (uint) undeserializedData["game_mode"], name = "Unknown" };
+            }
+            if(regions.ContainsKey((uint) undeserializedData["cluster"]))
+            {
+                this.server = regions[(uint) undeserializedData["cluster"]];
+            }
+            else
+            {
+                this.server = new DotaRegions() { id = (uint) undeserializedData["cluster"], name = "Unknown" };
+            }
         }
     }
 

@@ -1,39 +1,70 @@
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System;
 using System.Text;
-
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 using Telegram.Bot.Types;
-using Telegram.Bot.Types.InputFiles;
 using Telegram.Bot.Types.Enums;
+using Telegram.Bot.Types.InputFiles;
 
-using Sakura.Uwu.Services;
 using Sakura.Uwu.Models;
+using Sakura.Uwu.Services;
 
-namespace Sakura.Uwu.GroupManagement
+namespace Sakura.Uwu.CommandProcessors
 {
-    static partial class Commands
+    class UserCommandProcessor : ICommandProcessor
     {
-        public static readonly Dictionary<string, Command> User = new Dictionary<string, Command>
+        public string Name { get; }
+        public UpdateType Type { get; }
+        public Dictionary<string, Command> Commands { get; }
+        public bool IsFinalCommand { get; }
+        public UserCommandProcessor()
         {
-            { "/start", StartCommand },
-            { "/whoami", WhoAmICommand },
-            { "/whoisthis", WhoIsThisCommand },
-            { "/admins", ListAdminsCommand },
-            { "/whatmedia", WhatMediaCommand },
-            { "/wut", WutCommand },
-            { "/gurl", GurlCommand },
-            { "/stahp", StahpCommand },
-            { "/tellmewhy", TellMeWhyCommand },
-            { "/save", SaveMessage },
-            { "/saved", SavedMessage },
-            { "/clearsaved", ClearSavedMessage }
-        };
-        private static async Task StartCommand(IBotService botService, Message message, BotDbContext dbContext)
+            Name = "User Commands";
+            Type = UpdateType.Message;
+            Commands = new Dictionary<string, Command>
+            {
+                { "/whoami",        new Command() { TaskName="/whoami",        TaskDescription="Get User Summary (Self)",           TaskProcess=WhoAmICommand       } },
+                { "/whoisthis",     new Command() { TaskName="/whoisthis",     TaskDescription="Get User Summary (Other)",          TaskProcess=WhoIsThisCommand    } },
+                { "/admins",        new Command() { TaskName="/admins",        TaskDescription="Get Group Admins",                  TaskProcess=ListAdminsCommand   } },
+                { "/whatmedia",     new Command() { TaskName="/whatmedia",     TaskDescription="Get Media Message Summary",         TaskProcess=WhatMediaCommand    } },
+                { "/wut",           new Command() { TaskName="/wut",           TaskDescription="Get Dota Match Summary",            TaskProcess=WutCommand          } },
+                { "/gurl",          new Command() { TaskName="/gurl",          TaskDescription="Get Dota Match Summary",            TaskProcess=GurlCommand         } },
+                { "/stahp",         new Command() { TaskName="/stahp",         TaskDescription="Get Dota Match Summary",            TaskProcess=StahpCommand        } },
+                { "/tellmewhy",     new Command() { TaskName="/tellmewhy",     TaskDescription="Get Dota Match Summary",            TaskProcess=TellMeWhyCommand    } },
+            };
+            IsFinalCommand = true;
+        }
+        public bool DoesProcessCommand(Update update)
         {
-            var client = botService.Client;
+            if(update.Message.Type == MessageType.Text)
+            {
+                var messageParts = update.Message.Text.Split(' ');
+                if(this.Commands.ContainsKey(messageParts[0]))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public async Task ProcessCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var messageParts = message.Text.Split(' ');
+            await this.Commands[messageParts[0]].TaskProcess(message, serviceContext, dbContext);
+        }
+        public string GetDescriptions()
+        {
+            var descriptions = new StringBuilder($"--------\n<b>{Name}</b>\n\n");
+            foreach(var cmd in this.Commands)
+            {
+                descriptions.AppendLine($"<b>{cmd.Value.TaskName}</b>: <i>{cmd.Value.TaskDescription}</i>");
+            }
+            return descriptions.ToString();
+        }
+        private async Task StartCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
+        {
+            var client = serviceContext.TelegramBotService.Client;
             var chat = await client.GetChatAsync(message.Chat.Id);
             await client.SendTextMessageAsync
             (
@@ -46,9 +77,9 @@ $@"I smell a new chat!
                 parseMode: ParseMode.Html
             );
         }
-        private static async Task WhoAmICommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task WhoAmICommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var profilePhotos = await client.GetUserProfilePhotosAsync(message.From.Id, 0, 1);
             if (profilePhotos.TotalCount != 0)
             {
@@ -79,9 +110,9 @@ $@"You are
                 
             }
         }
-        private static async Task WhoIsThisCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task WhoIsThisCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -124,18 +155,17 @@ $@"You are
                 }
             }
         }
-
-        private static async Task ListAdminsCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task ListAdminsCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var admins = await client.GetChatAdministratorsAsync(message.Chat.Id);
             var adminString = admins
                 .Select
                 (
                     (admin) =>
 $@"• <b>{admin.User.FirstName} {admin.User.LastName}{(admin.User.IsBot ? "🤖" : "")}</b>
-  @{admin.User.Username}
-  <code>{admin.User.Id}</code>"
+@{admin.User.Username}
+<code>{admin.User.Id}</code>"
                 )
                 .Aggregate
                 (
@@ -149,10 +179,9 @@ $@"• <b>{admin.User.FirstName} {admin.User.LastName}{(admin.User.IsBot ? "🤖
                 parseMode: ParseMode.Html
             );
         }
-
-        private static async Task WhatMediaCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task WhatMediaCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -299,11 +328,10 @@ Poster : @{originMessage.From.Username}",
                 }
             }
         }
-
         private static InputOnlineFile wutFile = new InputOnlineFile("CgADBAAD3ZQAAiQaZAfJNSjIa8ybFwI");
-        private static async Task WutCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task WutCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -323,11 +351,10 @@ Poster : @{originMessage.From.Username}",
                 );
             }
         }
-
         private static InputOnlineFile gurlFile = new InputOnlineFile("CgADBAAD-J4AAr0XZAfsBBNcYH1u5gI");
-        private static async Task GurlCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task GurlCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -349,9 +376,9 @@ Poster : @{originMessage.From.Username}",
         }
 
         private static InputOnlineFile stahpFile = new InputOnlineFile("CgADBAADgqAAAiQdZAcIQd39ISh6SQI");
-        private static async Task StahpCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task StahpCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -373,9 +400,9 @@ Poster : @{originMessage.From.Username}",
         }
 
         private static InputOnlineFile tellMeWhyFile = new InputOnlineFile("BQADBQADTwADBWcJVFRdrXnZKD7IAg");
-        private static async Task TellMeWhyCommand(IBotService botService, Message message, BotDbContext dbContext)
+        private async Task TellMeWhyCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
-            var client = botService.Client;
+            var client = serviceContext.TelegramBotService.Client;
             var originMessage = message.ReplyToMessage;
             if (originMessage == null)
             {
@@ -394,146 +421,6 @@ Poster : @{originMessage.From.Username}",
                     replyToMessageId: message.MessageId
                 );
             }
-        }
-        
-        private static async Task SaveMessage(IBotService botService, Message message, BotDbContext dbContext)
-        {
-            var messageParts = message.Text.Split(' ');
-            var client = botService.Client;
-            if(messageParts.Length >= 2)
-            {                
-                var originMessage = message.ReplyToMessage;
-                if (originMessage == null)
-                {                
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        "pweese repwy to that users message fiwst >w<!",
-                        replyToMessageId: message.MessageId
-                    );
-                }
-                else
-                {
-                    var table = dbContext.SavedMessages;
-                    var existingEntry = table.Where(savedMessage => savedMessage.UserId == message.From.Id && savedMessage.MessageTag == messageParts[1]).FirstOrDefault();
-                    if(existingEntry != null)
-                    {
-                        await client.SendTextMessageAsync
-                        (
-                            message.Chat.Id,
-                            "Updated Message",
-                            replyToMessageId: message.MessageId
-                        );
-                        existingEntry.ChatId = message.Chat.Id;
-                        existingEntry.MessageId = originMessage.MessageId;
-                    }
-                    else
-                    {
-                        await client.SendTextMessageAsync
-                        (
-                            message.Chat.Id,
-                            "Saved Message",
-                            replyToMessageId: message.MessageId
-                        );
-                        table.Add(new UserSavedMessages(messageParts[1], message.From.Id, message.Chat.Id, originMessage.MessageId));
-                    }
-                    dbContext.SaveChanges();
-                }
-            }
-            else
-            {
-                await client.SendTextMessageAsync
-                (
-                    message.Chat.Id,
-                    "Invalid Request",
-                    replyToMessageId: message.MessageId
-                );
-            }
-        }
-        
-        private static async Task SavedMessage(IBotService botService, Message message, BotDbContext dbContext)
-        {
-            var messageParts = message.Text.Split(' ');
-            var client = botService.Client;
-            var table = dbContext.SavedMessages;
-            if(messageParts.Length >= 2)
-            {
-                var tag = messageParts[1];
-                var results = table.Where(savedMessage => savedMessage.UserId == message.From.Id && savedMessage.MessageTag == tag);
-                if(results.Count() > 0)
-                {
-                    var result = results.First();
-                    try
-                    {
-                        await client.ForwardMessageAsync
-                        (
-                            message.Chat.Id,
-                            result.ChatId,
-                            result.MessageId
-                        );                        
-                    }
-                    catch (System.Exception e)
-                    {
-                        System.Console.WriteLine(e);
-                    }
-                }
-                else
-                {
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        "No Saved Messages",
-                        replyToMessageId: message.MessageId
-                    );
-                }
-            }
-            else
-            {
-                var results = table.Where(savedMessage => savedMessage.UserId == message.From.Id);
-                if(results.Count() > 0)
-                {
-                    var text = new StringBuilder("<b>Saved Messages</b>\n\n");
-                    foreach(var result in results)
-                    {
-                        text.Append($"<b>{result.MessageTag}</b> : Message in Group {result.ChatId.ToString()}\n");
-                    }
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        text.ToString(),
-                        replyToMessageId: message.MessageId,
-                        parseMode: ParseMode.Html
-                    );
-                }
-                else
-                {
-                    await client.SendTextMessageAsync
-                    (
-                        message.Chat.Id,
-                        "No Saved Messages",
-                        replyToMessageId: message.MessageId
-                    );
-                }
-            }
-        }
-
-        
-        private static async Task ClearSavedMessage(IBotService botService, Message message, BotDbContext dbContext)
-        {
-            var messageParts = message.Text.Split(' ');
-            var client = botService.Client;
-            var table = dbContext.SavedMessages;
-            IQueryable<UserSavedMessages> results;
-            if(messageParts.Length >= 2)
-            {
-                results = table.Where(savedMessage => savedMessage.UserId == message.From.Id && savedMessage.MessageTag == messageParts[1]);
-            }
-            else
-            {
-                results = table.Where(savedMessage => savedMessage.UserId == message.From.Id);
-            }
-            table.RemoveRange(results);
-            dbContext.SaveChanges();
         }
     }
 }

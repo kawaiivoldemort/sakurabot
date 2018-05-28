@@ -1,21 +1,42 @@
 using System;
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 
-using Sakura.Uwu.Services;
 using Sakura.Uwu.Models;
+using Sakura.Uwu.Services;
 
-namespace Sakura.Uwu.GroupManagement
+namespace Sakura.Uwu.CommandProcessors
 {
-    partial class Responses
+    class GroupWelcomeCommandProcessor : ICommandProcessor
     {
-        public static async Task WelcomeResponse(IBotService botService, Message message, BotDbContext dbContext)
+        public string Name { get; }
+        public UpdateType Type { get; }
+        public Dictionary<string, Command> Commands { get; }
+        public bool IsFinalCommand { get; }
+        public GroupWelcomeCommandProcessor()
+        {
+            Name = "Group Welcome Process";
+            Type = UpdateType.Message;
+            IsFinalCommand = true;
+        }
+        
+        public bool DoesProcessCommand(Update update)
+        {
+            if(update.Message.Type == MessageType.ChatMembersAdded)
+            {
+                return true;
+            }
+            return false;
+        }
+        public async Task ProcessCommand(Message message, ServicesContext context, BotDbContext dbContext)
         {
             var newMembers = message.NewChatMembers;
-            var client = botService.Client;
+            var client = context.TelegramBotService.Client;
             foreach (var newMember in newMembers)
             {
                 try
@@ -65,6 +86,10 @@ namespace Sakura.Uwu.GroupManagement
                     Console.WriteLine("Exception in Welcome : {0}", e.Message);
                 }
             }
+        }
+        public string GetDescriptions()
+        {
+            return "";
         }
     }
 }

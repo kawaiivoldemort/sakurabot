@@ -257,8 +257,9 @@ namespace OpenDotaApi
                     return match;
                 }
             }
-            catch(Exception)
+            catch(Exception e)
             {
+                Console.WriteLine(e);
                 return null;
             }
         }
