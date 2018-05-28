@@ -332,7 +332,7 @@ Poster : @{originMessage.From.Username}",
         private async Task RulesCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
             var client = serviceContext.TelegramBotService.Client;
-            var table = dbContext.WelcomeMessages;
+            var table = dbContext.GroupMessages;
             var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
             if(existingEntry != null)
             {

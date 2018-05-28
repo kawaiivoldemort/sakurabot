@@ -458,7 +458,7 @@ $@"Unbanned
             }
             else
             {
-                var table = dbContext.WelcomeMessages;
+                var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
                 if(existingEntry != null)
                 {
@@ -493,7 +493,7 @@ $@"Unbanned
             }
             else
             {
-                var table = dbContext.WelcomeMessages;
+                var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
                 if(existingEntry != null)
                 {
@@ -528,7 +528,7 @@ $@"Unbanned
             }
             else
             {
-                var table = dbContext.WelcomeMessages;
+                var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
                 if(existingEntry != null)
                 {
@@ -551,7 +551,7 @@ $@"Unbanned
         private async Task ClearWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
             var client = serviceContext.TelegramBotService.Client;
-            var table = dbContext.WelcomeMessages;
+            var table = dbContext.GroupMessages;
             var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
             if(existingEntry != null)
             {
@@ -592,7 +592,7 @@ $@"Unbanned
                 }
                 else
                 {
-                    var table = dbContext.SavedMessages;
+                    var table = dbContext.AdminSavedMessages;
                     var existingEntry = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]).FirstOrDefault();
                     if(existingEntry != null)
                     {
@@ -632,7 +632,7 @@ $@"Unbanned
         {
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
-            var table = dbContext.SavedMessages;
+            var table = dbContext.AdminSavedMessages;
             if(messageParts.Length >= 2)
             {
                 var tag = messageParts[1];
@@ -697,7 +697,7 @@ $@"Unbanned
         {
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
-            var table = dbContext.SavedMessages;
+            var table = dbContext.AdminSavedMessages;
             IQueryable<AdminSavedMessages> results;
             if(messageParts.Length >= 2)
             {

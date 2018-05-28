@@ -42,7 +42,7 @@ namespace Sakura.Uwu.CommandProcessors
                 try
                 {
                     var profilePhotos = await client.GetUserProfilePhotosAsync(newMember.Id, 0, 1);
-                    var table = dbContext.WelcomeMessages;
+                    var table = dbContext.GroupMessages;
                     var welcomeMessage = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
                     if (profilePhotos.TotalCount != 0)
                     {
