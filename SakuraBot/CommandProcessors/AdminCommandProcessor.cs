@@ -77,7 +77,7 @@ namespace Sakura.Uwu.CommandProcessors
                     await serviceContext.TelegramBotService.Client.SendTextMessageAsync
                     (
                         message.Chat.Id,
-                        "I would gladly do that for you if you make me Senpai UwU",
+                        "I cannot do that, ish not admin >.>",
                         replyToMessageId: message.MessageId
                     );
                 }
@@ -87,7 +87,7 @@ namespace Sakura.Uwu.CommandProcessors
                 await serviceContext.TelegramBotService.Client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "Naughty senpai, you aren't admin",
+                    ">w< Senpai, you aren't admin!",
                     replyToMessageId: message.MessageId
                 ); 
             }
@@ -112,7 +112,7 @@ namespace Sakura.Uwu.CommandProcessors
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the offensive message >w<!",
+                    "Reply to a message >.> baka.",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -167,7 +167,7 @@ $@"Warn limit reached! Kicked
 @{originMessage.From.Username}
 <code>{originMessage.From.Id}</code>
     
-UwU",
+^-^",
                             replyToMessageId: message.MessageId,
                             parseMode: ParseMode.Html
                         );
@@ -209,7 +209,7 @@ Warn Count: {result.WarnCount}",
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the offensive message >w<!",
+                    "Reply to a message >.> baka.",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -244,7 +244,7 @@ $@"Warns reset for
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the offensive message >w<!",
+                    "Reply to a message >.> baka.",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -267,7 +267,7 @@ $@"Warns reset for
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
-                            "I'm NOT banning senpai! >w<",
+                            "I'm not banning senpai! >.<",
                             replyToMessageId: message.MessageId
                         );
                     }
@@ -306,7 +306,7 @@ $@"Banned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the offensive message >w<!",
+                    "Reply to a message >.> baka.",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -329,7 +329,7 @@ $@"Banned
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
-                            "I'm NOT kicking senpai! >w<",
+                            "I'm not kicking senpai! >.<",
                             replyToMessageId: message.MessageId
                         );
                     }
@@ -343,7 +343,7 @@ $@"Kicked
 @{originMessage.From.Username}
 <code>{originMessage.From.Id}</code>
 
-But they can rejoin in a minute UwU!",
+But they can rejoin in a minute UwU",
                             replyToMessageId: message.MessageId,
                             parseMode: ParseMode.Html
                         );
@@ -369,7 +369,7 @@ But they can rejoin in a minute UwU!",
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the users message UwU!",
+                    "Reply to a message >.> baka.",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -405,7 +405,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    "Reply to the message you want to pin >.>",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -429,7 +429,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    "Reply to the message you want to pin >.>",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -452,7 +452,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    "Reply to the message you want to pin >.>",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -473,7 +473,7 @@ $@"Unbanned
             await client.SendTextMessageAsync
             (
                 message.Chat.Id,
-                "Set Welcome Message",
+                "Set welcome message ^-^",
                 replyToMessageId: message.MessageId
             );
         }
@@ -487,7 +487,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    "Reply to the message you want to pin >.>",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -508,7 +508,7 @@ $@"Unbanned
             await client.SendTextMessageAsync
             (
                 message.Chat.Id,
-                "Set Group Rules",
+                "Set group rules :3",
                 replyToMessageId: message.MessageId
             );
         }
@@ -522,7 +522,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "pweese repwy to the mewssage you wanna pin UwU!",
+                    "Reply to the message you want to pin >.>",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -543,7 +543,7 @@ $@"Unbanned
             await client.SendTextMessageAsync
             (
                 message.Chat.Id,
-                "Set Welcome Media",
+                "Set welcome media ^-^",
                 replyToMessageId: message.MessageId
             );
         }
@@ -558,7 +558,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "Updated Welcome Message",
+                    "Updated welcome message ^-^",
                     replyToMessageId: message.MessageId
                 );
                 table.Remove(existingEntry);
@@ -568,7 +568,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "No Welcome Message",
+                    "No welcome message anymore ^-^",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -586,7 +586,7 @@ $@"Unbanned
                     await client.SendTextMessageAsync
                     (
                         message.Chat.Id,
-                        "pweese repwy to that users message fiwst >w<!",
+                        "Reply to a message >.> baka.",
                         replyToMessageId: message.MessageId
                     );
                 }
@@ -599,7 +599,7 @@ $@"Unbanned
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
-                            "Updated Message",
+                            "Updated message ^-^",
                             replyToMessageId: message.MessageId
                         );
                         existingEntry.ChatId = message.Chat.Id;
@@ -610,7 +610,7 @@ $@"Unbanned
                         await client.SendTextMessageAsync
                         (
                             message.Chat.Id,
-                            "Saved Message",
+                            "Saved message ^-^",
                             replyToMessageId: message.MessageId
                         );
                         table.Add(new AdminSavedMessages(messageParts[1], message.Chat.Id, originMessage.MessageId));
@@ -623,7 +623,7 @@ $@"Unbanned
                 await client.SendTextMessageAsync
                 (
                     message.Chat.Id,
-                    "Invalid Request",
+                    "Invalid request >_<",
                     replyToMessageId: message.MessageId
                 );
             }
@@ -659,7 +659,7 @@ $@"Unbanned
                     await client.SendTextMessageAsync
                     (
                         message.Chat.Id,
-                        "No Saved Messages",
+                        "No saved messages OwO",
                         replyToMessageId: message.MessageId
                     );
                 }
@@ -687,7 +687,7 @@ $@"Unbanned
                     await client.SendTextMessageAsync
                     (
                         message.Chat.Id,
-                        "No Saved Messages",
+                        "No saved messages OwO",
                         replyToMessageId: message.MessageId
                     );
                 }
