@@ -44,10 +44,10 @@ namespace Sakura.Uwu.CommandProcessors
         }
         public bool DoesProcessCommand(Update update)
         {
-            if(update.Message.Type == MessageType.Text)
+            if (update.Message.Type == MessageType.Text)
             {
                 var messageParts = update.Message.Text.Split(' ');
-                if(this.Commands.ContainsKey(messageParts[0]))
+                if (this.Commands.ContainsKey(messageParts[0]))
                 {
                     return true;
                 }
@@ -65,8 +65,8 @@ namespace Sakura.Uwu.CommandProcessors
                 (
                     selfChatMember.CanPinMessages != null &&
                     selfChatMember.CanRestrictMembers != null &&
-                    (bool) selfChatMember.CanPinMessages &&
-                    (bool) selfChatMember.CanRestrictMembers
+                    (bool)selfChatMember.CanPinMessages &&
+                    (bool)selfChatMember.CanRestrictMembers
                 )
                 {
                     var messageParts = message.Text.Split(' ');
@@ -89,13 +89,13 @@ namespace Sakura.Uwu.CommandProcessors
                     message.Chat.Id,
                     ">w< Senpai, you aren't admin!",
                     replyToMessageId: message.MessageId
-                ); 
+                );
             }
         }
         public string GetDescriptions()
         {
             var descriptions = new StringBuilder($"--------\n<b>{Name}</b>\n\n");
-            foreach(var cmd in this.Commands)
+            foreach (var cmd in this.Commands)
             {
                 descriptions.AppendLine($"<b>{cmd.Value.TaskName}</b>: <i>{cmd.Value.TaskDescription}</i>");
             }
@@ -213,7 +213,8 @@ Warn Count: {result.WarnCount}",
                     replyToMessageId: message.MessageId
                 );
             }
-            else {
+            else
+            {
                 var table = dbContext.Warns;
                 var result = table.FirstOrDefault(x => x.UserId == originMessage.From.Id && x.GroupId == originMessage.Chat.Id);
                 if (result != null)
@@ -460,7 +461,7 @@ $@"Unbanned
             {
                 var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-                if(existingEntry != null)
+                if (existingEntry != null)
                 {
                     existingEntry.WelcomeMessage = originMessage.MessageId;
                 }
@@ -468,14 +469,14 @@ $@"Unbanned
                 {
                     table.Add(new GroupMessages() { ChatId = message.Chat.Id, WelcomeMessage = originMessage.MessageId });
                 }
-                dbContext.SaveChanges();                
+                dbContext.SaveChanges();
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Set welcome message ^-^",
+                    replyToMessageId: message.MessageId
+                );
             }
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
-                "Set welcome message ^-^",
-                replyToMessageId: message.MessageId
-            );
         }
 
         private async Task SetRulesCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
@@ -495,7 +496,7 @@ $@"Unbanned
             {
                 var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-                if(existingEntry != null)
+                if (existingEntry != null)
                 {
                     existingEntry.RulesMessage = originMessage.MessageId;
                 }
@@ -503,14 +504,14 @@ $@"Unbanned
                 {
                     table.Add(new GroupMessages() { ChatId = message.Chat.Id, RulesMessage = originMessage.MessageId });
                 }
-                dbContext.SaveChanges();                
+                dbContext.SaveChanges();
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Set group rules :3",
+                    replyToMessageId: message.MessageId
+                );
             }
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
-                "Set group rules :3",
-                replyToMessageId: message.MessageId
-            );
         }
 
         private async Task SetWelcomeMediaCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
@@ -530,7 +531,7 @@ $@"Unbanned
             {
                 var table = dbContext.GroupMessages;
                 var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-                if(existingEntry != null)
+                if (existingEntry != null)
                 {
                     existingEntry.WelcomeMedia = originMessage.MessageId;
                 }
@@ -538,14 +539,14 @@ $@"Unbanned
                 {
                     table.Add(new GroupMessages() { ChatId = message.Chat.Id, WelcomeMedia = originMessage.MessageId });
                 }
-                dbContext.SaveChanges();                
+                dbContext.SaveChanges();
+                await client.SendTextMessageAsync
+                (
+                    message.Chat.Id,
+                    "Set welcome media ^-^",
+                    replyToMessageId: message.MessageId
+                );
             }
-            await client.SendTextMessageAsync
-            (
-                message.Chat.Id,
-                "Set welcome media ^-^",
-                replyToMessageId: message.MessageId
-            );
         }
 
         private async Task ClearWelcomeCommand(Message message, ServicesContext serviceContext, BotDbContext dbContext)
@@ -553,7 +554,7 @@ $@"Unbanned
             var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.GroupMessages;
             var existingEntry = table.Where(welcome => welcome.ChatId == message.Chat.Id).FirstOrDefault();
-            if(existingEntry != null)
+            if (existingEntry != null)
             {
                 await client.SendTextMessageAsync
                 (
@@ -578,11 +579,11 @@ $@"Unbanned
         {
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
-            if(messageParts.Length >= 2)
-            {                
+            if (messageParts.Length >= 2)
+            {
                 var originMessage = message.ReplyToMessage;
                 if (originMessage == null)
-                {                
+                {
                     await client.SendTextMessageAsync
                     (
                         message.Chat.Id,
@@ -594,7 +595,7 @@ $@"Unbanned
                 {
                     var table = dbContext.AdminSavedMessages;
                     var existingEntry = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]).FirstOrDefault();
-                    if(existingEntry != null)
+                    if (existingEntry != null)
                     {
                         await client.SendTextMessageAsync
                         (
@@ -627,17 +628,17 @@ $@"Unbanned
                     replyToMessageId: message.MessageId
                 );
             }
-        }        
+        }
         private async Task SavedMessage(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.AdminSavedMessages;
-            if(messageParts.Length >= 2)
+            if (messageParts.Length >= 2)
             {
                 var tag = messageParts[1];
                 var results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == tag);
-                if(results.Count() > 0)
+                if (results.Count() > 0)
                 {
                     var result = results.First();
                     try
@@ -647,7 +648,7 @@ $@"Unbanned
                             message.Chat.Id,
                             result.ChatId,
                             result.MessageId
-                        );                        
+                        );
                     }
                     catch (System.Exception e)
                     {
@@ -667,10 +668,10 @@ $@"Unbanned
             else
             {
                 var results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id);
-                if(results.Count() > 0)
+                if (results.Count() > 0)
                 {
                     var text = new StringBuilder("<b>Saved Messages</b>\n\n");
-                    foreach(var result in results)
+                    foreach (var result in results)
                     {
                         text.Append($"<b>{result.MessageTag}</b> : Message in Group {result.ChatId.ToString()}\n");
                     }
@@ -692,14 +693,14 @@ $@"Unbanned
                     );
                 }
             }
-        }       
+        }
         private async Task ClearSavedMessage(Message message, ServicesContext serviceContext, BotDbContext dbContext)
         {
             var messageParts = message.Text.Split(' ');
             var client = serviceContext.TelegramBotService.Client;
             var table = dbContext.AdminSavedMessages;
             IQueryable<AdminSavedMessages> results;
-            if(messageParts.Length >= 2)
+            if (messageParts.Length >= 2)
             {
                 results = table.Where(savedMessage => savedMessage.ChatId == message.Chat.Id && savedMessage.MessageTag == messageParts[1]);
             }
